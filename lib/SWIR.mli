@@ -3,6 +3,8 @@
 #include "SWIR/grammar.ml"
 #include "SWIR/print.mli"
 
+val program_constants : program -> program
+
 val program_globals : program -> program
 
 val program_functions : program -> program

@@ -9,6 +9,10 @@ let check ~input ~output =
   let actual = Format.flush_str_formatter () in
   Alcotest.(check string) "" output actual
 
+let define_constant () = check
+  ~input:"(define-constant answer 42)"
+  ~output:"(define answer (const i128 42))"
+
 let define_data_var () = check
   ~input:"(define-data-var counter int 0)"
   ~output:"(define counter (global i128 0))"
@@ -20,6 +24,7 @@ let define_read_only () = check
 let () =
   Alcotest.run "Clarity" [
     "compile", [
+      "define-constant", `Quick, define_constant;
       "define-data-var", `Quick, define_data_var;
       "define-read-only", `Quick, define_read_only;
     ];

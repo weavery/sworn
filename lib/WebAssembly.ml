@@ -30,6 +30,9 @@ let rec compile_program (program : SWIR.program) : Wasm.Ast.module_ =
   wasm @@ at
 
 and compile_global = function
+  | SWIR.Const (_, type', init) ->
+    let value = (compile_expression init) @@ at in
+    {gtype = GlobalType (compile_type type', Immutable); value } @@ at
   | SWIR.Global (_, type', init) ->
     let value = (compile_expression init) @@ at in
     {gtype = GlobalType (compile_type type', Mutable); value } @@ at

@@ -3,9 +3,23 @@
 let fprintf = Format.fprintf
 
 let rec print_program ppf program =
-  let functions = SWIR.program_functions program in
-  Format.pp_print_list ~pp_sep:Format.pp_print_cut print_function ppf functions;
-  fprintf ppf "@,@[<v 2>export function handle(state, action) {@,%a@]@,}@." print_handle_function program
+  match SWIR.program_constants program with
+  | [] -> ()
+  | constants -> begin
+      Format.pp_print_list ~pp_sep:Format.pp_print_cut print_constant ppf constants;
+      Format.pp_print_cut ppf ()
+    end;
+  match SWIR.program_functions program with
+  | [] -> ()
+  | functions -> begin
+      Format.pp_print_list ~pp_sep:Format.pp_print_cut print_function ppf functions;
+      Format.pp_print_cut ppf ()
+    end;
+  fprintf ppf "@[<v 2>export function handle(state, action) {@,%a@]@,}@." print_handle_function program
+
+and print_constant ppf = function
+  | SWIR.Const (name, _, value) -> fprintf ppf "const %s = %a@," name print_expression value
+  | _ -> failwith "unreachable"
 
 and print_handle_function ppf program =
   let functions = SWIR.program_functions program in

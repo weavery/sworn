@@ -6,6 +6,9 @@ let rec print_program ppf program =
   Format.pp_print_list ~pp_sep:Format.pp_print_cut print_definition ppf program
 
 and print_definition ppf = function
+  | Const (name, type', value) ->
+    fprintf ppf "@[<v 2>(define %s (const %s %a))@]@,"
+      name (type_to_string type') print_expression value
   | Global (name, type', value) ->
     fprintf ppf "@[<v 2>(define %s (global %s %a))@]@,"
       name (type_to_string type') print_expression value

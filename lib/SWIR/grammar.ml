@@ -3,6 +3,7 @@
 type program = definition list
 
 and definition =
+  | Const of identifier * type' * expression
   | Global of identifier * type' * expression
   | Function of function'
 

@@ -3,8 +3,15 @@
 #include "SWIR/grammar.ml"
 #include "SWIR/print.ml"
 
+let program_constants program =
+  let filter = function (Const _) as c -> Some c | _ -> None in
+  List.filter_map filter program
+
 let program_globals program =
-  let filter = function (Global _) as g -> Some g | _ -> None in
+  let filter = function
+  | (Const _) as g -> Some g
+  | (Global _) as g -> Some g
+  | _ -> None in
   List.filter_map filter program
 
 let program_functions program =

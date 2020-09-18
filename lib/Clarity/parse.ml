@@ -12,6 +12,8 @@ let rec parse_program input =
 and parse_definition sexp =
   let open Sexplib.Sexp in
   match sexp with
+  | List [Atom "define-constant"; Atom name; value] ->
+    Constant (name, parse_expression value)
   | List [Atom "define-data-var"; Atom name; Atom type'; value] ->
     DataVar (name, parse_type type', parse_expression value)
   | List [Atom "define-public"; head; body] ->

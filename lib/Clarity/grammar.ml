@@ -3,6 +3,7 @@
 type program = definition list
 
 and definition =
+  | Constant of identifier * expression
   | DataVar of identifier * type' * expression
   | PublicFunction of function'
   | PublicReadOnlyFunction of function'

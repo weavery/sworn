@@ -4,6 +4,8 @@ let rec compile_program program =
   List.map compile_definition program
 
 and compile_definition = function
+  | Constant (name, value) ->
+    SWIR.Const (name, SWIR.I128, compile_expression value)  (* FIXME: type *)
   | DataVar (name, type', value) ->
     SWIR.Global (name, compile_type type', compile_expression value)
   | PublicFunction func -> SWIR.Function (compile_function func)
