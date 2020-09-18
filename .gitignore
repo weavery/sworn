@@ -4,6 +4,10 @@
 # Visual Studio Code
 .vscode/
 
+# Dune artifacts
+_build/
+.merlin
+
 # Editor backup files
 *~
 
