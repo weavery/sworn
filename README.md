@@ -7,6 +7,53 @@
 
 [![Screencast](https://asciinema.org/a/360104.svg)](https://asciinema.org/a/360104)
 
+*Note: Here be dragons. This is a pre-alpha, work-in-progress project.*
+*Assume nothing works, and you may be pleasantly surprised on occasion.*
+
+## Installation
+
+We are working on building release binaries for Windows, macOS, and Linux.
+They will be available here soon.
+
+In the meantime, if you wish to try out Sworn, you will need to build it from
+source code, which entails setting up an OCaml development environment.
+
+For the impatient and adventurous, reserve an hour of time and see further
+down in this document for the particulars.
+
+## Usage
+
+### Compiling for SmartWeave
+
+To compile the Clarity [`counter.clar`] example contract, run:
+
+```bash
+sworn -t js counter.clar
+```
+
+The previous writes out the JavaScript program to standard output, which is
+helpful during development and debugging.
+
+However, you can alternatively specify an output file name in the usual way:
+
+```bash
+sworn -o counter.js counter.clar
+```
+
+### Compiling to WebAssembly
+
+There is experimental support for compiling to WebAssembly. Both the textual
+representation (`.wat`) and binary bytecode (`.wasm`) are supported:
+
+```bash
+sworn -t wat counter.clar
+
+sworn -o counter.wasm counter.clar
+```
+
+Note that SmartWeave itself has no WebAssembly interface as yet, so for now
+you're better off sticking with the JavaScript output.
+
 ## Prerequisites
 
 The following baseline tooling is required in order to build Sworn:
@@ -77,13 +124,17 @@ alias sworn='dune exec bin/sworn/sworn.exe --'
 sworn --help
 ```
 
-## Installation
+## Installation from Source Code
 
 ```bash
+git clone https://github.com/weavery/sworn.git
+cd sworn
+
 dune build
 
 sudo install _build/default/bin/sworn/sworn.exe /usr/local/bin/sworn
 ```
 
-[Clarity]:    https://clarity-lang.org
-[SmartWeave]: https://github.com/ArweaveTeam/SmartWeave
+[Clarity]:        https://clarity-lang.org
+[SmartWeave]:     https://github.com/ArweaveTeam/SmartWeave
+[`counter.clar`]: https://github.com/clarity-lang/overview/blob/master/counter.clar
