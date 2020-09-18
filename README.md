@@ -62,6 +62,14 @@ sworn -o counter.wasm counter.clar
 Note that SmartWeave itself has no WebAssembly interface as yet, so for now
 you're better off sticking with the JavaScript output.
 
+## Notes
+
+### Notes on JavaScript
+
+The generated SmartWeave code may make use of JavaScript's [`BigInt`] feature
+to represent 128-bit integers. All browsers, excepting MSIE, support this.
+On the server side, Node.js 10.4+ supports this.
+
 ## Prerequisites
 
 The following baseline tooling is required in order to build Sworn from source
@@ -160,4 +168,5 @@ and Blockstack and [Algorand] for having developed the Clarity language.
 [SmartWeave]:     https://github.com/ArweaveTeam/SmartWeave
 [WebAssembly]:    https://webassembly.org
 
+[`BigInt`]:       https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
 [`counter.clar`]: https://github.com/clarity-lang/overview/blob/master/counter.clar
