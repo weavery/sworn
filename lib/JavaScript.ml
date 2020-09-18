@@ -61,8 +61,8 @@ and print_literal ppf = function
   | SWIR.BoolLiteral b -> fprintf ppf "%s" (if b then "true" else "false")
   | SWIR.I64Literal n -> fprintf ppf "%Ld" n
   | SWIR.U64Literal n -> fprintf ppf "%Lu" n
-  | SWIR.I128Literal n -> fprintf ppf "%Ld" n  (* TODO *)
-  | SWIR.U128Literal n -> fprintf ppf "%Lu" n  (* TODO *)
+  | SWIR.I128Literal z -> fprintf ppf "%s" (Big_int.string_of_big_int z)
+  | SWIR.U128Literal n -> fprintf ppf "%s" (Big_int.string_of_big_int n)
   | SWIR.StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
 
 and mangle_name s = String.map (fun c -> if c = '-' then '_' else c) s

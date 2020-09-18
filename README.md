@@ -64,7 +64,8 @@ you're better off sticking with the JavaScript output.
 
 ## Prerequisites
 
-The following baseline tooling is required in order to build Sworn:
+The following baseline tooling is required in order to build Sworn from source
+code:
 
 - [Git](https://git-scm.com/downloads)
 
@@ -109,6 +110,9 @@ Sworn:
 - [ISO8601](https://opam.ocaml.org/packages/ISO8601/)
   for date handling
 
+- [Num](https://opam.ocaml.org/packages/num/)
+  for 128-bit integers
+
 - [Ocolor](https://opam.ocaml.org/packages/ocolor/)
   for terminal colors
 
@@ -121,7 +125,7 @@ Sworn:
 These aforementioned dependencies are all best installed via OPAM:
 
 ```bash
-opam install alcotest cmdliner cppo iso8601 ocolor sexplib wasm
+opam install alcotest cmdliner cppo iso8601 num ocolor sexplib wasm
 ```
 
 ## Development

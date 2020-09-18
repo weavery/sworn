@@ -11,7 +11,7 @@
   Clarity/parse.mli
   Clarity/print.ml
   Clarity/print.mli)
- (libraries SWIR sexplib))
+ (libraries SWIR num sexplib))
 
 (library
  (name JavaScript)
@@ -19,7 +19,7 @@
  (wrapped false)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
  (preprocessor_deps)
- (libraries SWIR))
+ (libraries SWIR num))
 
 (library
  (name SWIR)
@@ -29,7 +29,8 @@
  (preprocessor_deps
   SWIR/grammar.ml
   SWIR/print.ml
-  SWIR/print.mli))
+  SWIR/print.mli)
+ (libraries num))
 
 (library
  (name WebAssembly)
@@ -37,4 +38,4 @@
  (wrapped false)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
  (preprocessor_deps)
- (libraries SWIR wasm))
+ (libraries SWIR num wasm))

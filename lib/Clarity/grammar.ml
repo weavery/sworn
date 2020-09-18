@@ -23,8 +23,8 @@ and expression =
 
 and literal =
   | BoolLiteral of bool
-  | IntLiteral of int64
-  | UintLiteral of int64
+  | IntLiteral of Big_int.big_int
+  | UintLiteral of Big_int.big_int
   | StringLiteral of string
 
 and identifier = string

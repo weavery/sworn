@@ -67,7 +67,7 @@ and parse_function_body sexp =
 and parse_expression sexp =
   let open Sexplib.Sexp in
   match sexp with
-  | Atom s -> Literal (match Int64.of_string_opt s with Some n -> IntLiteral n | None -> StringLiteral s)
+  | Atom s -> Literal (match Big_int.big_int_of_string_opt s with Some n -> IntLiteral n | None -> StringLiteral s)
   | List [Atom "var-get"; Atom var] -> VarGet var
   | List [Atom "var-set"; Atom var; val'] -> VarSet (var, parse_expression val')
   | List [Atom "ok"; expr] -> Ok (parse_expression expr)

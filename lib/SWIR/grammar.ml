@@ -23,8 +23,8 @@ and literal =
   | BoolLiteral of bool
   | I64Literal of int64
   | U64Literal of int64
-  | I128Literal of int64  (* TODO *)
-  | U128Literal of int64  (* TODO *)
+  | I128Literal of Big_int.big_int
+  | U128Literal of Big_int.big_int
   | StringLiteral of string
 
 and identifier = string

@@ -69,7 +69,11 @@ and compile_expression = function
 and compile_literal = function
   | BoolLiteral b -> (i32_const (Int32.of_int (if b then 1 else 0) @@ at)) @@ at
   | I64Literal z | U64Literal z -> (i64_const (z @@ at)) @@ at
-  | I128Literal z | U128Literal z -> (i64_const (z @@ at)) @@ at  (* TODO *)
+  | I128Literal z | U128Literal z ->
+    begin match Big_int.int64_of_big_int_opt z with
+    | Some z -> (i64_const (z @@ at)) @@ at
+    | None -> failwith "TODO: compile_literal not implemented for 128-bit integers"  (* TODO *)
+    end
   | StringLiteral _ -> failwith "TODO: compile_literal"  (* TODO *)
 
 and compile_export _funcs index = function

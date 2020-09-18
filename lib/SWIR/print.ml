@@ -41,8 +41,8 @@ and print_literal ppf = function
   | BoolLiteral b -> fprintf ppf "%s" (if b then "true" else "false")
   | I64Literal z -> fprintf ppf "%Ld" z
   | U64Literal n -> fprintf ppf "%Lu" n
-  | I128Literal z -> fprintf ppf "%Ld" z  (* TODO *)
-  | U128Literal n -> fprintf ppf "%Lu" n  (* TODO *)
+  | I128Literal z -> fprintf ppf "%s" (Big_int.string_of_big_int z)
+  | U128Literal n -> fprintf ppf "%s" (Big_int.string_of_big_int n)
   | StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
 
 and type_to_string = function
