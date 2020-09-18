@@ -16,12 +16,19 @@ We are working on building release binaries for Windows, macOS, and Linux.
 They will be available here soon.
 
 In the meantime, if you wish to try out Sworn, you will need to build it from
-source code, which entails setting up an OCaml development environment.
+source code yourself, which entails setting up an OCaml development
+environment.
 
-For the impatient and adventurous, reserve an hour of time and see further
-down in this document for the particulars.
+For the impatient and adventurous, reserve at least an hour of time and see
+further down in this document for the particulars.
 
 ## Usage
+
+To view Sworn's built-in man page, just run:
+
+```bash
+sworn --help
+```
 
 ### Compiling for SmartWeave
 
@@ -42,8 +49,9 @@ sworn -o counter.js counter.clar
 
 ### Compiling to WebAssembly
 
-There is experimental support for compiling to WebAssembly. Both the textual
-representation (`.wat`) and binary bytecode (`.wasm`) are supported:
+There is preliminary and experimental support for compiling to [WebAssembly].
+Both the textual representation (`.wat`) and binary bytecode (`.wasm`) format
+are supported:
 
 ```bash
 sworn -t wat counter.clar
@@ -68,7 +76,7 @@ The following baseline tooling is required in order to build Sworn:
 
 - [Docker](https://docs.docker.com/get-docker/) (for release builds only)
 
-We recommend you *don't* install OCaml from a package manager.
+We would recommend you *don't* install OCaml from a package manager.
 
 Rather, [get set up with OPAM](https://opam.ocaml.org/doc/Install.html) and
 then let OPAM install the correct version of OCaml as follows:
@@ -110,7 +118,7 @@ Sworn:
 - [Wasm](https://opam.ocaml.org/packages/wasm/)
   for WebAssembly code generation
 
-These aforementioned dependencies are best installed via OPAM:
+These aforementioned dependencies are all best installed via OPAM:
 
 ```bash
 opam install alcotest cmdliner cppo iso8601 ocolor sexplib wasm
@@ -128,6 +136,7 @@ sworn --help
 
 ```bash
 git clone https://github.com/weavery/sworn.git
+
 cd sworn
 
 dune build
@@ -135,6 +144,16 @@ dune build
 sudo install _build/default/bin/sworn/sworn.exe /usr/local/bin/sworn
 ```
 
+## Acknowledgments
+
+We thank [Arweave] and [Blockstack] for sponsoring the development of Sworn,
+and Blockstack and [Algorand] for having developed the Clarity language.
+
+[Algorand]:       https://algorand.com
+[Arweave]:        https://arweave.org
+[Blockstack]:     https://blockstack.org
 [Clarity]:        https://clarity-lang.org
 [SmartWeave]:     https://github.com/ArweaveTeam/SmartWeave
+[WebAssembly]:    https://webassembly.org
+
 [`counter.clar`]: https://github.com/clarity-lang/overview/blob/master/counter.clar
