@@ -1,0 +1,5 @@
+(test
+ (name test_compile)
+ (modules test_compile)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (libraries Clarity SWIR alcotest sexplib))
