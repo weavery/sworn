@@ -1,0 +1,36 @@
+---
+name: CI
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/ci.yaml'
+      - '**.ml'
+      - '**.mli'
+      - '**/dune'
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-18.04
+          #- windows-2019
+          #- macos-10.15
+    name: Build binaries for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Set up OCaml
+        uses: avsm/setup-ocaml@v1.1.2
+        with:
+          ocaml-version: 4.11.1
+      - name: Install prerequisites
+        run: opam install -y dune
+      - name: Install dependencies
+        run: opam install -y alcotest cmdliner cppo iso8601 ocolor sexplib wasm
+      - name: Build `sworn`
+        run: opam exec -- dune build
+      - name: Run unit tests
+        run: opam exec -- dune test
