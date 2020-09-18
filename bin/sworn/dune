@@ -1,0 +1,3 @@
+(executable
+ (name sworn)
+ (libraries Clarity JavaScript SWIR WebAssembly cmdliner ISO8601 ocolor unix wasm))

@@ -1,0 +1,40 @@
+(library
+ (name Clarity)
+ (modules Clarity)
+ (wrapped false)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (preprocessor_deps
+  Clarity/compile.ml
+  Clarity/compile.mli
+  Clarity/grammar.ml
+  Clarity/parse.ml
+  Clarity/parse.mli
+  Clarity/print.ml
+  Clarity/print.mli)
+ (libraries SWIR sexplib))
+
+(library
+ (name JavaScript)
+ (modules JavaScript)
+ (wrapped false)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (preprocessor_deps)
+ (libraries SWIR))
+
+(library
+ (name SWIR)
+ (modules SWIR)
+ (wrapped false)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (preprocessor_deps
+  SWIR/grammar.ml
+  SWIR/print.ml
+  SWIR/print.mli))
+
+(library
+ (name WebAssembly)
+ (modules WebAssembly)
+ (wrapped false)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (preprocessor_deps)
+ (libraries SWIR wasm))
