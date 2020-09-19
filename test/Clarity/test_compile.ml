@@ -35,7 +35,13 @@ let types () =
   check_type "(string-utf8 10)" "(string 10)";
   check_type "(list 10 int)" "(list 10 i128)"
 
-let arithmetic () =
+let boolean_logic () =
+  check_expression "false" "false";
+  check_expression "true" "true"
+
+let integer_arithmetic () =
+  check_expression "-123" "-123";
+  check_expression "123" "123";
   check_expression "(+ 1 2 3)" "(+ 1 2 3)";
   check_expression "(- 1 2 3)" "(- 1 2 3)";
   check_expression "(* 1 2 3)" "(* 1 2 3)";
@@ -73,7 +79,8 @@ let () =
   Alcotest.run "Clarity" [
     "compile", [
       "types", `Quick, types;
-      "arithmetic", `Quick, arithmetic;
+      "boolean logic", `Quick, boolean_logic;
+      "integer arithmetic", `Quick, integer_arithmetic;
       "define-constant", `Quick, define_constant;
       "define-data-var", `Quick, define_data_var;
       "define-map", `Quick, define_map;

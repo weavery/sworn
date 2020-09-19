@@ -72,7 +72,7 @@ and parse_function_body sexp =
 and parse_expression sexp =
   let open Sexplib.Sexp in
   match sexp with
-  | Atom s -> Literal (match Big_int.big_int_of_string_opt s with Some n -> IntLiteral n | None -> StringLiteral s)
+  | Atom token -> parse_literal token
   | List [Atom "var-get"; Atom var] -> VarGet var
   | List [Atom "var-set"; Atom var; val'] -> VarSet (var, parse_expression val')
   | List [Atom "ok"; expr] -> Ok (parse_expression expr)
@@ -81,3 +81,14 @@ and parse_expression sexp =
   | List (Atom "*" :: exprs) -> Mul (List.map parse_expression exprs)
   | List (Atom "/" :: exprs) -> Div (List.map parse_expression exprs)
   | _ -> failwith "TODO: parse_expression"  (* TODO *)
+
+and parse_literal = function
+  | "false" -> Literal (BoolLiteral false)
+  | "true" -> Literal (BoolLiteral true)
+  | token ->
+    let literal =
+      match Big_int.big_int_of_string_opt token with
+      | Some n -> IntLiteral n
+      | None -> StringLiteral token
+    in
+    Literal literal
