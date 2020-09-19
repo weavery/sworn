@@ -29,6 +29,8 @@ and compile_expression = function
   | Sub exprs -> SWIR.Sub (List.map compile_expression exprs)
   | Mul exprs -> SWIR.Mul (List.map compile_expression exprs)
   | Div exprs -> SWIR.Div (List.map compile_expression exprs)
+  | Mod (a, b) -> SWIR.Mod (compile_expression a, compile_expression b)
+  | Pow (a, b) -> SWIR.Pow (compile_expression a, compile_expression b)
 
 and compile_literal = function
   | BoolLiteral b -> SWIR.BoolLiteral b

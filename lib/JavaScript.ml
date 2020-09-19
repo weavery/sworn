@@ -79,6 +79,8 @@ and print_expression ppf = function
   | SWIR.Sub exprs -> print_operation ppf "-" exprs
   | SWIR.Mul exprs -> print_operation ppf "*" exprs
   | SWIR.Div exprs -> print_operation ppf "/" exprs
+  | SWIR.Mod (a, b) -> print_operation ppf "%" [a; b]
+  | SWIR.Pow (a, b) -> print_operation ppf "**" [a; b]
 
 and print_operation ppf op exprs =
   let print_operator ppf () = fprintf ppf "@ %s@ " op in

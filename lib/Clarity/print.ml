@@ -46,6 +46,8 @@ and print_expression ppf = function
   | Sub exprs -> print_operation ppf "-" exprs
   | Mul exprs -> print_operation ppf "*" exprs
   | Div exprs -> print_operation ppf "/" exprs
+  | Mod (a, b) -> print_operation ppf "mod" [a; b]
+  | Pow (a, b) -> print_operation ppf "pow" [a; b]
 
 and print_operation ppf op exprs =
   fprintf ppf "(%s @[<h>%a@])" op

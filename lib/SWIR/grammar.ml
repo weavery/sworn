@@ -26,6 +26,8 @@ and expression =
   | Sub of expression list
   | Mul of expression list
   | Div of expression list
+  | Mod of expression * expression
+  | Pow of expression * expression
 
 and literal =
   | BoolLiteral of bool

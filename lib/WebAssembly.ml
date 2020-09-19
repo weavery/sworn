@@ -70,6 +70,8 @@ and compile_expression = function
   | Sub [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_sub @@ at]
   | Mul [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_mul @@ at]
   | Div [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_div_s @@ at]
+  | Mod (a, b) -> (compile_expression a) @ (compile_expression b) @ [i64_rem_s @@ at]
+  | Pow (_, _) -> failwith "pow not implemented yet"  (* TODO *)
   | _ -> failwith "compile_expression: not implemented yet"  (* TODO *)
 
 and compile_literal = function
@@ -80,7 +82,7 @@ and compile_literal = function
     | Some z -> (i64_const (z @@ at)) @@ at
     | None -> failwith "TODO: compile_literal not implemented for 128-bit integers"  (* TODO *)
     end
-  | StringLiteral _ -> failwith "TODO: compile_literal"  (* TODO *)
+  | StringLiteral _ -> failwith "TODO: compile_literal: string"  (* TODO *)
 
 and compile_export _funcs index = function
   | SWIR.Function (_, s, _, _) ->
