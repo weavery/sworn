@@ -7,7 +7,9 @@ and compile_definition = function
   | Constant (name, value) ->
     SWIR.Const (name, SWIR.I128, compile_expression value)  (* FIXME: type *)
   | DataVar (name, type', value) ->
-    SWIR.Global (name, compile_type type', compile_expression value)
+    SWIR.Global (name, compile_type type', Some (compile_expression value))
+  | Map (name, (_, key_type), (_, val_type)) ->
+    SWIR.Global (name, SWIR.Map (compile_type key_type, compile_type val_type), None)
   | PublicFunction func -> SWIR.Function (compile_function func)
   | PublicReadOnlyFunction func -> SWIR.Function (compile_function func)
   | PrivateFunction func -> SWIR.Function (compile_function func)

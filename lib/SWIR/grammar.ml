@@ -4,7 +4,7 @@ type program = definition list
 
 and definition =
   | Const of identifier * type' * expression
-  | Global of identifier * type' * expression
+  | Global of identifier * type' * expression option
   | Function of function'
 
 and function' = identifier * parameter list * expression list
@@ -36,3 +36,4 @@ and type' =
   | I128
   | U128
   | String
+  | Map of type' * type'

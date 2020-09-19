@@ -16,6 +16,10 @@ and parse_definition sexp =
     Constant (name, parse_expression value)
   | List [Atom "define-data-var"; Atom name; Atom type'; value] ->
     DataVar (name, parse_type type', parse_expression value)
+  | List [Atom "define-map"; Atom name;
+      List [List [Atom key_name; Atom key_type]];
+      List [List [Atom val_name; Atom val_type]]] ->
+    Map (name, (key_name, parse_type key_type), (val_name, parse_type val_type))
   | List [Atom "define-private"; head; body] ->
     let (name, params) = parse_function_head head in
     let body = parse_function_body body in
@@ -28,8 +32,6 @@ and parse_definition sexp =
     let (name, params) = parse_function_head head in
     let body = parse_function_body body in
     PublicReadOnlyFunction (name, params, body)
-  | List (Atom "define-map" :: Atom _name :: _) ->
-    failwith "define-map not implemented yet"  (* TODO *)
   | List (Atom "define-fungible-token" :: Atom _name :: _) ->
     failwith "define-fungible-token not implemented yet"  (* TODO *)
   | List (Atom "define-non-fungible-token" :: Atom _name :: _) ->

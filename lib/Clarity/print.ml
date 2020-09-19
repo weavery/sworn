@@ -12,6 +12,9 @@ and print_definition ppf = function
   | DataVar (name, type', value) ->
     fprintf ppf "@[<v 2>(define-data-var %s %s %a)@]@,"
       name (type_to_string type') print_expression value
+  | Map (name, (key_name, key_type), (val_name, val_type)) ->
+    fprintf ppf "@[<v 2>(define-map %s ((%s %s)) ((%s %s)))@]@,"
+      name key_name (type_to_string key_type) val_name (type_to_string val_type)
   | PublicFunction (name, params, body) ->
     fprintf ppf "@[<v 2>(define-public (%s @[<h>%a@])@,%a)@]@,"
       name print_parameters params print_expressions body

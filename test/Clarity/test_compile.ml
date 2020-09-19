@@ -17,6 +17,10 @@ let define_data_var () = check
   ~input:"(define-data-var counter int 0)"
   ~output:"(define counter (global i128 0))"
 
+let define_map () = check
+  ~input:"(define-map squares ((x int)) ((square int)))"
+  ~output:"(define squares (global (map i128 i128)))"
+
 let define_read_only () = check
   ~input:"(define-read-only (get-counter) (var-get counter))"
   ~output:"(define get-counter\n  (function ()\n    (var-get counter)))"
@@ -26,6 +30,7 @@ let () =
     "compile", [
       "define-constant", `Quick, define_constant;
       "define-data-var", `Quick, define_data_var;
+      "define-map", `Quick, define_map;
       "define-read-only", `Quick, define_read_only;
     ];
   ]

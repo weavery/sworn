@@ -33,7 +33,10 @@ and compile_global = function
   | SWIR.Const (_, type', init) ->
     let value = (compile_expression init) @@ at in
     {gtype = GlobalType (compile_type type', Immutable); value } @@ at
-  | SWIR.Global (_, type', init) ->
+  | SWIR.Global (_, type', None) ->
+    let value = [] @@ at in
+    {gtype = GlobalType (compile_type type', Mutable); value } @@ at
+  | SWIR.Global (_, type', Some init) ->
     let value = (compile_expression init) @@ at in
     {gtype = GlobalType (compile_type type', Mutable); value } @@ at
   | _ -> failwith "unreachable"
@@ -87,6 +90,6 @@ and compile_type = function
   | SWIR.U64 -> I64Type
   | SWIR.I128 -> I64Type  (* TODO *)
   | SWIR.U128 -> I64Type  (* TODO *)
-  | SWIR.String -> failwith "TODO: compile_type"  (* TODO *)
+  | _ -> failwith "TODO: compile_type"  (* TODO *)
 
 and mangle_name s = String.map (fun c -> if c = '-' then '_' else c) s

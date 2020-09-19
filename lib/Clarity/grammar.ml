@@ -5,6 +5,7 @@ type program = definition list
 and definition =
   | Constant of identifier * expression
   | DataVar of identifier * type' * expression
+  | Map of identifier * (identifier * type') * (identifier * type')
   | PublicFunction of function'
   | PublicReadOnlyFunction of function'
   | PrivateFunction of function'

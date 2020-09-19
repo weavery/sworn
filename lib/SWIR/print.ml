@@ -1,5 +1,6 @@
 (* This is free and unencumbered software released into the public domain. *)
 
+let sprintf = Printf.sprintf
 let fprintf = Format.fprintf
 
 let rec print_program ppf program =
@@ -9,7 +10,10 @@ and print_definition ppf = function
   | Const (name, type', value) ->
     fprintf ppf "@[<v 2>(define %s (const %s %a))@]@,"
       name (type_to_string type') print_expression value
-  | Global (name, type', value) ->
+  | Global (name, type', None) ->
+    fprintf ppf "@[<v 2>(define %s (global %s))@]@,"
+      name (type_to_string type')
+  | Global (name, type', Some value) ->
     fprintf ppf "@[<v 2>(define %s (global %s %a))@]@,"
       name (type_to_string type') print_expression value
   | Function (name, params, body) ->
@@ -52,3 +56,4 @@ and type_to_string = function
   | I128 -> "i128"
   | U128 -> "u128"
   | String -> "string"
+  | Map (k, v) -> sprintf "(map %s %s)" (type_to_string k) (type_to_string v)
