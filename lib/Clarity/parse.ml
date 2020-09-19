@@ -14,11 +14,11 @@ and parse_definition sexp =
   match sexp with
   | List [Atom "define-constant"; Atom name; value] ->
     Constant (name, parse_expression value)
-  | List [Atom "define-data-var"; Atom name; Atom type'; value] ->
+  | List [Atom "define-data-var"; Atom name; type'; value] ->
     DataVar (name, parse_type type', parse_expression value)
   | List [Atom "define-map"; Atom name;
-      List [List [Atom key_name; Atom key_type]];
-      List [List [Atom val_name; Atom val_type]]] ->
+      List [List [Atom key_name; key_type]];
+      List [List [Atom val_name; val_type]]] ->
     Map (name, (key_name, parse_type key_type), (val_name, parse_type val_type))
   | List [Atom "define-private"; head; body] ->
     let (name, params) = parse_function_head head in
@@ -49,15 +49,18 @@ and parse_function_head sexp =
 and parse_parameter sexp =
   let open Sexplib.Sexp in
   match sexp with
-  | List [Atom name; Atom typename] -> (name, parse_type typename)
+  | List [Atom name; type'] -> (name, parse_type type')
   | _ -> failwith "invalid Clarity function parameter"
 
 and parse_type = function
-  | "principal" -> Principal
-  | "bool" -> Bool
-  | "int" -> Int
-  | "uint" -> Uint
-  | "string" -> String
+  | Atom "bool" -> Bool
+  | Atom "int" -> Int
+  | Atom "uint" -> Uint
+  | Atom "principal" -> Principal
+  | List [Atom "optional"; t] -> Optional (parse_type t)
+  | List [Atom "string-ascii"; Atom len] -> String (int_of_string len, ASCII)
+  | List [Atom "string-utf8"; Atom len] -> String (int_of_string len, UTF8)
+  | List [Atom "list"; Atom len; t] -> List (int_of_string len, parse_type t)
   | _ -> failwith "invalid Clarity type"
 
 and parse_function_body sexp =

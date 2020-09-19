@@ -3,3 +3,5 @@
 val compile_program : program -> SWIR.program
 
 val compile_definition : definition -> SWIR.definition
+
+val compile_type : type' -> SWIR.type'

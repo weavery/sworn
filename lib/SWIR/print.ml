@@ -49,11 +49,16 @@ and print_literal ppf = function
   | U128Literal n -> fprintf ppf "%s" (Big_int.string_of_big_int n)
   | StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
 
+and print_type ppf type' =
+  fprintf ppf "%s" (type_to_string type')
+
 and type_to_string = function
   | Bool -> "bool"
   | I64 -> "i64"
   | U64 -> "u64"
   | I128 -> "i128"
   | U128 -> "u128"
-  | String -> "string"
+  | Optional t -> sprintf "(optional %s)" (type_to_string t)
+  | String len -> sprintf "(string %d)" len
+  | List (len, t) -> sprintf "(list %d %s)" len (type_to_string t)
   | Map (k, v) -> sprintf "(map %s %s)" (type_to_string k) (type_to_string v)

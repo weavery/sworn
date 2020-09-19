@@ -35,4 +35,10 @@ and type' =
   | Bool
   | Int
   | Uint
-  | String
+  | Optional of type'
+  | String of int * string_encoding
+  | List of int * type'
+
+and string_encoding =
+  | ASCII
+  | UTF8

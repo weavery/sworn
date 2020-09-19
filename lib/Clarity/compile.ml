@@ -35,8 +35,10 @@ and compile_literal = function
   | StringLiteral s -> SWIR.StringLiteral s
 
 and compile_type = function
-  | Principal -> failwith "TODO: compile_type"  (* TODO *)
   | Bool -> SWIR.Bool
   | Int -> SWIR.I128
   | Uint -> SWIR.U128
-  | String -> SWIR.String
+  | Principal -> failwith "TODO: compile_type"  (* TODO *)
+  | Optional t -> SWIR.Optional (compile_type t)
+  | String (len, _) -> SWIR.String len
+  | List (len, t) -> SWIR.List (len, compile_type t)

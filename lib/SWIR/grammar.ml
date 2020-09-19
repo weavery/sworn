@@ -35,5 +35,7 @@ and type' =
   | U64
   | I128
   | U128
-  | String
+  | Optional of type'
+  | String of int
+  | List of int * type'
   | Map of type' * type'
