@@ -75,10 +75,15 @@ and print_expression ppf = function
   | SWIR.VarGet var -> fprintf ppf "state.%s" var
   | SWIR.VarSet (var, val') -> fprintf ppf "state.%s = %a" var print_expression val'
   | SWIR.Ok expr -> fprintf ppf "const result = %a" print_expression expr
-  | SWIR.Add (a, b) ->
-    fprintf ppf "(%a + %a)" print_expression a print_expression b
-  | SWIR.Sub (a, b) ->
-    fprintf ppf "(%a - %a)" print_expression a print_expression b
+  | SWIR.Add exprs -> print_operation ppf "+" exprs
+  | SWIR.Sub exprs -> print_operation ppf "-" exprs
+  | SWIR.Mul exprs -> print_operation ppf "*" exprs
+  | SWIR.Div exprs -> print_operation ppf "/" exprs
+
+and print_operation ppf op exprs =
+  let print_operator ppf () = fprintf ppf "@ %s@ " op in
+  fprintf ppf "(@[<h>%a@])"
+    (Format.pp_print_list ~pp_sep:print_operator print_expression) exprs
 
 and print_literal ppf = function
   | SWIR.BoolLiteral b -> fprintf ppf "%s" (if b then "true" else "false")

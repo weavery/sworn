@@ -66,8 +66,11 @@ and compile_expression = function
   | VarGet _ -> [GlobalGet (0l @@ at) @@ at]  (* TODO *)
   | VarSet (_, val') -> (compile_expression val') @ [GlobalSet (0l @@ at) @@ at]  (* TODO *)
   | Ok expr -> compile_expression expr
-  | Add (a, b) -> (compile_expression a) @ (compile_expression b) @ [i64_add @@ at]
-  | Sub (a, b) -> (compile_expression a) @ (compile_expression b) @ [i64_sub @@ at]
+  | Add [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_add @@ at]
+  | Sub [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_sub @@ at]
+  | Mul [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_mul @@ at]
+  | Div [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_div_s @@ at]
+  | _ -> failwith "compile_expression: not implemented yet"  (* TODO *)
 
 and compile_literal = function
   | BoolLiteral b -> (i32_const (Int32.of_int (if b then 1 else 0) @@ at)) @@ at

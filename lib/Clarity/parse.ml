@@ -76,6 +76,8 @@ and parse_expression sexp =
   | List [Atom "var-get"; Atom var] -> VarGet var
   | List [Atom "var-set"; Atom var; val'] -> VarSet (var, parse_expression val')
   | List [Atom "ok"; expr] -> Ok (parse_expression expr)
-  | List [Atom "+"; a; b] -> Add (parse_expression a, parse_expression b)
-  | List [Atom "-"; a; b] -> Sub (parse_expression a, parse_expression b)
+  | List (Atom "+" :: exprs) -> Add (List.map parse_expression exprs)
+  | List (Atom "-" :: exprs) -> Sub (List.map parse_expression exprs)
+  | List (Atom "*" :: exprs) -> Mul (List.map parse_expression exprs)
+  | List (Atom "/" :: exprs) -> Div (List.map parse_expression exprs)
   | _ -> failwith "TODO: parse_expression"  (* TODO *)

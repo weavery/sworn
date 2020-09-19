@@ -7,6 +7,15 @@ let check_type input output =
   let actual = SWIR.type_to_string swir in
   Alcotest.(check string) "" output actual
 
+let check_expression input output =
+  let input = Sexplib.Sexp.of_string input in
+  let clarity = Clarity.parse_expression input in
+  let swir = Clarity.compile_expression clarity in
+  let ppf = Format.str_formatter in
+  let _ = Format.fprintf ppf "@[<h>%a@]" SWIR.print_expression swir in
+  let actual = Format.flush_str_formatter () in
+  Alcotest.(check string) "" output actual
+
 let check_definition ~input ~output =
   let input = Sexplib.Sexp.of_string input in
   let clarity = Clarity.parse_definition input in
@@ -25,6 +34,12 @@ let types () =
   check_type "(string-ascii 10)" "(string 10)";
   check_type "(string-utf8 10)" "(string 10)";
   check_type "(list 10 int)" "(list 10 i128)"
+
+let arithmetic () =
+  check_expression "(+ 1 2 3)" "(+ 1 2 3)";
+  check_expression "(- 1 2 3)" "(- 1 2 3)";
+  check_expression "(* 1 2 3)" "(* 1 2 3)";
+  check_expression "(/ 1 2 3)" "(/ 1 2 3)"
 
 let define_constant () =
   check_definition
@@ -58,6 +73,7 @@ let () =
   Alcotest.run "Clarity" [
     "compile", [
       "types", `Quick, types;
+      "arithmetic", `Quick, arithmetic;
       "define-constant", `Quick, define_constant;
       "define-data-var", `Quick, define_data_var;
       "define-map", `Quick, define_map;

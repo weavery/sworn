@@ -22,8 +22,10 @@ and expression =
   | VarGet of identifier
   | VarSet of identifier * expression
   | Ok of expression
-  | Add of expression * expression
-  | Sub of expression * expression
+  | Add of expression list
+  | Sub of expression list
+  | Mul of expression list
+  | Div of expression list
 
 and literal =
   | BoolLiteral of bool

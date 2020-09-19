@@ -25,8 +25,10 @@ and compile_expression = function
   | VarGet (var) -> SWIR.VarGet var
   | VarSet (var, val') -> SWIR.VarSet (var, compile_expression val')
   | Ok expr -> SWIR.Ok (compile_expression expr)
-  | Add (a, b) -> SWIR.Add (compile_expression a, compile_expression b)
-  | Sub (a, b) -> SWIR.Sub (compile_expression a, compile_expression b)
+  | Add exprs -> SWIR.Add (List.map compile_expression exprs)
+  | Sub exprs -> SWIR.Sub (List.map compile_expression exprs)
+  | Mul exprs -> SWIR.Mul (List.map compile_expression exprs)
+  | Div exprs -> SWIR.Div (List.map compile_expression exprs)
 
 and compile_literal = function
   | BoolLiteral b -> SWIR.BoolLiteral b

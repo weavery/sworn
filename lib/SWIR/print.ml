@@ -43,8 +43,14 @@ and print_expression ppf = function
   | VarGet var -> fprintf ppf "(var-get %s)" var
   | VarSet (var, val') -> fprintf ppf "(var-set %s %a)" var print_expression val'
   | Ok expr -> fprintf ppf "(ok %a)" print_expression expr
-  | Add (a, b) -> fprintf ppf "(+ %a %a)" print_expression a print_expression b
-  | Sub (a, b) -> fprintf ppf "(- %a %a)" print_expression a print_expression b
+  | Add exprs -> print_operation ppf "+" exprs
+  | Sub exprs -> print_operation ppf "-" exprs
+  | Mul exprs -> print_operation ppf "*" exprs
+  | Div exprs -> print_operation ppf "/" exprs
+
+and print_operation ppf op exprs =
+  fprintf ppf "(%s @[<h>%a@])" op
+    (Format.pp_print_list ~pp_sep:Format.pp_print_space print_expression) exprs
 
 and print_literal ppf = function
   | BoolLiteral b -> fprintf ppf "%s" (if b then "true" else "false")
