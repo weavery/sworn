@@ -42,7 +42,7 @@ and compile_global = function
   | _ -> failwith "unreachable"
 
 and compile_func index = function
-  | SWIR.Function (_, _, body) ->
+  | SWIR.Function (_, _, _, body) ->
     let ftype = Int32.of_int index in
     let locals = [] in
     let body = compile_func_body body in
@@ -50,7 +50,7 @@ and compile_func index = function
   | _ -> failwith "unreachable"
 
 and compile_func_type = function
-  | SWIR.Function (_, params, _) ->
+  | SWIR.Function (_, _, params, _) ->
     Wasm.Types.FuncType (List.map compile_func_param params, [I64Type]) @@ at  (* TODO *)
   | _ -> failwith "unreachable"
 
@@ -80,7 +80,7 @@ and compile_literal = function
   | StringLiteral _ -> failwith "TODO: compile_literal"  (* TODO *)
 
 and compile_export _funcs index = function
-  | SWIR.Function (s, _, _) ->
+  | SWIR.Function (_, s, _, _) ->
     {name = name (mangle_name s); edesc = FuncExport (Int32.of_int index @@ at) @@ at} @@ at  (* TODO *)
   | _ -> failwith "unreachable"
 

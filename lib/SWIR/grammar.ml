@@ -7,7 +7,13 @@ and definition =
   | Global of identifier * type' * expression option
   | Function of function'
 
-and function' = identifier * parameter list * expression list
+and function' =
+  modifier * identifier * parameter list * expression list
+
+and modifier =
+  | Private
+  | Public
+  | PublicPure
 
 and parameter = string * type' option
 

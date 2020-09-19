@@ -16,9 +16,11 @@ and print_definition ppf = function
   | Global (name, type', Some value) ->
     fprintf ppf "@[<v 2>(define %s (global %s %a))@]@,"
       name (type_to_string type') print_expression value
-  | Function (name, params, body) ->
-    fprintf ppf "@[<v 2>(define %s@,@[<v 2>(function (@[<h>%a@])@,%a))@]@]@,"
-      name print_parameters params print_expressions body
+  | Function (modifier, name, params, body) ->
+    fprintf ppf "@[<v 2>(define %s@,@[<v 2>(function (@[<h>%a@]) %a@,%a))@]@]@,"
+      name print_parameters params
+      print_modifier modifier
+      print_expressions body
 
 and print_parameters ppf params =
   Format.pp_print_list ~pp_sep:Format.pp_print_space print_parameter ppf params
@@ -26,6 +28,9 @@ and print_parameters ppf params =
 and print_parameter ppf = function
   | (name, None) -> fprintf ppf "%s" name
   | (name, Some type') -> fprintf ppf "(%s %s)" name (type_to_string type')
+
+and print_modifier ppf modifier =
+  fprintf ppf "@@%s" (modifier_to_string modifier)
 
 and print_expressions ppf = function
   | [expr] -> fprintf ppf "%a" print_expression expr
@@ -62,3 +67,8 @@ and type_to_string = function
   | String len -> sprintf "(string %d)" len
   | List (len, t) -> sprintf "(list %d %s)" len (type_to_string t)
   | Map (k, v) -> sprintf "(map %s %s)" (type_to_string k) (type_to_string v)
+
+and modifier_to_string = function
+  | Private -> "private"
+  | Public -> "public"
+  | PublicPure -> "public @pure"  (* HACK *)

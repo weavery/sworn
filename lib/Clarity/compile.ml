@@ -10,12 +10,12 @@ and compile_definition = function
     SWIR.Global (name, compile_type type', Some (compile_expression value))
   | Map (name, (_, key_type), (_, val_type)) ->
     SWIR.Global (name, SWIR.Map (compile_type key_type, compile_type val_type), None)
-  | PublicFunction func -> SWIR.Function (compile_function func)
-  | PublicReadOnlyFunction func -> SWIR.Function (compile_function func)
-  | PrivateFunction func -> SWIR.Function (compile_function func)
+  | PublicFunction func -> SWIR.Function (compile_function SWIR.Public func)
+  | PublicReadOnlyFunction func -> SWIR.Function (compile_function SWIR.PublicPure func)
+  | PrivateFunction func -> SWIR.Function (compile_function SWIR.Private func)
 
-and compile_function (name, params, body) =
-  (name, List.map compile_parameter params, List.map compile_expression body)
+and compile_function modifier (name, params, body) =
+  (modifier, name, List.map compile_parameter params, List.map compile_expression body)
 
 and compile_parameter = function
   | (name, type') -> (name, Some (compile_type type'))

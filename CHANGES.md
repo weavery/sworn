@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- The first public release.
+- The first public prototype.
+- Compiles the `counter.clar` example.
 
 [0.2.0]: https://github.com/weavery/sworn/compare/0.1.0...0.2.0
