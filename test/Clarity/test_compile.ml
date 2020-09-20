@@ -48,7 +48,10 @@ let integer_arithmetic () =
   check_expression "(+ 1 2 3)" "(+ 1 2 3)";
   check_expression "(- 1 2 3)" "(- 1 2 3)";
   check_expression "(* 1 2 3)" "(* 1 2 3)";
-  check_expression "(/ 1 2 3)" "(/ 1 2 3)"
+  check_expression "(/ 1 2 3)" "(/ 1 2 3)";
+  check_expression "(mod 2 3)" "(mod 2 3)";
+  check_expression "(pow 2 3)" "(pow 2 3)";
+  check_expression "(xor 1 2)" "(xor 1 2)"
 
 let optional_values () =
   check_expression "none" "none";

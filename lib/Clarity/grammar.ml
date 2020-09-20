@@ -32,6 +32,7 @@ and expression =
   | Div of expression list
   | Mod of expression * expression
   | Pow of expression * expression
+  | Xor of expression * expression
 
 and literal =
   | NoneLiteral

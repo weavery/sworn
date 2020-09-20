@@ -38,6 +38,7 @@ and compile_expression = function
   | Div exprs -> SWIR.Div (List.map compile_expression exprs)
   | Mod (a, b) -> SWIR.Mod (compile_expression a, compile_expression b)
   | Pow (a, b) -> SWIR.Pow (compile_expression a, compile_expression b)
+  | Xor (a, b) -> SWIR.Xor (compile_expression a, compile_expression b)
 
 and compile_literal = function
   | NoneLiteral -> SWIR.NoneLiteral
