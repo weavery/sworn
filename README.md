@@ -7,8 +7,9 @@
 
 [![Screencast](https://asciinema.org/a/360104.svg)](https://asciinema.org/a/360104)
 
-*Note: Here be dragons. This is a pre-alpha, work-in-progress project.*
-*Assume nothing works, and you may be pleasantly surprised on occasion.*
+*Note: Here be dragons. This is a pre-alpha, [work-in-progress](#status)
+project. Assume nothing works, and you may be pleasantly surprised on
+occasion.*
 
 ## Installation
 
@@ -232,3 +233,43 @@ an important evolution for the future of smart contracts.
 [OCaml]:          https://ocaml.org
 [SmartWeave]:     https://github.com/ArweaveTeam/SmartWeave
 [WebAssembly]:    https://webassembly.org
+
+## Status
+
+### Supported Clarity features
+
+Symbol | Type | JavaScript | WebAssembly
+------ | ---- | ---------- | -----------
+`*` | function | ✅ | ✅
+`+` | function | ✅ | ✅
+`-` | function | ✅ | ✅
+`/` | function | ✅ | ✅
+`and` | syntax | ✅ |
+`begin` | syntax | ✅ | ✅
+`bool` | type | ✅ | ✅
+`default-to` | function | ✅ |
+`define-constant` | syntax | ✅ | ✅
+`define-data-var` | syntax | ✅ | ✅
+`define-map` | syntax | ✅ |
+`define-private` | syntax | ✅ | ✅
+`define-public` | syntax | ✅ | ✅
+`define-read-only` | syntax | ✅ | ✅
+`int` | type | ✅ | ✅
+`is-none` | function | ✅ |
+`is-some` | function | ✅ |
+`len` | function | ✅ |
+`list` | type | ✅ |
+`list` | function |  |
+`mod` | function | ✅ | ✅
+`none` | constant | ✅ |
+`not` | function | ✅ |
+`ok` | function | ✅ | ✅
+`optional` | type | ✅ | ✅
+`or` | syntax | ✅ |
+`pow` | function | ✅ | ✅
+`print` | function | ✅ |
+`some` | function | ✅ |
+`uint` | type | ✅ | ✅
+`var-get` | function | ✅ | ✅
+`var-set` | function | ✅ | ✅
+`xor` | function | ✅ |
