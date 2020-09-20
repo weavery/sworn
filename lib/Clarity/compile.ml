@@ -29,6 +29,9 @@ and compile_expression = function
   | VarGet (var) -> SWIR.VarGet var
   | VarSet (var, val') -> SWIR.VarSet (var, compile_expression val')
   | Ok expr -> SWIR.Ok (compile_expression expr)
+  | Not expr -> SWIR.Not (compile_expression expr)
+  | And exprs -> SWIR.And (List.map compile_expression exprs)
+  | Or exprs -> SWIR.Or (List.map compile_expression exprs)
   | Add exprs -> SWIR.Add (List.map compile_expression exprs)
   | Sub exprs -> SWIR.Sub (List.map compile_expression exprs)
   | Mul exprs -> SWIR.Mul (List.map compile_expression exprs)

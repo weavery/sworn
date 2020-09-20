@@ -80,6 +80,9 @@ and print_expression ppf = function
   | SWIR.VarGet var -> fprintf ppf "state.%s" var
   | SWIR.VarSet (var, val') -> fprintf ppf "state.%s = %a" var print_expression val'
   | SWIR.Ok expr -> fprintf ppf "const result = %a" print_expression expr
+  | SWIR.Not expr -> fprintf ppf "(!%a)" print_expression expr
+  | SWIR.And exprs -> print_operation ppf "&&" exprs
+  | SWIR.Or exprs -> print_operation ppf "||" exprs
   | SWIR.Add exprs -> print_operation ppf "+" exprs
   | SWIR.Sub exprs -> print_operation ppf "-" exprs
   | SWIR.Mul exprs -> print_operation ppf "*" exprs

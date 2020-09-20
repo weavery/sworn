@@ -23,6 +23,9 @@ and expression =
   | VarGet of identifier
   | VarSet of identifier * expression
   | Ok of expression
+  | Not of expression
+  | And of expression list
+  | Or of expression list
   | Add of expression list
   | Sub of expression list
   | Mul of expression list

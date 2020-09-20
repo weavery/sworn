@@ -46,6 +46,9 @@ and print_expression ppf = function
   | VarGet var -> fprintf ppf "(var-get %s)" var
   | VarSet (var, val') -> fprintf ppf "(var-set %s %a)" var print_expression val'
   | Ok expr -> fprintf ppf "(ok %a)" print_expression expr
+  | Not expr -> fprintf ppf "(not %a)" print_expression expr
+  | And exprs -> print_operation ppf "and" exprs
+  | Or exprs -> print_operation ppf "or" exprs
   | Add exprs -> print_operation ppf "+" exprs
   | Sub exprs -> print_operation ppf "-" exprs
   | Mul exprs -> print_operation ppf "*" exprs

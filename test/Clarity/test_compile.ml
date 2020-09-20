@@ -37,7 +37,10 @@ let types () =
 
 let boolean_logic () =
   check_expression "false" "false";
-  check_expression "true" "true"
+  check_expression "true" "true";
+  check_expression "(not true)" "(not true)";
+  check_expression "(and true false)" "(and true false)";
+  check_expression "(or true false)" "(or true false)"
 
 let integer_arithmetic () =
   check_expression "-123" "-123";

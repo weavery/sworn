@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Support for all arithmetic operations.
-- Support for boolean literals.
+- Support for boolean literals and logic.
 - Support for optional values and expressions.
 - Support for `define-constant`.
 - Support for `define-map`.
