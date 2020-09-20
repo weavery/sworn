@@ -73,6 +73,8 @@ and print_expressions ppf = function
 and print_expression ppf = function
   | SWIR.Literal lit -> print_literal ppf lit
   | SWIR.SomeExpression expr -> print_expression ppf expr
+  | SWIR.IsNone expr -> fprintf ppf "(%a === null)" print_expression expr
+  | SWIR.IsSome expr -> fprintf ppf "(%a !== null)" print_expression expr
   | SWIR.VarGet var -> fprintf ppf "state.%s" var
   | SWIR.VarSet (var, val') -> fprintf ppf "state.%s = %a" var print_expression val'
   | SWIR.Ok expr -> fprintf ppf "const result = %a" print_expression expr

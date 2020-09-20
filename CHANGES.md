@@ -11,10 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Support for all arithmetic operations.
 - Support for boolean literals.
-- Support for optional values.
+- Support for optional values and expressions.
 - Support for `define-constant`.
 - Support for `define-map`.
-- Support for `optional` types.
 - Support for `string-ascii` and `string-utf8` types.
 - Support for `list` types.
 

@@ -23,6 +23,8 @@ and compile_parameter = function
 and compile_expression = function
   | Literal lit -> SWIR.Literal (compile_literal lit)
   | SomeExpression expr -> SWIR.SomeExpression (compile_expression expr)
+  | IsNone expr -> SWIR.IsNone (compile_expression expr)
+  | IsSome expr -> SWIR.IsSome (compile_expression expr)
   | VarGet (var) -> SWIR.VarGet var
   | VarSet (var, val') -> SWIR.VarSet (var, compile_expression val')
   | Ok expr -> SWIR.Ok (compile_expression expr)

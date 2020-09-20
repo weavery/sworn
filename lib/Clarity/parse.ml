@@ -74,6 +74,8 @@ and parse_expression sexp =
   match sexp with
   | Atom token -> parse_literal token
   | List [Atom "some"; expr] -> SomeExpression (parse_expression expr)
+  | List [Atom "is-none"; expr] -> IsNone (parse_expression expr)
+  | List [Atom "is-some"; expr] -> IsSome (parse_expression expr)
   | List [Atom "ok"; expr] -> Ok (parse_expression expr)
   | List [Atom "var-get"; Atom var] -> VarGet var
   | List [Atom "var-set"; Atom var; val'] -> VarSet (var, parse_expression val')

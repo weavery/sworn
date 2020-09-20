@@ -17,6 +17,8 @@ and parameter = string * type'
 and expression =
   | Literal of literal
   | SomeExpression of expression
+  | IsNone of expression
+  | IsSome of expression
   | VarGet of identifier
   | VarSet of identifier * expression
   | Ok of expression

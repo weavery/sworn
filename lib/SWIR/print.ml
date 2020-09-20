@@ -41,6 +41,8 @@ and print_expressions ppf = function
 and print_expression ppf = function
   | Literal lit -> print_literal ppf lit
   | SomeExpression expr -> fprintf ppf "(some %a)" print_expression expr
+  | IsNone expr -> fprintf ppf "(is-none %a)" print_expression expr
+  | IsSome expr -> fprintf ppf "(is-some %a)" print_expression expr
   | VarGet var -> fprintf ppf "(var-get %s)" var
   | VarSet (var, val') -> fprintf ppf "(var-set %s %a)" var print_expression val'
   | Ok expr -> fprintf ppf "(ok %a)" print_expression expr
