@@ -23,6 +23,7 @@ and compile_parameter = function
 and compile_expression = function
   | Literal lit -> SWIR.Literal (compile_literal lit)
   | SomeExpression expr -> SWIR.SomeExpression (compile_expression expr)
+  | ListExpression exprs -> SWIR.ListExpression (List.map compile_expression exprs)
   | IsNone expr -> SWIR.IsNone (compile_expression expr)
   | IsSome expr -> SWIR.IsSome (compile_expression expr)
   | DefaultTo (def, opt) -> SWIR.DefaultTo (compile_expression def, compile_expression opt)

@@ -68,6 +68,7 @@ let optional_values () =
   check_expression "(default-to 0 (some 1))" "(default-to 0 (some 1))"
 
 let sequence_operations () =
+  check_expression "(list 1 2 3)" "(list 1 2 3)";
   check_expression "(len \"foobar\")" "(len \"foobar\")"
 
 let define_constant () =

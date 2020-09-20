@@ -73,6 +73,7 @@ and print_expressions ppf = function
 and print_expression ppf = function
   | SWIR.Literal lit -> print_literal ppf lit
   | SWIR.SomeExpression expr -> print_expression ppf expr
+  | SWIR.ListExpression exprs -> print_list ppf exprs
   | SWIR.IsNone expr -> fprintf ppf "(%a === null)" print_expression expr
   | SWIR.IsSome expr -> fprintf ppf "(%a !== null)" print_expression expr
   | SWIR.DefaultTo (def, opt) ->
@@ -97,6 +98,11 @@ and print_expression ppf = function
   | SWIR.Xor (a, b) -> print_operation ppf "^" [a; b]
   | SWIR.Len expr -> fprintf ppf "%a.length" print_expression expr
   | SWIR.Print expr -> fprintf ppf "console.log(%a)" print_expression expr
+
+and print_list ppf exprs =
+  let print_comma ppf () = Format.fprintf ppf ",@ " in
+  fprintf ppf "[@[<h>%a@]]"
+    (Format.pp_print_list ~pp_sep:print_comma print_expression) exprs
 
 and print_operation ppf op exprs =
   let print_operator ppf () = fprintf ppf "@ %s@ " op in

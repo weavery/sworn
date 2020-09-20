@@ -204,7 +204,7 @@ list:
     link: https://docs.blockstack.org/references/language-clarity#list
     implementations:
       sworn:
-        js:
+        js: true
         wasm:
 
 mod:

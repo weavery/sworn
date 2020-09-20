@@ -264,6 +264,7 @@ Feature | Type | JavaScript | WebAssembly
 `is-some` | function | ✅ |
 `len` | function | ✅ |
 `list` | type | ✅ |
+`list` | function | ✅ |
 `mod` | function | ✅ | ✅
 `none` | constant | ✅ |
 `not` | function | ✅ |

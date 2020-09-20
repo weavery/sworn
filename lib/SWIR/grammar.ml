@@ -20,6 +20,7 @@ and parameter = string * type' option
 and expression =
   | Literal of literal
   | SomeExpression of expression
+  | ListExpression of expression list
   | IsNone of expression
   | IsSome of expression
   | DefaultTo of expression * expression

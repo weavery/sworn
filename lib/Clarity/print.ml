@@ -40,6 +40,7 @@ and print_expressions ppf = function
 and print_expression ppf = function
   | Literal lit -> print_literal ppf lit
   | SomeExpression expr -> fprintf ppf "(some %a)" print_expression expr
+  | ListExpression exprs -> print_operation ppf "list" exprs
   | IsNone expr -> fprintf ppf "(is-none %a)" print_expression expr
   | IsSome expr -> fprintf ppf "(is-some %a)" print_expression expr
   | DefaultTo (def, opt) -> fprintf ppf "(default-to %a %a)" print_expression def print_expression opt

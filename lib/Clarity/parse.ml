@@ -74,6 +74,7 @@ and parse_expression sexp =
   match sexp with
   | Atom token -> parse_literal token
   | List [Atom "some"; expr] -> SomeExpression (parse_expression expr)
+  | List (Atom "list" :: exprs) -> ListExpression (List.map parse_expression exprs)
   | List [Atom "is-none"; expr] -> IsNone (parse_expression expr)
   | List [Atom "is-some"; expr] -> IsSome (parse_expression expr)
   | List [Atom "default-to"; def; opt] -> DefaultTo ((parse_expression def), (parse_expression opt))
