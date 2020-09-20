@@ -238,8 +238,8 @@ an important evolution for the future of smart contracts.
 
 ### Supported Clarity features
 
-Symbol | Type | JavaScript | WebAssembly
------- | ---- | ---------- | -----------
+Feature | Type | JavaScript | WebAssembly
+------- | ---- | ---------- | -----------
 `*` | function | ✅ | ✅
 `+` | function | ✅ | ✅
 `-` | function | ✅ | ✅
@@ -259,7 +259,6 @@ Symbol | Type | JavaScript | WebAssembly
 `is-some` | function | ✅ |
 `len` | function | ✅ |
 `list` | type | ✅ |
-`list` | function |  |
 `mod` | function | ✅ | ✅
 `none` | constant | ✅ |
 `not` | function | ✅ |

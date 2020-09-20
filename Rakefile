@@ -2,37 +2,38 @@
 
 require 'yaml'
 
-def each_symbol
-  metadata = YAML.load(File.read('etc/symbols.yaml'))
-  File.open('etc/symbols.txt').each_line do |line|
-    symbol = line.chomp.to_sym
-    yield symbol, metadata[symbol.to_s]
+def each_feature
+  metadata = YAML.load(File.read('etc/features.yaml'))
+  File.open('etc/features.txt').each_line do |line|
+    feature = line.chomp.to_sym
+    yield feature, metadata[feature.to_s]
   end
 end
 
-task default: %w(symbols)
+task default: %w(features)
 
-task :symbols do
-  each_symbol { |s, _| puts s }
+task :features do
+  each_feature { |s, _| puts s }
 end
 
-file "README.md" => %w(etc/symbols.txt etc/symbols.yaml) do |t|
+file "README.md" => %w(etc/features.txt etc/features.yaml) do |t|
   head = File.read(t.name).split("### Supported Clarity features\n", 2).first
   File.open(t.name, 'w') do |file|
     file.puts head
     file.puts "### Supported Clarity features"
     file.puts
-    file.puts ["Symbol", "Type", "JavaScript", "WebAssembly"].join(' | ')
-    file.puts ["------", "----", "----------", "-----------"].join(' | ')
-    each_symbol do |symbol_name, symbol_types|
-      next if symbol_types.nil?
-      symbol_types.each do |symbol_type, symbol_info|
-        sworn = symbol_info['implementations']['sworn']
+    file.puts ["Feature", "Type", "JavaScript", "WebAssembly"].join(' | ')
+    file.puts ["-------", "----", "----------", "-----------"].join(' | ')
+    each_feature do |feature_name, feature_types|
+      next if feature_types.nil?
+      feature_types.each do |feature_type, feature_info|
+        sworn = feature_info['implementations']['sworn']
         sworn_js = sworn['js']
         sworn_wasm = sworn['wasm']
+        next if !sworn_js && !sworn_wasm
         file.puts [
-          "`#{symbol_name}`",
-          symbol_type,
+          "`#{feature_name}`",
+          feature_type,
           sworn_js ? "✅" : "",
           sworn_wasm ? "✅" : "",
         ].join(' | ').strip
