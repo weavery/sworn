@@ -1,0 +1,150 @@
+---
+
+"*":
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#multiply
+
+"+":
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#add
+
+"-":
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#subtract
+
+"/":
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#divide
+
+and:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#and
+
+begin:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#begin
+
+bool:
+  type:
+    link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+
+default-to:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#default-to
+
+define-constant:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#define-constant
+
+define-data-var:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#define-data-var
+
+define-map:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#define-map
+
+define-private:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#define-private
+
+define-public:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#define-public
+
+define-read-only:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#define-read-only
+
+false:
+  constant:
+    type: bool
+    link: https://docs.blockstack.org/references/language-clarity#false
+
+int:
+  type:
+    link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+
+is-none:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#is-none
+
+is-some:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#is-some
+
+len:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#len
+
+list:
+  type:
+    link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#list
+
+mod:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#mod
+
+none:
+  constant:
+    type: optional
+    link: https://docs.blockstack.org/references/language-clarity#none
+
+not:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#not
+
+ok:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#ok
+
+optional:
+  type:
+    link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+
+or:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#or
+
+pow:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#pow
+
+print:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#print
+
+some:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#some
+
+string-ascii:
+  type:
+    link:
+
+string-utf8:
+  type:
+    link:
+
+true:
+  constant:
+    type: bool
+    link: https://docs.blockstack.org/references/language-clarity#true
+
+uint:
+  type:
+    link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+
+var-get:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#var-get
+
+var-set:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#var-set
+
+xor:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#xor
