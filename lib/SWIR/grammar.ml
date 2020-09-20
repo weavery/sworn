@@ -19,6 +19,7 @@ and parameter = string * type' option
 
 and expression =
   | Literal of literal
+  | SomeExpression of expression
   | VarGet of identifier
   | VarSet of identifier * expression
   | Ok of expression
@@ -30,6 +31,7 @@ and expression =
   | Pow of expression * expression
 
 and literal =
+  | NoneLiteral
   | BoolLiteral of bool
   | I64Literal of int64
   | U64Literal of int64

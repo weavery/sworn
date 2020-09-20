@@ -22,6 +22,7 @@ and compile_parameter = function
 
 and compile_expression = function
   | Literal lit -> SWIR.Literal (compile_literal lit)
+  | SomeExpression expr -> SWIR.SomeExpression (compile_expression expr)
   | VarGet (var) -> SWIR.VarGet var
   | VarSet (var, val') -> SWIR.VarSet (var, compile_expression val')
   | Ok expr -> SWIR.Ok (compile_expression expr)
@@ -33,6 +34,7 @@ and compile_expression = function
   | Pow (a, b) -> SWIR.Pow (compile_expression a, compile_expression b)
 
 and compile_literal = function
+  | NoneLiteral -> SWIR.NoneLiteral
   | BoolLiteral b -> SWIR.BoolLiteral b
   | IntLiteral z -> SWIR.I128Literal z
   | UintLiteral n -> SWIR.U128Literal n

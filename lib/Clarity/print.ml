@@ -39,6 +39,7 @@ and print_expressions ppf = function
 
 and print_expression ppf = function
   | Literal lit -> print_literal ppf lit
+  | SomeExpression expr -> fprintf ppf "(some %a)" print_expression expr
   | VarGet var -> fprintf ppf "(var-get %s)" var
   | VarSet (var, val') -> fprintf ppf "(var-set %s %a)" var print_expression val'
   | Ok expr -> fprintf ppf "(ok %a)" print_expression expr
@@ -54,6 +55,7 @@ and print_operation ppf op exprs =
     (Format.pp_print_list ~pp_sep:Format.pp_print_space print_expression) exprs
 
 and print_literal ppf = function
+  | NoneLiteral -> fprintf ppf "none"
   | BoolLiteral b -> fprintf ppf "%s" (if b then "true" else "false")
   | IntLiteral z -> fprintf ppf "%s" (Big_int.string_of_big_int z)
   | UintLiteral n -> fprintf ppf "%s" (Big_int.string_of_big_int n)

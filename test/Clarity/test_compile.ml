@@ -47,6 +47,10 @@ let integer_arithmetic () =
   check_expression "(* 1 2 3)" "(* 1 2 3)";
   check_expression "(/ 1 2 3)" "(/ 1 2 3)"
 
+let optional_values () =
+  check_expression "none" "none";
+  check_expression "(some 1)" "(some 1)"
+
 let define_constant () =
   check_definition
     ~input:"(define-constant answer 42)"
@@ -81,6 +85,7 @@ let () =
       "types", `Quick, types;
       "boolean logic", `Quick, boolean_logic;
       "integer arithmetic", `Quick, integer_arithmetic;
+      "optional values", `Quick, optional_values;
       "define-constant", `Quick, define_constant;
       "define-data-var", `Quick, define_data_var;
       "define-map", `Quick, define_map;

@@ -16,6 +16,7 @@ and parameter = string * type'
 
 and expression =
   | Literal of literal
+  | SomeExpression of expression
   | VarGet of identifier
   | VarSet of identifier * expression
   | Ok of expression
@@ -27,6 +28,7 @@ and expression =
   | Pow of expression * expression
 
 and literal =
+  | NoneLiteral
   | BoolLiteral of bool
   | IntLiteral of Big_int.big_int
   | UintLiteral of Big_int.big_int
