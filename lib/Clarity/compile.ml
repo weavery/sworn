@@ -40,6 +40,7 @@ and compile_expression = function
   | Pow (a, b) -> SWIR.Pow (compile_expression a, compile_expression b)
   | Xor (a, b) -> SWIR.Xor (compile_expression a, compile_expression b)
   | Len expr -> SWIR.Len (compile_expression expr)
+  | Print expr -> SWIR.Print (compile_expression expr)
 
 and compile_literal = function
   | NoneLiteral -> SWIR.NoneLiteral

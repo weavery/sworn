@@ -91,6 +91,7 @@ and print_expression ppf = function
   | SWIR.Pow (a, b) -> print_operation ppf "**" [a; b]
   | SWIR.Xor (a, b) -> print_operation ppf "^" [a; b]
   | SWIR.Len expr -> fprintf ppf "%a.length" print_expression expr
+  | SWIR.Print expr -> fprintf ppf "console.log(%a)" print_expression expr
 
 and print_operation ppf op exprs =
   let print_operator ppf () = fprintf ppf "@ %s@ " op in
