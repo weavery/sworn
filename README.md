@@ -77,9 +77,12 @@ On the server side, Node.js 10.4+ supports `BigInt`.
 
 ## Design
 
-Sworn is written in [OCaml], an excellent language for compiler toolchains.
+Sworn is written in [OCaml], an excellent programming language for crafting
+compiler toolchains.
 
 Sworn is a multi-pass compiler consisting of the following stages:
+
+![Flowchart](https://github.com/weavery/sworn/blob/master/etc/flowchart.png)
 
 ### Lexical analysis
 

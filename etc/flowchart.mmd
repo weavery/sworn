@@ -1,0 +1,13 @@
+graph LR
+  subgraph "Clarity frontend"
+    A(["Clarity (.clar)"])
+    A -->|Parse| B["Clarity AST"]
+  end
+  subgraph "Optimizer"
+    B -->|Analyze| C["SWIR"]
+    C -->|Optimize| D{"SWIR"}
+  end
+  subgraph "Backend"
+    D -->|Codegen| E("JavaScript (.js)")
+    D -->|Codegen| F("WebAssembly (.wasm)")
+  end
