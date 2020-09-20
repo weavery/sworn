@@ -49,7 +49,10 @@ let integer_arithmetic () =
 
 let optional_values () =
   check_expression "none" "none";
-  check_expression "(some 1)" "(some 1)"
+  check_expression "(some 1)" "(some 1)";
+  check_expression "(is-none 1)" "(is-none 1)";
+  check_expression "(is-some 1)" "(is-some 1)";
+  check_expression "(default-to 0 (some 1))" "(default-to 0 (some 1))"
 
 let define_constant () =
   check_definition

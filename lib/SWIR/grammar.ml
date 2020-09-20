@@ -22,6 +22,7 @@ and expression =
   | SomeExpression of expression
   | IsNone of expression
   | IsSome of expression
+  | DefaultTo of expression * expression
   | VarGet of identifier
   | VarSet of identifier * expression
   | Ok of expression

@@ -25,6 +25,7 @@ and compile_expression = function
   | SomeExpression expr -> SWIR.SomeExpression (compile_expression expr)
   | IsNone expr -> SWIR.IsNone (compile_expression expr)
   | IsSome expr -> SWIR.IsSome (compile_expression expr)
+  | DefaultTo (def, opt) -> SWIR.DefaultTo (compile_expression def, compile_expression opt)
   | VarGet (var) -> SWIR.VarGet var
   | VarSet (var, val') -> SWIR.VarSet (var, compile_expression val')
   | Ok expr -> SWIR.Ok (compile_expression expr)

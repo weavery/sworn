@@ -76,6 +76,7 @@ and parse_expression sexp =
   | List [Atom "some"; expr] -> SomeExpression (parse_expression expr)
   | List [Atom "is-none"; expr] -> IsNone (parse_expression expr)
   | List [Atom "is-some"; expr] -> IsSome (parse_expression expr)
+  | List [Atom "default-to"; def; opt] -> DefaultTo ((parse_expression def), (parse_expression opt))
   | List [Atom "ok"; expr] -> Ok (parse_expression expr)
   | List [Atom "var-get"; Atom var] -> VarGet var
   | List [Atom "var-set"; Atom var; val'] -> VarSet (var, parse_expression val')
@@ -83,7 +84,8 @@ and parse_expression sexp =
   | List (Atom "-" :: exprs) -> Sub (List.map parse_expression exprs)
   | List (Atom "*" :: exprs) -> Mul (List.map parse_expression exprs)
   | List (Atom "/" :: exprs) -> Div (List.map parse_expression exprs)
-  | _ -> failwith "TODO: parse_expression"  (* TODO *)
+  | List (Atom op :: _) -> failwith (Printf.sprintf "unknown or unimplemented Clarity operator: %s" op)
+  | _ -> failwith "invalid Clarity expression"
 
 and parse_literal = function
   | "none" -> Literal NoneLiteral
