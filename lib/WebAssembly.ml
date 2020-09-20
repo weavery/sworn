@@ -62,27 +62,29 @@ and compile_func_body body =  (* TODO *)
   List.concat_map compile_expression body
 
 and compile_expression = function
-  | Literal lit -> [compile_literal lit]
-  | VarGet _ -> [GlobalGet (0l @@ at) @@ at]  (* TODO *)
-  | VarSet (_, val') -> (compile_expression val') @ [GlobalSet (0l @@ at) @@ at]  (* TODO *)
-  | Ok expr -> compile_expression expr
-  | Add [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_add @@ at]
-  | Sub [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_sub @@ at]
-  | Mul [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_mul @@ at]
-  | Div [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_div_s @@ at]
-  | Mod (a, b) -> (compile_expression a) @ (compile_expression b) @ [i64_rem_s @@ at]
-  | Pow (_, _) -> failwith "pow not implemented yet"  (* TODO *)
+  | SWIR.Literal lit -> [compile_literal lit]
+  | SWIR.SomeExpression expr -> compile_expression expr
+  | SWIR.VarGet _ -> [GlobalGet (0l @@ at) @@ at]  (* TODO *)
+  | SWIR.VarSet (_, val') -> (compile_expression val') @ [GlobalSet (0l @@ at) @@ at]  (* TODO *)
+  | SWIR.Ok expr -> compile_expression expr
+  | SWIR.Add [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_add @@ at]
+  | SWIR.Sub [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_sub @@ at]
+  | SWIR.Mul [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_mul @@ at]
+  | SWIR.Div [a; b] -> (compile_expression a) @ (compile_expression b) @ [i64_div_s @@ at]
+  | SWIR.Mod (a, b) -> (compile_expression a) @ (compile_expression b) @ [i64_rem_s @@ at]
+  | SWIR.Pow (_, _) -> failwith "pow not implemented yet"  (* TODO *)
   | _ -> failwith "compile_expression: not implemented yet"  (* TODO *)
 
 and compile_literal = function
-  | BoolLiteral b -> (i32_const (Int32.of_int (if b then 1 else 0) @@ at)) @@ at
-  | I64Literal z | U64Literal z -> (i64_const (z @@ at)) @@ at
-  | I128Literal z | U128Literal z ->
+  | SWIR.NoneLiteral -> (i32_const (0l @@ at)) @@ at  (* TODO *)
+  | SWIR.BoolLiteral b -> (i32_const (Int32.of_int (if b then 1 else 0) @@ at)) @@ at
+  | SWIR.I64Literal z | U64Literal z -> (i64_const (z @@ at)) @@ at
+  | SWIR.I128Literal z | U128Literal z ->
     begin match Big_int.int64_of_big_int_opt z with
     | Some z -> (i64_const (z @@ at)) @@ at
     | None -> failwith "TODO: compile_literal not implemented for 128-bit integers"  (* TODO *)
     end
-  | StringLiteral _ -> failwith "TODO: compile_literal: string"  (* TODO *)
+  | SWIR.StringLiteral _ -> failwith "TODO: compile_literal: string"  (* TODO *)
 
 and compile_export _funcs index = function
   | SWIR.Function (_, s, _, _) ->
