@@ -3,148 +3,296 @@
 "*":
   function:
     link: https://docs.blockstack.org/references/language-clarity#multiply
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 "+":
   function:
     link: https://docs.blockstack.org/references/language-clarity#add
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 "-":
   function:
     link: https://docs.blockstack.org/references/language-clarity#subtract
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 "/":
   function:
     link: https://docs.blockstack.org/references/language-clarity#divide
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 and:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#and
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 begin:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#begin
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 bool:
   type:
     link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 default-to:
   function:
     link: https://docs.blockstack.org/references/language-clarity#default-to
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 define-constant:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#define-constant
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 define-data-var:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#define-data-var
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 define-map:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#define-map
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 define-private:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#define-private
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 define-public:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#define-public
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 define-read-only:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#define-read-only
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 false:
   constant:
     type: bool
     link: https://docs.blockstack.org/references/language-clarity#false
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 int:
   type:
     link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 is-none:
   function:
     link: https://docs.blockstack.org/references/language-clarity#is-none
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 is-some:
   function:
     link: https://docs.blockstack.org/references/language-clarity#is-some
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 len:
   function:
     link: https://docs.blockstack.org/references/language-clarity#len
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 list:
   type:
     link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+    implementations:
+      sworn:
+        js: true
+        wasm:
   function:
     link: https://docs.blockstack.org/references/language-clarity#list
+    implementations:
+      sworn:
+        js:
+        wasm:
 
 mod:
   function:
     link: https://docs.blockstack.org/references/language-clarity#mod
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 none:
   constant:
     type: optional
     link: https://docs.blockstack.org/references/language-clarity#none
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 not:
   function:
     link: https://docs.blockstack.org/references/language-clarity#not
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 ok:
   function:
     link: https://docs.blockstack.org/references/language-clarity#ok
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 optional:
   type:
     link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 or:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#or
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 pow:
   function:
     link: https://docs.blockstack.org/references/language-clarity#pow
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 print:
   function:
     link: https://docs.blockstack.org/references/language-clarity#print
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 some:
   function:
     link: https://docs.blockstack.org/references/language-clarity#some
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 string-ascii:
   type:
     link:
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 string-utf8:
   type:
     link:
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 true:
   constant:
     type: bool
     link: https://docs.blockstack.org/references/language-clarity#true
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 uint:
   type:
     link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 var-get:
   function:
     link: https://docs.blockstack.org/references/language-clarity#var-get
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 var-set:
   function:
     link: https://docs.blockstack.org/references/language-clarity#var-set
+    implementations:
+      sworn:
+        js: true
+        wasm: true
 
 xor:
   function:
     link: https://docs.blockstack.org/references/language-clarity#xor
+    implementations:
+      sworn:
+        js: true
+        wasm:
