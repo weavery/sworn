@@ -90,6 +90,7 @@ and parse_expression sexp =
   | List [Atom "mod"; a; b] -> Mod (parse_expression a, parse_expression b)
   | List [Atom "pow"; a; b] -> Pow (parse_expression a, parse_expression b)
   | List [Atom "xor"; a; b] -> Xor (parse_expression a, parse_expression b)
+  | List [Atom "len"; expr] -> Len (parse_expression expr)
   | List (Atom op :: _) -> failwith (Printf.sprintf "unknown or unimplemented Clarity operator: %s" op)
   | _ -> failwith "invalid Clarity expression"
 

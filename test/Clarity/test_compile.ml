@@ -60,6 +60,9 @@ let optional_values () =
   check_expression "(is-some 1)" "(is-some 1)";
   check_expression "(default-to 0 (some 1))" "(default-to 0 (some 1))"
 
+let sequence_operations () =
+  check_expression "(len \"foobar\")" "(len \"foobar\")"
+
 let define_constant () =
   check_definition
     ~input:"(define-constant answer 42)"
@@ -95,6 +98,7 @@ let () =
       "boolean logic", `Quick, boolean_logic;
       "integer arithmetic", `Quick, integer_arithmetic;
       "optional values", `Quick, optional_values;
+      "sequence operations", `Quick, sequence_operations;
       "define-constant", `Quick, define_constant;
       "define-data-var", `Quick, define_data_var;
       "define-map", `Quick, define_map;

@@ -36,6 +36,7 @@ and expression =
   | Mod of expression * expression
   | Pow of expression * expression
   | Xor of expression * expression
+  | Len of expression
 
 and literal =
   | NoneLiteral
