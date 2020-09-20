@@ -244,6 +244,10 @@ Feature | Type | JavaScript | WebAssembly
 `+` | function | ✅ | ✅
 `-` | function | ✅ | ✅
 `/` | function | ✅ | ✅
+`<` | function | ✅ |
+`<=` | function | ✅ |
+`>` | function | ✅ |
+`>=` | function | ✅ |
 `and` | syntax | ✅ |
 `begin` | syntax | ✅ | ✅
 `bool` | type | ✅ | ✅
@@ -255,6 +259,7 @@ Feature | Type | JavaScript | WebAssembly
 `define-public` | syntax | ✅ | ✅
 `define-read-only` | syntax | ✅ | ✅
 `int` | type | ✅ | ✅
+`is-eq` | function | ✅ |
 `is-none` | function | ✅ |
 `is-some` | function | ✅ |
 `len` | function | ✅ |

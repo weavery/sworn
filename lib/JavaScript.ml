@@ -83,6 +83,11 @@ and print_expression ppf = function
   | SWIR.Not expr -> fprintf ppf "(!%a)" print_expression expr
   | SWIR.And exprs -> print_operation ppf "&&" exprs
   | SWIR.Or exprs -> print_operation ppf "||" exprs
+  | SWIR.Eq exprs -> print_operation ppf "===" exprs  (* TODO: 3+ arity *)
+  | SWIR.Lt (a, b) -> print_operation ppf "<" [a; b]
+  | SWIR.Le (a, b) -> print_operation ppf "<=" [a; b]
+  | SWIR.Gt (a, b) -> print_operation ppf ">" [a; b]
+  | SWIR.Ge (a, b) -> print_operation ppf ">=" [a; b]
   | SWIR.Add exprs -> print_operation ppf "+" exprs
   | SWIR.Sub exprs -> print_operation ppf "-" exprs
   | SWIR.Mul exprs -> print_operation ppf "*" exprs

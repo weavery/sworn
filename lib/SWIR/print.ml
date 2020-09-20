@@ -50,6 +50,11 @@ and print_expression ppf = function
   | Not expr -> fprintf ppf "(not %a)" print_expression expr
   | And exprs -> print_operation ppf "and" exprs
   | Or exprs -> print_operation ppf "or" exprs
+  | Eq exprs -> print_operation ppf "=" exprs
+  | Lt (a, b) -> print_operation ppf "<" [a; b]
+  | Le (a, b) -> print_operation ppf "<=" [a; b]
+  | Gt (a, b) -> print_operation ppf ">" [a; b]
+  | Ge (a, b) -> print_operation ppf ">=" [a; b]
   | Add exprs -> print_operation ppf "+" exprs
   | Sub exprs -> print_operation ppf "-" exprs
   | Mul exprs -> print_operation ppf "*" exprs

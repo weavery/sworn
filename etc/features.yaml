@@ -32,6 +32,38 @@
         js: true
         wasm: true
 
+"<":
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#less-than
+    implementations:
+      sworn:
+        js: true
+        wasm:
+
+"<=":
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#less-than-or-equal
+    implementations:
+      sworn:
+        js: true
+        wasm:
+
+">":
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#greater-than
+    implementations:
+      sworn:
+        js: true
+        wasm:
+
+">=":
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#greater-than-or-equal
+    implementations:
+      sworn:
+        js: true
+        wasm:
+
 and:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#and
@@ -128,6 +160,14 @@ int:
       sworn:
         js: true
         wasm: true
+
+is-eq:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#is-eq
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 is-none:
   function:

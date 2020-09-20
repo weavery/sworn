@@ -42,6 +42,13 @@ let boolean_logic () =
   check_expression "(and true false)" "(and true false)";
   check_expression "(or true false)" "(or true false)"
 
+let relational_operators () =
+  check_expression "(is-eq 1 2 3)" "(= 1 2 3)";
+  check_expression "(< 1 2)" "(< 1 2)";
+  check_expression "(<= 1 2)" "(<= 1 2)";
+  check_expression "(> 1 2)" "(> 1 2)";
+  check_expression "(>= 1 2)" "(>= 1 2)"
+
 let integer_arithmetic () =
   check_expression "-123" "-123";
   check_expression "123" "123";
@@ -96,6 +103,7 @@ let () =
     "compile", [
       "types", `Quick, types;
       "boolean logic", `Quick, boolean_logic;
+      "relational operators", `Quick, relational_operators;
       "integer arithmetic", `Quick, integer_arithmetic;
       "optional values", `Quick, optional_values;
       "sequence operations", `Quick, sequence_operations;

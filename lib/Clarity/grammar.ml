@@ -26,6 +26,11 @@ and expression =
   | Not of expression
   | And of expression list
   | Or of expression list
+  | Eq of expression list
+  | Lt of expression * expression
+  | Le of expression * expression
+  | Gt of expression * expression
+  | Ge of expression * expression
   | Add of expression list
   | Sub of expression list
   | Mul of expression list
