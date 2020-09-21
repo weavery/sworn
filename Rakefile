@@ -1,19 +1,46 @@
 # This is free and unencumbered software released into the public domain.
 
 require 'yaml'
+require 'active_support/core_ext/hash'  # `gem install activesupport`
 
-def each_feature
-  metadata = YAML.load(File.read('etc/features.yaml'))
-  File.open('etc/features.txt').each_line do |line|
-    feature = line.chomp.to_sym
-    yield feature, metadata[feature.to_s]
+# @return [Hash<Symbol, Hash>]
+def implemented_features
+  YAML.load_file('etc/features.yaml').deep_symbolize_keys!
+end
+
+# @return [Array<Symbol>]
+def standard_features
+  File.open('etc/features.txt').each_line.map do |line|
+    line.chomp.to_sym
   end
 end
 
-task default: %w(features)
+# @return [Hash<Symbol, Hash>]
+def status_of_features
+  standard_features.inject({}) do |result, feature_name|
+    result[feature_name] = implemented_features[feature_name]
+    result
+  end
+end
 
-task :features do
-  each_feature { |s, _| puts s }
+task default: %w(features:todo)
+
+namespace :features do
+  task :all do
+    (implemented_features.keys + standard_features).uniq.each { |f| puts f }
+  end
+  task :std do
+    standard_features.each { |f| puts f }
+  end
+  task :nonstd do
+    (implemented_features.keys - standard_features).each { |f| puts f }
+  end
+  task :done do
+    implemented_features.keys.each { |f| puts f }
+  end
+  task :todo do
+    (standard_features - implemented_features.keys).each { |f| puts f }
+  end
 end
 
 file "README.md" => %w(etc/features.txt etc/features.yaml) do |t|
@@ -24,7 +51,7 @@ file "README.md" => %w(etc/features.txt etc/features.yaml) do |t|
     file.puts
     file.puts ["Feature", "Type", "JavaScript", "WebAssembly"].join(' | ')
     file.puts ["-------", "----", "----------", "-----------"].join(' | ')
-    each_feature do |feature_name, feature_types|
+    status_of_features.each do |feature_name, feature_types|
       next if feature_types.nil?
       feature_types.each do |feature_type, feature_info|
         sworn = feature_info['implementations']['sworn']

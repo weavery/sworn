@@ -258,6 +258,7 @@ Feature | Type | JavaScript | WebAssembly
 `define-private` | syntax | ✅ | ✅
 `define-public` | syntax | ✅ | ✅
 `define-read-only` | syntax | ✅ | ✅
+`false` | constant | ✅ | ✅
 `int` | type | ✅ | ✅
 `is-eq` | function | ✅ |
 `is-none` | function | ✅ |
@@ -274,6 +275,7 @@ Feature | Type | JavaScript | WebAssembly
 `pow` | function | ✅ | ✅
 `print` | function | ✅ |
 `some` | function | ✅ |
+`true` | constant | ✅ | ✅
 `uint` | type | ✅ | ✅
 `var-get` | function | ✅ | ✅
 `var-set` | function | ✅ | ✅

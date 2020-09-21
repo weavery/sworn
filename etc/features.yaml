@@ -144,7 +144,7 @@ define-read-only:
         js: true
         wasm: true
 
-false:
+"false":
   constant:
     type: bool
     link: https://docs.blockstack.org/references/language-clarity#false
@@ -296,7 +296,7 @@ string-utf8:
         js: true
         wasm:
 
-true:
+"true":
   constant:
     type: bool
     link: https://docs.blockstack.org/references/language-clarity#true
