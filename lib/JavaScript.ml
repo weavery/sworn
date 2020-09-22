@@ -97,12 +97,18 @@ and print_expression ppf = function
   | SWIR.Pow (a, b) -> print_operation ppf "**" [a; b]
   | SWIR.Xor (a, b) -> print_operation ppf "^" [a; b]
   | SWIR.Len expr -> fprintf ppf "%a.length" print_expression expr
+  | SWIR.FunctionCall (name, args) -> print_function_call ppf name args
   | SWIR.Print expr -> fprintf ppf "console.log(%a)" print_expression expr
 
 and print_list ppf exprs =
   let print_comma ppf () = Format.fprintf ppf ",@ " in
   fprintf ppf "[@[<h>%a@]]"
     (Format.pp_print_list ~pp_sep:print_comma print_expression) exprs
+
+and print_function_call ppf name args =
+  let print_comma ppf () = Format.fprintf ppf ",@ " in
+  fprintf ppf "%s(@[<h>%a@])" (mangle_name name)
+    (Format.pp_print_list ~pp_sep:print_comma print_expression) args
 
 and print_operation ppf op exprs =
   let print_operator ppf () = fprintf ppf "@ %s@ " op in

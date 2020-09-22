@@ -40,6 +40,7 @@ and expression =
   | Pow of expression * expression
   | Xor of expression * expression
   | Len of expression
+  | FunctionCall of identifier * expression list
   | Print of expression
 
 and literal =

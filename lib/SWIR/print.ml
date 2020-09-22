@@ -64,6 +64,7 @@ and print_expression ppf = function
   | Pow (a, b) -> print_operation ppf "pow" [a; b]
   | Xor (a, b) -> print_operation ppf "xor" [a; b]
   | Len expr -> fprintf ppf "(len %a)" print_expression expr
+  | FunctionCall (name, args) -> print_operation ppf name args
   | Print expr -> fprintf ppf "(print %a)" print_expression expr
 
 and print_operation ppf op exprs =
