@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.0] - 2020-09-24
 
+### Changed
+
+- The JavaScript target now requires Clarity.js.
+
 ### Added
 
 - Support for function calls.
