@@ -1,6 +1,6 @@
 (define-data-var counter int 0)
 
-(define-public (get-counter)
+(define-read-only (get-counter)
   (ok (var-get counter)))
 
 (define-public (increment)
