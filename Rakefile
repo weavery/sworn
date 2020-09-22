@@ -63,12 +63,13 @@ file "README.md" => %w(etc/features.txt etc/features.yaml) do |t|
     status_of_features.each do |feature_name, feature_types|
       next if feature_types.nil?
       feature_types.each do |feature_type, feature_info|
+        feature_link = feature_info[:link] || '#'
         sworn = feature_info[:implementations][:sworn]
         sworn_js = sworn[:js]
         sworn_wasm = sworn[:wasm]
         next if sworn_js.nil? && sworn_wasm.nil?
         file.puts [
-          "`#{feature_name}`",
+          "[`#{feature_name}`](#{feature_link})",
           feature_type,
           status_icon(sworn_js),
           status_icon(sworn_wasm),

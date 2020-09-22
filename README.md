@@ -244,65 +244,65 @@ an important evolution for the future of smart contracts.
 
 Feature | Type | JavaScript | WebAssembly | Notes
 ------- | ---- | ---------- | ----------- | -----
-`*` | function | ✅ | ✅ |
-`+` | function | ✅ | ✅ |
-`-` | function | ✅ | ✅ |
-`/` | function | ✅ | ✅ |
-`<` | function | ✅ |  |
-`<=` | function | ✅ |  |
-`>` | function | ✅ |  |
-`>=` | function | ✅ |  |
-`and` | syntax | ✅ |  |
-`as-contract` | function | ✅ |  | Requires Clarity.js.
-`at-block` | function | ✅ |  | Requires Clarity.js.
-`begin` | syntax | ✅ | ✅ |
-`block-height` | function | ✅ |  | Requires Clarity.js.
-`bool` | type | ✅ | ✅ |
-`contract-call?` | function | ✅ |  | Requires Clarity.js.
-`contract-caller` | function | ✅ |  | Requires Clarity.js.
-`contract-of` | function | ✅ |  | Requires Clarity.js.
-`default-to` | function | ✅ |  |
-`define-constant` | syntax | ✅ | ✅ |
-`define-data-var` | syntax | ✅ | ✅ |
-`define-map` | syntax | ✅ |  |
-`define-private` | syntax | ✅ | ✅ |
-`define-public` | syntax | ✅ | ✅ |
-`define-read-only` | syntax | ✅ | ✅ |
-`false` | constant | ✅ | ✅ |
-`ft-get-balance` | function | ✅ |  | Requires Clarity.js.
-`ft-mint?` | function | ✅ |  | Requires Clarity.js.
-`ft-transfer?` | function | ✅ |  | Requires Clarity.js.
-`get-block-info?` | function | ✅ |  | Requires Clarity.js.
-`hash160` | function | ✅ |  | Requires Clarity.js.
-`int` | type | ✅ | ✅ |
-`is-eq` | function | ✅ |  |
-`is-none` | function | ✅ |  |
-`is-some` | function | ✅ |  |
-`keccak256` | function | ✅ |  | Requires Clarity.js.
-`len` | function | ✅ |  |
-`list` | type | ✅ |  |
-`list` | function | ✅ |  |
-`mod` | function | ✅ | ✅ |
-`nft-get-owner?` | function | ✅ |  | Requires Clarity.js.
-`nft-mint?` | function | ✅ |  | Requires Clarity.js.
-`nft-transfer?` | function | ✅ |  | Requires Clarity.js.
-`none` | constant | ✅ |  |
-`not` | function | ✅ |  |
-`ok` | function | ✅ | ✅ |
-`optional` | type | ✅ | ✅ |
-`or` | syntax | ✅ |  |
-`pow` | function | ✅ | ✅ |
-`print` | function | ✅ |  |
-`sha256` | function | ✅ |  | Requires Clarity.js.
-`sha512` | function | ✅ |  | Requires Clarity.js.
-`sha512/256` | function | ✅ |  | Requires Clarity.js.
-`some` | function | ✅ |  |
-`stx-burn?` | function | ❎ | ❎ | Not supported.
-`stx-get-balance` | function | ❎ | ❎ | Not supported.
-`stx-transfer?` | function | ❎ | ❎ | Not supported.
-`true` | constant | ✅ | ✅ |
-`tx-sender` | function | ✅ |  | Requires Clarity.js.
-`uint` | type | ✅ | ✅ |
-`var-get` | function | ✅ | ✅ |
-`var-set` | function | ✅ | ✅ |
-`xor` | function | ✅ |  |
+[`*`](https://docs.blockstack.org/references/language-clarity#multiply) | function | ✅ | ✅ |
+[`+`](https://docs.blockstack.org/references/language-clarity#add) | function | ✅ | ✅ |
+[`-`](https://docs.blockstack.org/references/language-clarity#subtract) | function | ✅ | ✅ |
+[`/`](https://docs.blockstack.org/references/language-clarity#divide) | function | ✅ | ✅ |
+[`<`](https://docs.blockstack.org/references/language-clarity#less-than) | function | ✅ |  |
+[`<=`](https://docs.blockstack.org/references/language-clarity#less-than-or-equal) | function | ✅ |  |
+[`>`](https://docs.blockstack.org/references/language-clarity#greater-than) | function | ✅ |  |
+[`>=`](https://docs.blockstack.org/references/language-clarity#greater-than-or-equal) | function | ✅ |  |
+[`and`](https://docs.blockstack.org/references/language-clarity#and) | syntax | ✅ |  |
+[`as-contract`](https://docs.blockstack.org/references/language-clarity#as-contract) | function | ✅ |  | Requires Clarity.js.
+[`at-block`](https://docs.blockstack.org/references/language-clarity#at-block) | function | ✅ |  | Requires Clarity.js.
+[`begin`](https://docs.blockstack.org/references/language-clarity#begin) | syntax | ✅ | ✅ |
+[`block-height`](https://docs.blockstack.org/references/language-clarity#block-height) | function | ✅ |  | Requires Clarity.js.
+[`bool`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
+[`contract-call?`](https://docs.blockstack.org/references/language-clarity#contract-call) | function | ✅ |  | Requires Clarity.js.
+[`contract-caller`](https://docs.blockstack.org/references/language-clarity#contract-caller) | function | ✅ |  | Requires Clarity.js.
+[`contract-of`](https://docs.blockstack.org/references/language-clarity#contract-of) | function | ✅ |  | Requires Clarity.js.
+[`default-to`](https://docs.blockstack.org/references/language-clarity#default-to) | function | ✅ |  |
+[`define-constant`](https://docs.blockstack.org/references/language-clarity#define-constant) | syntax | ✅ | ✅ |
+[`define-data-var`](https://docs.blockstack.org/references/language-clarity#define-data-var) | syntax | ✅ | ✅ |
+[`define-map`](https://docs.blockstack.org/references/language-clarity#define-map) | syntax | ✅ |  |
+[`define-private`](https://docs.blockstack.org/references/language-clarity#define-private) | syntax | ✅ | ✅ |
+[`define-public`](https://docs.blockstack.org/references/language-clarity#define-public) | syntax | ✅ | ✅ |
+[`define-read-only`](https://docs.blockstack.org/references/language-clarity#define-read-only) | syntax | ✅ | ✅ |
+[`false`](https://docs.blockstack.org/references/language-clarity#false) | constant | ✅ | ✅ |
+[`ft-get-balance`](https://docs.blockstack.org/references/language-clarity#ft-get-balance) | function | ✅ |  | Requires Clarity.js.
+[`ft-mint?`](https://docs.blockstack.org/references/language-clarity#ft-mint) | function | ✅ |  | Requires Clarity.js.
+[`ft-transfer?`](https://docs.blockstack.org/references/language-clarity#ft-transfer) | function | ✅ |  | Requires Clarity.js.
+[`get-block-info?`](https://docs.blockstack.org/references/language-clarity#get-block-info) | function | ✅ |  | Requires Clarity.js.
+[`hash160`](https://docs.blockstack.org/references/language-clarity#hash160) | function | ✅ |  | Requires Clarity.js.
+[`int`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
+[`is-eq`](https://docs.blockstack.org/references/language-clarity#is-eq) | function | ✅ |  |
+[`is-none`](https://docs.blockstack.org/references/language-clarity#is-none) | function | ✅ |  |
+[`is-some`](https://docs.blockstack.org/references/language-clarity#is-some) | function | ✅ |  |
+[`keccak256`](https://docs.blockstack.org/references/language-clarity#keccak256) | function | ✅ |  | Requires Clarity.js.
+[`len`](https://docs.blockstack.org/references/language-clarity#len) | function | ✅ |  |
+[`list`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ |  |
+[`list`](https://docs.blockstack.org/references/language-clarity#list) | function | ✅ |  |
+[`mod`](https://docs.blockstack.org/references/language-clarity#mod) | function | ✅ | ✅ |
+[`nft-get-owner?`](https://docs.blockstack.org/references/language-clarity#nft-get-owner) | function | ✅ |  | Requires Clarity.js.
+[`nft-mint?`](https://docs.blockstack.org/references/language-clarity#nft-mint) | function | ✅ |  | Requires Clarity.js.
+[`nft-transfer?`](https://docs.blockstack.org/references/language-clarity#nft-transfer) | function | ✅ |  | Requires Clarity.js.
+[`none`](https://docs.blockstack.org/references/language-clarity#none) | constant | ✅ |  |
+[`not`](https://docs.blockstack.org/references/language-clarity#not) | function | ✅ |  |
+[`ok`](https://docs.blockstack.org/references/language-clarity#ok) | function | ✅ | ✅ |
+[`optional`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
+[`or`](https://docs.blockstack.org/references/language-clarity#or) | syntax | ✅ |  |
+[`pow`](https://docs.blockstack.org/references/language-clarity#pow) | function | ✅ | ✅ |
+[`print`](https://docs.blockstack.org/references/language-clarity#print) | function | ✅ |  |
+[`sha256`](https://docs.blockstack.org/references/language-clarity#sha256) | function | ✅ |  | Requires Clarity.js.
+[`sha512`](https://docs.blockstack.org/references/language-clarity#sha512) | function | ✅ |  | Requires Clarity.js.
+[`sha512/256`](https://docs.blockstack.org/references/language-clarity#sha512256) | function | ✅ |  | Requires Clarity.js.
+[`some`](https://docs.blockstack.org/references/language-clarity#some) | function | ✅ |  |
+[`stx-burn?`](https://docs.blockstack.org/references/language-clarity#stx-burn) | function | ❎ | ❎ | Not supported.
+[`stx-get-balance`](https://docs.blockstack.org/references/language-clarity#stx-get-balance) | function | ❎ | ❎ | Not supported.
+[`stx-transfer?`](https://docs.blockstack.org/references/language-clarity#stx-transfer) | function | ❎ | ❎ | Not supported.
+[`true`](https://docs.blockstack.org/references/language-clarity#true) | constant | ✅ | ✅ |
+[`tx-sender`](https://docs.blockstack.org/references/language-clarity#tx-sender) | function | ✅ |  | Requires Clarity.js.
+[`uint`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
+[`var-get`](https://docs.blockstack.org/references/language-clarity#var-get) | function | ✅ | ✅ |
+[`var-set`](https://docs.blockstack.org/references/language-clarity#var-set) | function | ✅ | ✅ |
+[`xor`](https://docs.blockstack.org/references/language-clarity#xor) | function | ✅ |  |
