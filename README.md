@@ -48,7 +48,7 @@ However, you can alternatively specify an output file name in the usual way:
 sworn -o counter.js counter.clar
 ```
 
-[`counter.clar`]: https://github.com/clarity-lang/overview/blob/master/counter.clar
+[`counter.clar`]: https://github.com/weavery/sworn/blob/master/etc/counter.clar
 
 ### Compiling to WebAssembly
 
@@ -87,7 +87,11 @@ Sworn is a multi-pass compiler consisting of the following stages:
 
 ### Lexical analysis
 
+_(To be written.)_
+
 ### Syntactic analysis
+
+_(To be written.)_
 
 ### Semantic analysis
 
