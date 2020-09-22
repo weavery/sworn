@@ -72,6 +72,22 @@ and:
         js: true
         wasm:
 
+as-contract:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#as-contract
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+at-block:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#at-block
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
 begin:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#begin
@@ -80,6 +96,14 @@ begin:
         js: true
         wasm: true
 
+block-height:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#block-height
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
 bool:
   type:
     link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
@@ -87,6 +111,30 @@ bool:
       sworn:
         js: true
         wasm: true
+
+contract-call?:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#contract-call
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+contract-caller:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#contract-caller
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+contract-of:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#contract-of
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
 
 default-to:
   function:
@@ -153,6 +201,46 @@ define-read-only:
         js: true
         wasm: true
 
+ft-get-balance:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#ft-get-balance
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+ft-mint?:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#ft-mint
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+ft-transfer?:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#ft-transfer
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+get-block-info?:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#get-block-info
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+hash160:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#hash160
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
 int:
   type:
     link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
@@ -185,6 +273,14 @@ is-some:
         js: true
         wasm:
 
+keccak256:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#keccak256
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
 len:
   function:
     link: https://docs.blockstack.org/references/language-clarity#len
@@ -214,6 +310,30 @@ mod:
       sworn:
         js: true
         wasm: true
+
+nft-get-owner?:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#nft-get-owner
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+nft-mint?:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#nft-mint
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+nft-transfer?:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#nft-transfer
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
 
 none:
   constant:
@@ -272,6 +392,30 @@ print:
         js: true
         wasm:
 
+sha256:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#sha256
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+sha512:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#sha512
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+sha512/256:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#sha512256
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
 some:
   function:
     link: https://docs.blockstack.org/references/language-clarity#some
@@ -296,6 +440,30 @@ string-utf8:
         js: true
         wasm:
 
+stx-burn?:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#stx-burn
+    implementations:
+      sworn:
+        js: false
+        wasm: false
+
+stx-get-balance:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#stx-get-balance
+    implementations:
+      sworn:
+        js: false
+        wasm: false
+
+stx-transfer?:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#stx-transfer
+    implementations:
+      sworn:
+        js: false
+        wasm: false
+
 "true":
   constant:
     type: bool
@@ -304,6 +472,14 @@ string-utf8:
       sworn:
         js: true
         wasm: true
+
+tx-sender:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#tx-sender
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
 
 uint:
   type:

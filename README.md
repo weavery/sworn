@@ -242,45 +242,67 @@ an important evolution for the future of smart contracts.
 
 ### Supported Clarity features
 
-Feature | Type | JavaScript | WebAssembly
-------- | ---- | ---------- | -----------
-`*` | function | ✅ | ✅
-`+` | function | ✅ | ✅
-`-` | function | ✅ | ✅
-`/` | function | ✅ | ✅
-`<` | function | ✅ |
-`<=` | function | ✅ |
-`>` | function | ✅ |
-`>=` | function | ✅ |
-`and` | syntax | ✅ |
-`begin` | syntax | ✅ | ✅
-`bool` | type | ✅ | ✅
-`default-to` | function | ✅ |
-`define-constant` | syntax | ✅ | ✅
-`define-data-var` | syntax | ✅ | ✅
-`define-map` | syntax | ✅ |
-`define-private` | syntax | ✅ | ✅
-`define-public` | syntax | ✅ | ✅
-`define-read-only` | syntax | ✅ | ✅
-`false` | constant | ✅ | ✅
-`int` | type | ✅ | ✅
-`is-eq` | function | ✅ |
-`is-none` | function | ✅ |
-`is-some` | function | ✅ |
-`len` | function | ✅ |
-`list` | type | ✅ |
-`list` | function | ✅ |
-`mod` | function | ✅ | ✅
-`none` | constant | ✅ |
-`not` | function | ✅ |
-`ok` | function | ✅ | ✅
-`optional` | type | ✅ | ✅
-`or` | syntax | ✅ |
-`pow` | function | ✅ | ✅
-`print` | function | ✅ |
-`some` | function | ✅ |
-`true` | constant | ✅ | ✅
-`uint` | type | ✅ | ✅
-`var-get` | function | ✅ | ✅
-`var-set` | function | ✅ | ✅
-`xor` | function | ✅ |
+Feature | Type | JavaScript | WebAssembly | Notes
+------- | ---- | ---------- | ----------- | -----
+`*` | function | ✅ | ✅ |
+`+` | function | ✅ | ✅ |
+`-` | function | ✅ | ✅ |
+`/` | function | ✅ | ✅ |
+`<` | function | ✅ |  |
+`<=` | function | ✅ |  |
+`>` | function | ✅ |  |
+`>=` | function | ✅ |  |
+`and` | syntax | ✅ |  |
+`as-contract` | function | ✅ |  | Requires Clarity.js.
+`at-block` | function | ✅ |  | Requires Clarity.js.
+`begin` | syntax | ✅ | ✅ |
+`block-height` | function | ✅ |  | Requires Clarity.js.
+`bool` | type | ✅ | ✅ |
+`contract-call?` | function | ✅ |  | Requires Clarity.js.
+`contract-caller` | function | ✅ |  | Requires Clarity.js.
+`contract-of` | function | ✅ |  | Requires Clarity.js.
+`default-to` | function | ✅ |  |
+`define-constant` | syntax | ✅ | ✅ |
+`define-data-var` | syntax | ✅ | ✅ |
+`define-map` | syntax | ✅ |  |
+`define-private` | syntax | ✅ | ✅ |
+`define-public` | syntax | ✅ | ✅ |
+`define-read-only` | syntax | ✅ | ✅ |
+`false` | constant | ✅ | ✅ |
+`ft-get-balance` | function | ✅ |  | Requires Clarity.js.
+`ft-mint?` | function | ✅ |  | Requires Clarity.js.
+`ft-transfer?` | function | ✅ |  | Requires Clarity.js.
+`get-block-info?` | function | ✅ |  | Requires Clarity.js.
+`hash160` | function | ✅ |  | Requires Clarity.js.
+`int` | type | ✅ | ✅ |
+`is-eq` | function | ✅ |  |
+`is-none` | function | ✅ |  |
+`is-some` | function | ✅ |  |
+`keccak256` | function | ✅ |  | Requires Clarity.js.
+`len` | function | ✅ |  |
+`list` | type | ✅ |  |
+`list` | function | ✅ |  |
+`mod` | function | ✅ | ✅ |
+`nft-get-owner?` | function | ✅ |  | Requires Clarity.js.
+`nft-mint?` | function | ✅ |  | Requires Clarity.js.
+`nft-transfer?` | function | ✅ |  | Requires Clarity.js.
+`none` | constant | ✅ |  |
+`not` | function | ✅ |  |
+`ok` | function | ✅ | ✅ |
+`optional` | type | ✅ | ✅ |
+`or` | syntax | ✅ |  |
+`pow` | function | ✅ | ✅ |
+`print` | function | ✅ |  |
+`sha256` | function | ✅ |  | Requires Clarity.js.
+`sha512` | function | ✅ |  | Requires Clarity.js.
+`sha512/256` | function | ✅ |  | Requires Clarity.js.
+`some` | function | ✅ |  |
+`stx-burn?` | function | ❎ | ❎ | Not supported.
+`stx-get-balance` | function | ❎ | ❎ | Not supported.
+`stx-transfer?` | function | ❎ | ❎ | Not supported.
+`true` | constant | ✅ | ✅ |
+`tx-sender` | function | ✅ |  | Requires Clarity.js.
+`uint` | type | ✅ | ✅ |
+`var-get` | function | ✅ | ✅ |
+`var-set` | function | ✅ | ✅ |
+`xor` | function | ✅ |  |

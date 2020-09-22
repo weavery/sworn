@@ -20,8 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for sequence operators.
 - Support for `define-constant`.
 - Support for `define-map`.
-- Support for `string-ascii` and `string-utf8` types.
 - Support for `list` types and expressions.
+- Support for the `string-ascii` and `string-utf8` types.
 
 ## 0.1.0 - 2020-09-18
 
