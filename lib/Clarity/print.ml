@@ -73,6 +73,7 @@ and print_expression ppf = function
   | UnwrapPanic input -> print_operation ppf "unwrap-panic" [input]
   | UnwrapErr (input, thrown) -> print_operation ppf "unwrap-err!" [input; thrown]
   | UnwrapErrPanic input -> print_operation ppf "unwrap-err-panic" [input]
+  | If (cond, then', else') -> print_operation ppf "if" [cond; then'; else']
 
 and print_operation ppf op exprs =
   fprintf ppf "(%s @[<h>%a@])" op

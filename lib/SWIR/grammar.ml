@@ -53,6 +53,7 @@ and expression =
   | UnwrapPanic of expression
   | UnwrapErr of expression * expression
   | UnwrapErrPanic of expression
+  | If of expression * expression * expression
 
 and literal =
   | NoneLiteral

@@ -56,6 +56,8 @@ and compile_expression = function
   | UnwrapPanic input -> SWIR.UnwrapPanic (compile_expression input)
   | UnwrapErr (input, thrown) -> SWIR.UnwrapErr (compile_expression input, compile_expression thrown)
   | UnwrapErrPanic input -> SWIR.UnwrapErrPanic (compile_expression input)
+  | If (cond, then', else') ->
+    SWIR.If (compile_expression cond, compile_expression then', compile_expression else')
 
 and compile_literal = function
   | NoneLiteral -> SWIR.NoneLiteral

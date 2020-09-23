@@ -276,6 +276,7 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`ft-transfer?`](https://docs.blockstack.org/references/language-clarity#ft-transfer) | function | ✅ |  | Requires Clarity.js.
 [`get-block-info?`](https://docs.blockstack.org/references/language-clarity#get-block-info) | function | ✅ |  | Requires Clarity.js.
 [`hash160`](https://docs.blockstack.org/references/language-clarity#hash160) | function | ✅ |  | Requires Clarity.js.
+[`if`](https://docs.blockstack.org/references/language-clarity#if) | syntax | ✅ |  |
 [`int`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
 [`is-eq`](https://docs.blockstack.org/references/language-clarity#is-eq) | function | ✅ |  |
 [`is-err`](https://docs.blockstack.org/references/language-clarity#is-err) | function | ✅ |  |

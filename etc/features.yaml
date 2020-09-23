@@ -257,6 +257,14 @@ hash160:
         js: runtime
         wasm:
 
+if:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#if
+    implementations:
+      sworn:
+        js: true
+        wasm:
+
 int:
   type:
     link: https://docs.blockstack.org/references/language-clarity#clarity-type-system

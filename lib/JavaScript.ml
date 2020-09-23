@@ -48,7 +48,7 @@ and print_handle_clause ppf = function
 and print_function ppf = function
   | SWIR.Function (modifier, name, params, body) ->
     let params = ("state", None) :: params in
-    fprintf ppf "@[<v 2>function %s(@[<h>%a@]) {@,%a"
+    fprintf ppf "@[<v 2>function %s(@[<h>%a@]) {@,let result = null@,%a"
       (mangle_name name)
       print_parameters params
       print_expressions body;
@@ -82,8 +82,8 @@ and print_expression ppf = function
     fprintf ppf "(%a ?? %a)" print_expression opt print_expression def
   | SWIR.VarGet var -> fprintf ppf "state.%s" var
   | SWIR.VarSet (var, val') -> fprintf ppf "state.%s = %a" var print_expression val'
-  | SWIR.Err expr -> fprintf ppf "const result = clarity.err(%a)" print_expression expr
-  | SWIR.Ok expr -> fprintf ppf "const result = %a" print_expression expr
+  | SWIR.Err expr -> fprintf ppf "result = clarity.err(%a)" print_expression expr
+  | SWIR.Ok expr -> fprintf ppf "result = %a" print_expression expr
   | SWIR.Not expr -> fprintf ppf "(!%a)" print_expression expr
   | SWIR.And exprs -> print_operation ppf "&&" exprs
   | SWIR.Or exprs -> print_operation ppf "||" exprs
@@ -112,6 +112,11 @@ and print_expression ppf = function
     fprintf ppf "clarity.unwrapErr(%a, %a)" print_expression input print_expression thrown
   | SWIR.UnwrapErrPanic input ->
     fprintf ppf "clarity.unwrapErrPanic(%a)" print_expression input
+  | SWIR.If (cond, then', else') ->
+    fprintf ppf "(%a ? (%a) : (%a))"
+      print_expression cond
+      print_expression then'
+      print_expression else'
 
 and print_list ppf exprs =
   let print_comma ppf () = Format.fprintf ppf ",@ " in

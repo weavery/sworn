@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Support for function calls.
+- Support for `if` expressions.
 - Support for the `buff`, `principal`, `response`, and `tuple` types.
 - Support for `is-ok`, `is-err`, and `err`.
 - Support for `try!` and all `unwrap*` forms.
