@@ -126,8 +126,11 @@ and print_list ppf exprs =
     (Format.pp_print_list ~pp_sep:print_comma print_expression) exprs
 
 and print_function_call ppf name args =
+  let is_primitive = Clarity.is_primitive name in
+  let name = if is_primitive then Printf.sprintf "clarity.%s" name else name in
+  let name = mangle_name name in
   let print_comma ppf () = Format.fprintf ppf ",@ " in
-  fprintf ppf "%s(@[<h>%a@])" (mangle_name name)
+  fprintf ppf "%s(@[<h>%a@])" name
     (Format.pp_print_list ~pp_sep:print_comma print_expression) args
 
 and print_operation ppf op exprs =

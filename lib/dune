@@ -7,6 +7,8 @@
   Clarity/compile.ml
   Clarity/compile.mli
   Clarity/grammar.ml
+  Clarity/library.ml
+  Clarity/library.mli
   Clarity/parse.ml
   Clarity/parse.mli
   Clarity/print.ml
@@ -19,7 +21,7 @@
  (wrapped false)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
  (preprocessor_deps)
- (libraries SWIR num))
+ (libraries Clarity SWIR num))
 
 (library
  (name SWIR)

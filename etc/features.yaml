@@ -72,6 +72,14 @@ and:
         js: true
         wasm:
 
+append:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#append
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
 as-contract:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#as-contract
@@ -118,6 +126,14 @@ buff:
     implementations:
       sworn:
         js: true
+        wasm:
+
+concat:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#concat
+    implementations:
+      sworn:
+        js: runtime
         wasm:
 
 contract-call?:

@@ -253,12 +253,14 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`>`](https://docs.blockstack.org/references/language-clarity#greater-than) | function | ✅ |  |
 [`>=`](https://docs.blockstack.org/references/language-clarity#greater-than-or-equal) | function | ✅ |  |
 [`and`](https://docs.blockstack.org/references/language-clarity#and) | syntax | ✅ |  |
+[`append`](https://docs.blockstack.org/references/language-clarity#append) | function | ✅ |  | Requires Clarity.js.
 [`as-contract`](https://docs.blockstack.org/references/language-clarity#as-contract) | syntax | ✅ |  | Requires Clarity.js.
 [`at-block`](https://docs.blockstack.org/references/language-clarity#at-block) | syntax | ✅ |  | Requires Clarity.js.
 [`begin`](https://docs.blockstack.org/references/language-clarity#begin) | syntax | ✅ | ✅ |
 [`block-height`](https://docs.blockstack.org/references/language-clarity#block-height) | keyword | ✅ |  | Requires Clarity.js.
 [`bool`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
 [`buff`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ |  |
+[`concat`](https://docs.blockstack.org/references/language-clarity#concat) | function | ✅ |  | Requires Clarity.js.
 [`contract-call?`](https://docs.blockstack.org/references/language-clarity#contract-call) | function | ✅ |  | Requires Clarity.js.
 [`contract-caller`](https://docs.blockstack.org/references/language-clarity#contract-caller) | keyword | ✅ |  | Requires Clarity.js.
 [`contract-of`](https://docs.blockstack.org/references/language-clarity#contract-of) | function | ✅ |  | Requires Clarity.js.
