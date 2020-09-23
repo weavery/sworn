@@ -58,8 +58,13 @@ and type' =
   | Int
   | Uint
   | Optional of type'
+  | Response of type' * type'
+  | Buff of int
   | String of int * string_encoding
   | List of int * type'
+  | Tuple of tuple_field list
+
+and tuple_field = identifier * type'
 
 and string_encoding =
   | ASCII

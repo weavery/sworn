@@ -58,12 +58,18 @@ and literal =
 and identifier = string
 
 and type' =
+  | Principal
   | Bool
   | I64
   | U64
   | I128
   | U128
   | Optional of type'
+  | Response of type' * type'
+  | Buff of int
   | String of int
   | List of int * type'
   | Map of type' * type'
+  | Record of record_field list
+
+and record_field = identifier * type'

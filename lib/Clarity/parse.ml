@@ -52,17 +52,6 @@ and parse_parameter sexp =
   | List [Atom name; type'] -> (name, parse_type type')
   | _ -> failwith "invalid Clarity function parameter"
 
-and parse_type = function
-  | Atom "bool" -> Bool
-  | Atom "int" -> Int
-  | Atom "uint" -> Uint
-  | Atom "principal" -> Principal
-  | List [Atom "optional"; t] -> Optional (parse_type t)
-  | List [Atom "string-ascii"; Atom len] -> String (int_of_string len, ASCII)
-  | List [Atom "string-utf8"; Atom len] -> String (int_of_string len, UTF8)
-  | List [Atom "list"; Atom len; t] -> List (int_of_string len, parse_type t)
-  | _ -> failwith "invalid Clarity type"
-
 and parse_function_body sexp =
   let open Sexplib.Sexp in
   match sexp with
@@ -112,3 +101,17 @@ and parse_literal = function
       | None -> StringLiteral token
     in
     Literal literal
+
+and parse_type = function
+  | Atom "principal" -> Principal
+  | Atom "bool" -> Bool
+  | Atom "int" -> Int
+  | Atom "uint" -> Uint
+  | List [Atom "optional"; t] -> Optional (parse_type t)
+  | List [Atom "response"; ok; err] -> Response (parse_type ok, parse_type err)
+  | List [Atom "buff"; Atom len] -> Buff (int_of_string len)
+  | List [Atom "string-ascii"; Atom len] -> String (int_of_string len, ASCII)
+  | List [Atom "string-utf8"; Atom len] -> String (int_of_string len, UTF8)
+  | List [Atom "list"; Atom len; t] -> List (int_of_string len, parse_type t)
+  | List (Atom "tuple" :: _) -> Tuple [] (* TODO: tuple *)
+  | _ -> failwith "invalid Clarity type"

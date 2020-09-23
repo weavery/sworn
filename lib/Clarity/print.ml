@@ -78,10 +78,13 @@ and print_literal ppf = function
   | StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
 
 and type_to_string = function
+  | Principal -> "principal"
   | Bool -> "bool"
   | Int -> "int"
   | Uint -> "uint"
-  | Principal -> "principal"
   | Optional _ -> "optional"  (* TODO *)
+  | Response _ -> "response"  (* TODO *)
+  | Buff _ -> "buff"  (* TODO *)
   | String _ -> "string"  (* TODO *)
   | List _ -> "list"  (* TODO *)
+  | Tuple _ -> "tuple"  (* TODO *)

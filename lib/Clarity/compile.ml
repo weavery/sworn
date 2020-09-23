@@ -57,10 +57,16 @@ and compile_literal = function
   | StringLiteral s -> SWIR.StringLiteral s
 
 and compile_type = function
+  | Principal -> SWIR.Principal
   | Bool -> SWIR.Bool
   | Int -> SWIR.I128
   | Uint -> SWIR.U128
-  | Principal -> failwith "TODO: compile_type"  (* TODO *)
   | Optional t -> SWIR.Optional (compile_type t)
+  | Response (ok, err) -> SWIR.Response (compile_type ok, compile_type err)
+  | Buff (len) -> SWIR.Buff len
   | String (len, _) -> SWIR.String len
   | List (len, t) -> SWIR.List (len, compile_type t)
+  | Tuple fields -> SWIR.Record (List.map compile_tuple_field fields)
+
+and compile_tuple_field (name, type') =
+  (name, compile_type type')

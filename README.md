@@ -258,6 +258,7 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`begin`](https://docs.blockstack.org/references/language-clarity#begin) | syntax | ✅ | ✅ |
 [`block-height`](https://docs.blockstack.org/references/language-clarity#block-height) | keyword | ✅ |  | Requires Clarity.js.
 [`bool`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
+[`buff`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ |  |
 [`contract-call?`](https://docs.blockstack.org/references/language-clarity#contract-call) | function | ✅ |  | Requires Clarity.js.
 [`contract-caller`](https://docs.blockstack.org/references/language-clarity#contract-caller) | keyword | ✅ |  | Requires Clarity.js.
 [`contract-of`](https://docs.blockstack.org/references/language-clarity#contract-of) | function | ✅ |  | Requires Clarity.js.
@@ -292,7 +293,9 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`optional`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
 [`or`](https://docs.blockstack.org/references/language-clarity#or) | syntax | ✅ |  |
 [`pow`](https://docs.blockstack.org/references/language-clarity#pow) | function | ✅ | ✅ |
+[`principal`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ |  |
 [`print`](https://docs.blockstack.org/references/language-clarity#print) | function | ✅ |  |
+[`response`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ |  |
 [`sha256`](https://docs.blockstack.org/references/language-clarity#sha256) | function | ✅ |  | Requires Clarity.js.
 [`sha512`](https://docs.blockstack.org/references/language-clarity#sha512) | function | ✅ |  | Requires Clarity.js.
 [`sha512/256`](https://docs.blockstack.org/references/language-clarity#sha512256) | function | ✅ |  | Requires Clarity.js.
@@ -301,6 +304,7 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`stx-get-balance`](https://docs.blockstack.org/references/language-clarity#stx-get-balance) | function | ❎ | ❎ | Not supported.
 [`stx-transfer?`](https://docs.blockstack.org/references/language-clarity#stx-transfer) | function | ❎ | ❎ | Not supported.
 [`true`](https://docs.blockstack.org/references/language-clarity#true) | constant | ✅ | ✅ |
+[`tuple`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ |  |
 [`tx-sender`](https://docs.blockstack.org/references/language-clarity#tx-sender) | keyword | ✅ |  | Requires Clarity.js.
 [`uint`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
 [`var-get`](https://docs.blockstack.org/references/language-clarity#var-get) | function | ✅ | ✅ |

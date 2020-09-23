@@ -84,15 +84,19 @@ and print_type ppf type' =
   fprintf ppf "%s" (type_to_string type')
 
 and type_to_string = function
+  | Principal -> "principal"
   | Bool -> "bool"
   | I64 -> "i64"
   | U64 -> "u64"
   | I128 -> "i128"
   | U128 -> "u128"
   | Optional t -> sprintf "(optional %s)" (type_to_string t)
+  | Response (ok, err) -> sprintf "(response %s %s)" (type_to_string ok) (type_to_string err)
+  | Buff len -> sprintf "(buff %d)" len
   | String len -> sprintf "(string %d)" len
   | List (len, t) -> sprintf "(list %d %s)" len (type_to_string t)
   | Map (k, v) -> sprintf "(map %s %s)" (type_to_string k) (type_to_string v)
+  | Record _ -> sprintf "(record)"  (* TODO *)
 
 and modifier_to_string = function
   | Private -> "private"

@@ -112,6 +112,14 @@ bool:
         js: true
         wasm: true
 
+buff:
+  type:
+    link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+    implementations:
+      sworn:
+        js: true
+        wasm:
+
 contract-call?:
   function:
     link: https://docs.blockstack.org/references/language-clarity#contract-call
@@ -384,9 +392,25 @@ pow:
         js: true
         wasm: true
 
+principal:
+  type:
+    link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+    implementations:
+      sworn:
+        js: true
+        wasm:
+
 print:
   function:
     link: https://docs.blockstack.org/references/language-clarity#print
+    implementations:
+      sworn:
+        js: true
+        wasm:
+
+response:
+  type:
+    link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
     implementations:
       sworn:
         js: true
@@ -472,6 +496,14 @@ stx-transfer?:
       sworn:
         js: true
         wasm: true
+
+tuple:
+  type:
+    link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
+    implementations:
+      sworn:
+        js: true
+        wasm:
 
 tx-sender:
   keyword:
