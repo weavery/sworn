@@ -26,9 +26,12 @@ and compile_expression = function
   | ListExpression exprs -> SWIR.ListExpression (List.map compile_expression exprs)
   | IsNone expr -> SWIR.IsNone (compile_expression expr)
   | IsSome expr -> SWIR.IsSome (compile_expression expr)
+  | IsErr expr -> SWIR.IsErr (compile_expression expr)
+  | IsOk expr -> SWIR.IsOk (compile_expression expr)
   | DefaultTo (def, opt) -> SWIR.DefaultTo (compile_expression def, compile_expression opt)
   | VarGet (var) -> SWIR.VarGet var
   | VarSet (var, val') -> SWIR.VarSet (var, compile_expression val')
+  | Err expr -> SWIR.Err (compile_expression expr)
   | Ok expr -> SWIR.Ok (compile_expression expr)
   | Not expr -> SWIR.Not (compile_expression expr)
   | And exprs -> SWIR.And (List.map compile_expression exprs)

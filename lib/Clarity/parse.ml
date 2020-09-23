@@ -66,9 +66,12 @@ and parse_expression sexp =
   | List (Atom "list" :: exprs) -> ListExpression (List.map parse_expression exprs)
   | List [Atom "is-none"; expr] -> IsNone (parse_expression expr)
   | List [Atom "is-some"; expr] -> IsSome (parse_expression expr)
+  | List [Atom "is-err"; expr] -> IsErr (parse_expression expr)
+  | List [Atom "is-ok"; expr] -> IsOk (parse_expression expr)
   | List [Atom "default-to"; def; opt] -> DefaultTo ((parse_expression def), (parse_expression opt))
   | List [Atom "var-get"; Atom var] -> VarGet var
   | List [Atom "var-set"; Atom var; val'] -> VarSet (var, parse_expression val')
+  | List [Atom "err"; expr] -> Err (parse_expression expr)
   | List [Atom "ok"; expr] -> Ok (parse_expression expr)
   | List [Atom "not"; expr] -> Not (parse_expression expr)
   | List (Atom "and" :: exprs) -> And (List.map parse_expression exprs)

@@ -23,9 +23,12 @@ and expression =
   | ListExpression of expression list
   | IsNone of expression
   | IsSome of expression
+  | IsErr of expression
+  | IsOk of expression
   | DefaultTo of expression * expression
   | VarGet of identifier
   | VarSet of identifier * expression
+  | Err of expression
   | Ok of expression
   | Not of expression
   | And of expression list

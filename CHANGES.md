@@ -9,12 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- The JavaScript target now requires Clarity.js.
+- The JavaScript target now requires [Clarity.js].
+
+[Clarity.js]: https://github.com/weavery/clarity.js
 
 ### Added
 
 - Support for function calls.
 - Support for the `buff`, `principal`, `response`, and `tuple` types.
+- Support for `is-ok`, `is-err`, and `err`.
 
 ## [0.2.0] - 2020-09-22
 

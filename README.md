@@ -269,6 +269,7 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`define-private`](https://docs.blockstack.org/references/language-clarity#define-private) | syntax | ✅ | ✅ |
 [`define-public`](https://docs.blockstack.org/references/language-clarity#define-public) | syntax | ✅ | ✅ |
 [`define-read-only`](https://docs.blockstack.org/references/language-clarity#define-read-only) | syntax | ✅ | ✅ |
+[`err`](https://docs.blockstack.org/references/language-clarity#err) | function | ✅ |  | Requires Clarity.js.
 [`false`](https://docs.blockstack.org/references/language-clarity#false) | constant | ✅ | ✅ |
 [`ft-get-balance`](https://docs.blockstack.org/references/language-clarity#ft-get-balance) | function | ✅ |  | Requires Clarity.js.
 [`ft-mint?`](https://docs.blockstack.org/references/language-clarity#ft-mint) | function | ✅ |  | Requires Clarity.js.
@@ -277,7 +278,9 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`hash160`](https://docs.blockstack.org/references/language-clarity#hash160) | function | ✅ |  | Requires Clarity.js.
 [`int`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
 [`is-eq`](https://docs.blockstack.org/references/language-clarity#is-eq) | function | ✅ |  |
+[`is-err`](https://docs.blockstack.org/references/language-clarity#is-err) | function | ✅ |  |
 [`is-none`](https://docs.blockstack.org/references/language-clarity#is-none) | function | ✅ |  |
+[`is-ok`](https://docs.blockstack.org/references/language-clarity#is-ok) | function | ✅ |  |
 [`is-some`](https://docs.blockstack.org/references/language-clarity#is-some) | function | ✅ |  |
 [`keccak256`](https://docs.blockstack.org/references/language-clarity#keccak256) | function | ✅ |  | Requires Clarity.js.
 [`len`](https://docs.blockstack.org/references/language-clarity#len) | function | ✅ |  |

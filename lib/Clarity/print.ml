@@ -43,9 +43,12 @@ and print_expression ppf = function
   | ListExpression exprs -> print_operation ppf "list" exprs
   | IsNone expr -> fprintf ppf "(is-none %a)" print_expression expr
   | IsSome expr -> fprintf ppf "(is-some %a)" print_expression expr
+  | IsErr expr -> fprintf ppf "(is-err %a)" print_expression expr
+  | IsOk expr -> fprintf ppf "(is-ok %a)" print_expression expr
   | DefaultTo (def, opt) -> fprintf ppf "(default-to %a %a)" print_expression def print_expression opt
   | VarGet var -> fprintf ppf "(var-get %s)" var
   | VarSet (var, val') -> fprintf ppf "(var-set %s %a)" var print_expression val'
+  | Err expr -> fprintf ppf "(err %a)" print_expression expr
   | Ok expr -> fprintf ppf "(ok %a)" print_expression expr
   | Not expr -> fprintf ppf "(not %a)" print_expression expr
   | And exprs -> print_operation ppf "and" exprs

@@ -200,6 +200,14 @@ define-read-only:
         js: true
         wasm: true
 
+err:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#err
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
 "false":
   constant:
     type: bool
@@ -265,9 +273,25 @@ is-eq:
         js: true
         wasm:
 
+is-err:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#is-err
+    implementations:
+      sworn:
+        js: true
+        wasm:
+
 is-none:
   function:
     link: https://docs.blockstack.org/references/language-clarity#is-none
+    implementations:
+      sworn:
+        js: true
+        wasm:
+
+is-ok:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#is-ok
     implementations:
       sworn:
         js: true

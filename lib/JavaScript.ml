@@ -76,10 +76,13 @@ and print_expression ppf = function
   | SWIR.ListExpression exprs -> print_list ppf exprs
   | SWIR.IsNone expr -> fprintf ppf "(%a === null)" print_expression expr
   | SWIR.IsSome expr -> fprintf ppf "(%a !== null)" print_expression expr
+  | SWIR.IsErr expr -> fprintf ppf "(%a instanceof clarity.Err)" print_expression expr
+  | SWIR.IsOk expr -> fprintf ppf "!(%a instanceof clarity.Err)" print_expression expr
   | SWIR.DefaultTo (def, opt) ->
     fprintf ppf "(%a ?? %a)" print_expression opt print_expression def
   | SWIR.VarGet var -> fprintf ppf "state.%s" var
   | SWIR.VarSet (var, val') -> fprintf ppf "state.%s = %a" var print_expression val'
+  | SWIR.Err expr -> fprintf ppf "const result = clarity.err(%a)" print_expression expr
   | SWIR.Ok expr -> fprintf ppf "const result = %a" print_expression expr
   | SWIR.Not expr -> fprintf ppf "(!%a)" print_expression expr
   | SWIR.And exprs -> print_operation ppf "&&" exprs
