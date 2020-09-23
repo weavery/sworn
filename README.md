@@ -307,6 +307,8 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`stx-burn?`](https://docs.blockstack.org/references/language-clarity#stx-burn) | function | ❎ | ❎ | Not supported.
 [`stx-get-balance`](https://docs.blockstack.org/references/language-clarity#stx-get-balance) | function | ❎ | ❎ | Not supported.
 [`stx-transfer?`](https://docs.blockstack.org/references/language-clarity#stx-transfer) | function | ❎ | ❎ | Not supported.
+[`to-int`](https://docs.blockstack.org/references/language-clarity#to-int) | function | ✅ |  | Requires Clarity.js.
+[`to-uint`](https://docs.blockstack.org/references/language-clarity#to-uint) | function | ✅ |  | Requires Clarity.js.
 [`true`](https://docs.blockstack.org/references/language-clarity#true) | constant | ✅ | ✅ |
 [`try!`](https://docs.blockstack.org/references/language-clarity#try) | function | ✅ |  | Requires Clarity.js.
 [`tuple`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ |  |

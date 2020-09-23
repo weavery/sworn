@@ -520,6 +520,22 @@ stx-transfer?:
         js: false
         wasm: false
 
+to-int:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#to-int
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+to-uint:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#to-uint
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
 "true":
   constant:
     type: bool

@@ -46,6 +46,8 @@ and expression =
   | Pow of expression * expression
   | Xor of expression * expression
   | Len of expression
+  | ToInt of expression
+  | ToUint of expression
   | FunctionCall of identifier * expression list
   | Print of expression
   | Try of expression

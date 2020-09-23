@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for the `buff`, `principal`, `response`, and `tuple` types.
 - Support for `is-ok`, `is-err`, and `err`.
 - Support for `try!` and all `unwrap*` forms.
+- Support for `to-int` and `to-uint`.
 
 ## [0.2.0] - 2020-09-22
 

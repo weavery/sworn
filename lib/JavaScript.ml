@@ -100,6 +100,8 @@ and print_expression ppf = function
   | SWIR.Pow (a, b) -> print_operation ppf "**" [a; b]
   | SWIR.Xor (a, b) -> print_operation ppf "^" [a; b]
   | SWIR.Len expr -> fprintf ppf "%a.length" print_expression expr
+  | SWIR.ToInt expr -> print_function_call ppf "clarity.toInt" [expr]
+  | SWIR.ToUint expr -> print_function_call ppf "clarity.toUint" [expr]
   | SWIR.FunctionCall (name, args) -> print_function_call ppf name args
   | SWIR.Print expr -> fprintf ppf "console.log(%a)" print_expression expr
   | SWIR.Try input ->

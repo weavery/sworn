@@ -96,6 +96,8 @@ and parse_expression sexp =
   | List [Atom "unwrap-err!"; input; thrown] -> UnwrapErr ((parse_expression input), (parse_expression thrown))
   | List [Atom "unwrap-err-panic"; input] -> UnwrapErrPanic (parse_expression input)
   | List [Atom "if"; cond; then'; else'] -> If ((parse_expression cond), (parse_expression then'), (parse_expression else'))
+  | List [Atom "to-int"; expr] -> ToInt (parse_expression expr)
+  | List [Atom "to-uint"; expr] -> ToUint (parse_expression expr)
   | List (Atom name :: args) -> FunctionCall (name, (List.map parse_expression args))
   | List _ -> failwith "invalid Clarity expression"
 

@@ -49,6 +49,8 @@ and compile_expression = function
   | Pow (a, b) -> SWIR.Pow (compile_expression a, compile_expression b)
   | Xor (a, b) -> SWIR.Xor (compile_expression a, compile_expression b)
   | Len expr -> SWIR.Len (compile_expression expr)
+  | ToInt expr -> SWIR.ToInt (compile_expression expr)
+  | ToUint expr -> SWIR.ToUint (compile_expression expr)
   | FunctionCall (name, args) -> SWIR.FunctionCall (name, List.map compile_expression args)
   | Print expr -> SWIR.Print (compile_expression expr)
   | Try input -> SWIR.Try (compile_expression input)
