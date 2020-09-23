@@ -273,6 +273,8 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`define-read-only`](https://docs.blockstack.org/references/language-clarity#define-read-only) | syntax | ✅ | ✅ |
 [`err`](https://docs.blockstack.org/references/language-clarity#err) | function | ✅ |  | Requires Clarity.js.
 [`false`](https://docs.blockstack.org/references/language-clarity#false) | constant | ✅ | ✅ |
+[`filter`](https://docs.blockstack.org/references/language-clarity#filter) | function | ✅ |  | Requires Clarity.js.
+[`fold`](https://docs.blockstack.org/references/language-clarity#fold) | function | ✅ |  | Requires Clarity.js.
 [`ft-get-balance`](https://docs.blockstack.org/references/language-clarity#ft-get-balance) | function | ✅ |  | Requires Clarity.js.
 [`ft-mint?`](https://docs.blockstack.org/references/language-clarity#ft-mint) | function | ✅ |  | Requires Clarity.js.
 [`ft-transfer?`](https://docs.blockstack.org/references/language-clarity#ft-transfer) | function | ✅ |  | Requires Clarity.js.
@@ -289,6 +291,7 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`len`](https://docs.blockstack.org/references/language-clarity#len) | function | ✅ |  |
 [`list`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ |  |
 [`list`](https://docs.blockstack.org/references/language-clarity#list) | function | ✅ |  |
+[`map`](https://docs.blockstack.org/references/language-clarity#map) | function | ✅ |  | Requires Clarity.js.
 [`mod`](https://docs.blockstack.org/references/language-clarity#mod) | function | ✅ | ✅ |
 [`nft-get-owner?`](https://docs.blockstack.org/references/language-clarity#nft-get-owner) | function | ✅ |  | Requires Clarity.js.
 [`nft-mint?`](https://docs.blockstack.org/references/language-clarity#nft-mint) | function | ✅ |  | Requires Clarity.js.

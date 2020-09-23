@@ -3,4 +3,7 @@
 let is_primitive = function
   | "append" -> true
   | "concat" -> true
+  | "filter" -> true
+  | "fold" -> true
+  | "map" -> true
   | _ -> false

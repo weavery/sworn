@@ -233,6 +233,22 @@ err:
         js: true
         wasm: true
 
+filter:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#filter
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+fold:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#fold
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
 ft-get-balance:
   function:
     link: https://docs.blockstack.org/references/language-clarity#ft-get-balance
@@ -357,6 +373,14 @@ list:
     implementations:
       sworn:
         js: true
+        wasm:
+
+map:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#map
+    implementations:
+      sworn:
+        js: runtime
         wasm:
 
 mod:

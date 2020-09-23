@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for `try!` and all `unwrap*` forms.
 - Support for `to-int` and `to-uint`.
 - Support for `append` and `concat`.
+- Support for `filter`, `fold`, and `map`.
 
 ## [0.2.0] - 2020-09-22
 
