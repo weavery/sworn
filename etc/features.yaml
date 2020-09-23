@@ -521,6 +521,14 @@ stx-transfer?:
         js: true
         wasm: true
 
+try!:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#try
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
 tuple:
   type:
     link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
@@ -544,6 +552,38 @@ uint:
       sworn:
         js: true
         wasm: true
+
+unwrap!:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#unwrap
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+unwrap-err!:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#unwrap-err
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+unwrap-err-panic:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#unwrap-err-panic
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+unwrap-panic:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#unwrap-panic
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
 
 var-get:
   function:

@@ -102,6 +102,16 @@ and print_expression ppf = function
   | SWIR.Len expr -> fprintf ppf "%a.length" print_expression expr
   | SWIR.FunctionCall (name, args) -> print_function_call ppf name args
   | SWIR.Print expr -> fprintf ppf "console.log(%a)" print_expression expr
+  | SWIR.Try input ->
+    fprintf ppf "clarity.tryUnwrap(%a)" print_expression input
+  | SWIR.Unwrap (input, thrown) ->
+    fprintf ppf "clarity.unwrap(%a, %a)" print_expression input print_expression thrown
+  | SWIR.UnwrapPanic input ->
+    fprintf ppf "clarity.unwrapPanic(%a)" print_expression input
+  | SWIR.UnwrapErr (input, thrown) ->
+    fprintf ppf "clarity.unwrapErr(%a, %a)" print_expression input print_expression thrown
+  | SWIR.UnwrapErrPanic input ->
+    fprintf ppf "clarity.unwrapErrPanic(%a)" print_expression input
 
 and print_list ppf exprs =
   let print_comma ppf () = Format.fprintf ppf ",@ " in

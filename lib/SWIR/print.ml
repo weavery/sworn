@@ -69,6 +69,11 @@ and print_expression ppf = function
   | Len expr -> fprintf ppf "(len %a)" print_expression expr
   | FunctionCall (name, args) -> print_operation ppf name args
   | Print expr -> fprintf ppf "(print %a)" print_expression expr
+  | Try input -> print_operation ppf "try!" [input]
+  | Unwrap (input, thrown) -> print_operation ppf "unwrap!" [input; thrown]
+  | UnwrapPanic input -> print_operation ppf "unwrap-panic" [input]
+  | UnwrapErr (input, thrown) -> print_operation ppf "unwrap-err!" [input; thrown]
+  | UnwrapErrPanic input -> print_operation ppf "unwrap-err-panic" [input]
 
 and print_operation ppf op exprs =
   fprintf ppf "(%s @[<h>%a@])" op

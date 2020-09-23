@@ -51,6 +51,11 @@ and compile_expression = function
   | Len expr -> SWIR.Len (compile_expression expr)
   | FunctionCall (name, args) -> SWIR.FunctionCall (name, List.map compile_expression args)
   | Print expr -> SWIR.Print (compile_expression expr)
+  | Try input -> SWIR.Try (compile_expression input)
+  | Unwrap (input, thrown) -> SWIR.Unwrap (compile_expression input, compile_expression thrown)
+  | UnwrapPanic input -> SWIR.UnwrapPanic (compile_expression input)
+  | UnwrapErr (input, thrown) -> SWIR.UnwrapErr (compile_expression input, compile_expression thrown)
+  | UnwrapErrPanic input -> SWIR.UnwrapErrPanic (compile_expression input)
 
 and compile_literal = function
   | NoneLiteral -> SWIR.NoneLiteral

@@ -90,8 +90,13 @@ and parse_expression sexp =
   | List [Atom "xor"; a; b] -> Xor (parse_expression a, parse_expression b)
   | List [Atom "len"; expr] -> Len (parse_expression expr)
   | List [Atom "print"; expr] -> Print (parse_expression expr)
+  | List [Atom "try!"; input] -> Try (parse_expression input)
+  | List [Atom "unwrap!"; input; thrown] -> Unwrap ((parse_expression input), (parse_expression thrown))
+  | List [Atom "unwrap-panic"; input] -> UnwrapPanic (parse_expression input)
+  | List [Atom "unwrap-err!"; input; thrown] -> UnwrapErr ((parse_expression input), (parse_expression thrown))
+  | List [Atom "unwrap-err-panic"; input] -> UnwrapErrPanic (parse_expression input)
   | List (Atom name :: args) -> FunctionCall (name, (List.map parse_expression args))
-  | _ -> failwith "invalid Clarity expression"
+  | List _ -> failwith "invalid Clarity expression"
 
 and parse_literal = function
   | "none" -> Literal NoneLiteral

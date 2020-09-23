@@ -307,9 +307,14 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`stx-get-balance`](https://docs.blockstack.org/references/language-clarity#stx-get-balance) | function | ❎ | ❎ | Not supported.
 [`stx-transfer?`](https://docs.blockstack.org/references/language-clarity#stx-transfer) | function | ❎ | ❎ | Not supported.
 [`true`](https://docs.blockstack.org/references/language-clarity#true) | constant | ✅ | ✅ |
+[`try!`](https://docs.blockstack.org/references/language-clarity#try) | function | ✅ |  | Requires Clarity.js.
 [`tuple`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ |  |
 [`tx-sender`](https://docs.blockstack.org/references/language-clarity#tx-sender) | keyword | ✅ |  | Requires Clarity.js.
 [`uint`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
+[`unwrap!`](https://docs.blockstack.org/references/language-clarity#unwrap) | function | ✅ |  | Requires Clarity.js.
+[`unwrap-err!`](https://docs.blockstack.org/references/language-clarity#unwrap-err) | function | ✅ |  | Requires Clarity.js.
+[`unwrap-err-panic`](https://docs.blockstack.org/references/language-clarity#unwrap-err-panic) | function | ✅ |  | Requires Clarity.js.
+[`unwrap-panic`](https://docs.blockstack.org/references/language-clarity#unwrap-panic) | function | ✅ |  | Requires Clarity.js.
 [`var-get`](https://docs.blockstack.org/references/language-clarity#var-get) | function | ✅ | ✅ |
 [`var-set`](https://docs.blockstack.org/references/language-clarity#var-set) | function | ✅ | ✅ |
 [`xor`](https://docs.blockstack.org/references/language-clarity#xor) | function | ✅ |  |

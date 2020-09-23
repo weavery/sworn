@@ -48,6 +48,11 @@ and expression =
   | Len of expression
   | FunctionCall of identifier * expression list
   | Print of expression
+  | Try of expression
+  | Unwrap of expression * expression
+  | UnwrapPanic of expression
+  | UnwrapErr of expression * expression
+  | UnwrapErrPanic of expression
 
 and literal =
   | NoneLiteral
