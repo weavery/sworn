@@ -253,13 +253,13 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`>`](https://docs.blockstack.org/references/language-clarity#greater-than) | function | ✅ |  |
 [`>=`](https://docs.blockstack.org/references/language-clarity#greater-than-or-equal) | function | ✅ |  |
 [`and`](https://docs.blockstack.org/references/language-clarity#and) | syntax | ✅ |  |
-[`as-contract`](https://docs.blockstack.org/references/language-clarity#as-contract) | function | ✅ |  | Requires Clarity.js.
-[`at-block`](https://docs.blockstack.org/references/language-clarity#at-block) | function | ✅ |  | Requires Clarity.js.
+[`as-contract`](https://docs.blockstack.org/references/language-clarity#as-contract) | syntax | ✅ |  | Requires Clarity.js.
+[`at-block`](https://docs.blockstack.org/references/language-clarity#at-block) | syntax | ✅ |  | Requires Clarity.js.
 [`begin`](https://docs.blockstack.org/references/language-clarity#begin) | syntax | ✅ | ✅ |
-[`block-height`](https://docs.blockstack.org/references/language-clarity#block-height) | function | ✅ |  | Requires Clarity.js.
+[`block-height`](https://docs.blockstack.org/references/language-clarity#block-height) | keyword | ✅ |  | Requires Clarity.js.
 [`bool`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
 [`contract-call?`](https://docs.blockstack.org/references/language-clarity#contract-call) | function | ✅ |  | Requires Clarity.js.
-[`contract-caller`](https://docs.blockstack.org/references/language-clarity#contract-caller) | function | ✅ |  | Requires Clarity.js.
+[`contract-caller`](https://docs.blockstack.org/references/language-clarity#contract-caller) | keyword | ✅ |  | Requires Clarity.js.
 [`contract-of`](https://docs.blockstack.org/references/language-clarity#contract-of) | function | ✅ |  | Requires Clarity.js.
 [`default-to`](https://docs.blockstack.org/references/language-clarity#default-to) | function | ✅ |  |
 [`define-constant`](https://docs.blockstack.org/references/language-clarity#define-constant) | syntax | ✅ | ✅ |
@@ -301,7 +301,7 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`stx-get-balance`](https://docs.blockstack.org/references/language-clarity#stx-get-balance) | function | ❎ | ❎ | Not supported.
 [`stx-transfer?`](https://docs.blockstack.org/references/language-clarity#stx-transfer) | function | ❎ | ❎ | Not supported.
 [`true`](https://docs.blockstack.org/references/language-clarity#true) | constant | ✅ | ✅ |
-[`tx-sender`](https://docs.blockstack.org/references/language-clarity#tx-sender) | function | ✅ |  | Requires Clarity.js.
+[`tx-sender`](https://docs.blockstack.org/references/language-clarity#tx-sender) | keyword | ✅ |  | Requires Clarity.js.
 [`uint`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
 [`var-get`](https://docs.blockstack.org/references/language-clarity#var-get) | function | ✅ | ✅ |
 [`var-set`](https://docs.blockstack.org/references/language-clarity#var-set) | function | ✅ | ✅ |

@@ -73,7 +73,7 @@ and:
         wasm:
 
 as-contract:
-  function:
+  syntax:
     link: https://docs.blockstack.org/references/language-clarity#as-contract
     implementations:
       sworn:
@@ -81,7 +81,7 @@ as-contract:
         wasm:
 
 at-block:
-  function:
+  syntax:
     link: https://docs.blockstack.org/references/language-clarity#at-block
     implementations:
       sworn:
@@ -97,7 +97,7 @@ begin:
         wasm: true
 
 block-height:
-  function:
+  keyword:
     link: https://docs.blockstack.org/references/language-clarity#block-height
     implementations:
       sworn:
@@ -121,7 +121,7 @@ contract-call?:
         wasm:
 
 contract-caller:
-  function:
+  keyword:
     link: https://docs.blockstack.org/references/language-clarity#contract-caller
     implementations:
       sworn:
@@ -474,7 +474,7 @@ stx-transfer?:
         wasm: true
 
 tx-sender:
-  function:
+  keyword:
     link: https://docs.blockstack.org/references/language-clarity#tx-sender
     implementations:
       sworn:
