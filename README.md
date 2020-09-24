@@ -69,6 +69,9 @@ you're better off sticking with the JavaScript output.
 
 ### Notes on the JavaScript target
 
+The generated SmartWeave code requires [Clarity.js], which implements the
+necessary runtime support for Clarity's standard library.
+
 The generated SmartWeave code may make use of JavaScript's [`BigInt`] feature
 to represent 128-bit integers. All modern browsers [support this].
 On the server side, Node.js 10.4+ supports `BigInt`.
@@ -233,6 +236,7 @@ an important evolution for the future of smart contracts.
 [AST]:            https://en.wikipedia.org/wiki/Abstract_syntax_tree
 [Blockstack]:     https://blockstack.org
 [Clarity]:        https://clarity-lang.org
+[Clarity.js]:     https://github.com/weavery/clarity.js
 [IR]:             https://en.wikipedia.org/wiki/Intermediate_representation
 [OCaml]:          https://ocaml.org
 [SmartWeave]:     https://github.com/ArweaveTeam/SmartWeave
