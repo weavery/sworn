@@ -6,4 +6,5 @@ let is_primitive = function
   | "filter" -> true
   | "fold" -> true
   | "map" -> true
+  | "print" -> true
   | _ -> false

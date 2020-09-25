@@ -46,7 +46,6 @@ and expression =
   | ToInt of expression
   | ToUint of expression
   | FunctionCall of identifier * expression list
-  | Print of expression
   | Try of expression
   | Unwrap of expression * expression
   | UnwrapPanic of expression

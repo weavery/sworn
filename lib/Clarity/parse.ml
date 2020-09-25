@@ -89,7 +89,6 @@ and parse_expression sexp =
   | List [Atom "pow"; a; b] -> Pow (parse_expression a, parse_expression b)
   | List [Atom "xor"; a; b] -> Xor (parse_expression a, parse_expression b)
   | List [Atom "len"; expr] -> Len (parse_expression expr)
-  | List [Atom "print"; expr] -> Print (parse_expression expr)
   | List [Atom "try!"; input] -> Try (parse_expression input)
   | List [Atom "unwrap!"; input; thrown] -> Unwrap ((parse_expression input), (parse_expression thrown))
   | List [Atom "unwrap-panic"; input] -> UnwrapPanic (parse_expression input)

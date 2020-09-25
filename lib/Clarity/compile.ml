@@ -52,7 +52,6 @@ and compile_expression = function
   | ToInt expr -> SWIR.ToInt (compile_expression expr)
   | ToUint expr -> SWIR.ToUint (compile_expression expr)
   | FunctionCall (name, args) -> SWIR.FunctionCall (name, List.map compile_expression args)
-  | Print expr -> SWIR.Print (compile_expression expr)
   | Try input -> SWIR.Try (compile_expression input)
   | Unwrap (input, thrown) -> SWIR.Unwrap (compile_expression input, compile_expression thrown)
   | UnwrapPanic input -> SWIR.UnwrapPanic (compile_expression input)

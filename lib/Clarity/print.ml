@@ -69,7 +69,6 @@ and print_expression ppf = function
   | ToInt expr -> print_operation ppf "to-int" [expr]
   | ToUint expr -> print_operation ppf "to-uint" [expr]
   | FunctionCall (name, args) -> print_operation ppf name args
-  | Print expr -> fprintf ppf "(print %a)" print_expression expr
   | Try input -> print_operation ppf "try!" [input]
   | Unwrap (input, thrown) -> print_operation ppf "unwrap!" [input; thrown]
   | UnwrapPanic input -> print_operation ppf "unwrap-panic" [input]

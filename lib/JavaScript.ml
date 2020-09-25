@@ -103,7 +103,6 @@ and print_expression ppf = function
   | SWIR.ToInt expr -> print_function_call ppf "clarity.toInt" [expr]
   | SWIR.ToUint expr -> print_function_call ppf "clarity.toUint" [expr]
   | SWIR.FunctionCall (name, args) -> print_function_call ppf name args
-  | SWIR.Print expr -> fprintf ppf "console.log(%a)" print_expression expr
   | SWIR.Try input ->
     fprintf ppf "clarity.tryUnwrap(%a)" print_expression input
   | SWIR.Unwrap (input, thrown) ->

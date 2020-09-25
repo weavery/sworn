@@ -477,7 +477,7 @@ print:
     link: https://docs.blockstack.org/references/language-clarity#print
     implementations:
       sworn:
-        js: true
+        js: runtime
         wasm:
 
 response:
