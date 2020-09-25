@@ -310,7 +310,7 @@ is-eq:
     link: https://docs.blockstack.org/references/language-clarity#is-eq
     implementations:
       sworn:
-        js: true
+        js: runtime
         wasm:
 
 is-err:
@@ -318,7 +318,7 @@ is-err:
     link: https://docs.blockstack.org/references/language-clarity#is-err
     implementations:
       sworn:
-        js: true
+        js: runtime
         wasm:
 
 is-none:
@@ -326,7 +326,7 @@ is-none:
     link: https://docs.blockstack.org/references/language-clarity#is-none
     implementations:
       sworn:
-        js: true
+        js: runtime
         wasm:
 
 is-ok:
@@ -334,7 +334,7 @@ is-ok:
     link: https://docs.blockstack.org/references/language-clarity#is-ok
     implementations:
       sworn:
-        js: true
+        js: runtime
         wasm:
 
 is-some:
@@ -342,7 +342,7 @@ is-some:
     link: https://docs.blockstack.org/references/language-clarity#is-some
     implementations:
       sworn:
-        js: true
+        js: runtime
         wasm:
 
 keccak256:
@@ -437,7 +437,7 @@ ok:
     link: https://docs.blockstack.org/references/language-clarity#ok
     implementations:
       sworn:
-        js: true
+        js: runtime
         wasm: true
 
 optional:
@@ -517,7 +517,7 @@ some:
     link: https://docs.blockstack.org/references/language-clarity#some
     implementations:
       sworn:
-        js: true
+        js: runtime
         wasm:
 
 string-ascii:

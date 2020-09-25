@@ -286,11 +286,11 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`hash160`](https://docs.blockstack.org/references/language-clarity#hash160) | function | ✅ |  | Requires Clarity.js.
 [`if`](https://docs.blockstack.org/references/language-clarity#if) | syntax | ✅ |  |
 [`int`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
-[`is-eq`](https://docs.blockstack.org/references/language-clarity#is-eq) | function | ✅ |  |
-[`is-err`](https://docs.blockstack.org/references/language-clarity#is-err) | function | ✅ |  |
-[`is-none`](https://docs.blockstack.org/references/language-clarity#is-none) | function | ✅ |  |
-[`is-ok`](https://docs.blockstack.org/references/language-clarity#is-ok) | function | ✅ |  |
-[`is-some`](https://docs.blockstack.org/references/language-clarity#is-some) | function | ✅ |  |
+[`is-eq`](https://docs.blockstack.org/references/language-clarity#is-eq) | function | ✅ |  | Requires Clarity.js.
+[`is-err`](https://docs.blockstack.org/references/language-clarity#is-err) | function | ✅ |  | Requires Clarity.js.
+[`is-none`](https://docs.blockstack.org/references/language-clarity#is-none) | function | ✅ |  | Requires Clarity.js.
+[`is-ok`](https://docs.blockstack.org/references/language-clarity#is-ok) | function | ✅ |  | Requires Clarity.js.
+[`is-some`](https://docs.blockstack.org/references/language-clarity#is-some) | function | ✅ |  | Requires Clarity.js.
 [`keccak256`](https://docs.blockstack.org/references/language-clarity#keccak256) | function | ✅ |  | Requires Clarity.js.
 [`len`](https://docs.blockstack.org/references/language-clarity#len) | function | ✅ |  |
 [`list`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ |  |
@@ -302,17 +302,17 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`nft-transfer?`](https://docs.blockstack.org/references/language-clarity#nft-transfer) | function | ✅ |  | Requires Clarity.js.
 [`none`](https://docs.blockstack.org/references/language-clarity#none) | constant | ✅ |  |
 [`not`](https://docs.blockstack.org/references/language-clarity#not) | function | ✅ |  |
-[`ok`](https://docs.blockstack.org/references/language-clarity#ok) | function | ✅ | ✅ |
+[`ok`](https://docs.blockstack.org/references/language-clarity#ok) | function | ✅ | ✅ | Requires Clarity.js.
 [`optional`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
 [`or`](https://docs.blockstack.org/references/language-clarity#or) | syntax | ✅ |  |
 [`pow`](https://docs.blockstack.org/references/language-clarity#pow) | function | ✅ | ✅ |
 [`principal`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ |  |
-[`print`](https://docs.blockstack.org/references/language-clarity#print) | function | ✅ |  |
+[`print`](https://docs.blockstack.org/references/language-clarity#print) | function | ✅ |  | Requires Clarity.js.
 [`response`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ |  |
 [`sha256`](https://docs.blockstack.org/references/language-clarity#sha256) | function | ✅ |  | Requires Clarity.js.
 [`sha512`](https://docs.blockstack.org/references/language-clarity#sha512) | function | ✅ |  | Requires Clarity.js.
 [`sha512/256`](https://docs.blockstack.org/references/language-clarity#sha512256) | function | ✅ |  | Requires Clarity.js.
-[`some`](https://docs.blockstack.org/references/language-clarity#some) | function | ✅ |  |
+[`some`](https://docs.blockstack.org/references/language-clarity#some) | function | ✅ |  | Requires Clarity.js.
 [`stx-burn?`](https://docs.blockstack.org/references/language-clarity#stx-burn) | function | ❎ | ❎ | Not supported.
 [`stx-get-balance`](https://docs.blockstack.org/references/language-clarity#stx-get-balance) | function | ❎ | ❎ | Not supported.
 [`stx-transfer?`](https://docs.blockstack.org/references/language-clarity#stx-transfer) | function | ❎ | ❎ | Not supported.

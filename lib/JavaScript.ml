@@ -72,22 +72,22 @@ and print_expressions ppf = function
 
 and print_expression ppf = function
   | SWIR.Literal lit -> print_literal ppf lit
-  | SWIR.SomeExpression expr -> print_expression ppf expr
+  | SWIR.SomeExpression expr -> print_function_call ppf "some" [expr]
   | SWIR.ListExpression exprs -> print_list ppf exprs
-  | SWIR.IsNone expr -> fprintf ppf "(%a === null)" print_expression expr
-  | SWIR.IsSome expr -> fprintf ppf "(%a !== null)" print_expression expr
-  | SWIR.IsErr expr -> fprintf ppf "(%a instanceof clarity.Err)" print_expression expr
-  | SWIR.IsOk expr -> fprintf ppf "!(%a instanceof clarity.Err)" print_expression expr
+  | SWIR.IsNone expr -> print_function_call ppf "is-none" [expr]
+  | SWIR.IsSome expr -> print_function_call ppf "is-some" [expr]
+  | SWIR.IsErr expr -> print_function_call ppf "is-err" [expr]
+  | SWIR.IsOk expr -> print_function_call ppf "is-ok" [expr]
   | SWIR.DefaultTo (def, opt) ->
     fprintf ppf "(%a ?? %a)" print_expression opt print_expression def
   | SWIR.VarGet var -> fprintf ppf "state.%s" var
   | SWIR.VarSet (var, val') -> fprintf ppf "state.%s = %a" var print_expression val'
   | SWIR.Err expr -> fprintf ppf "result = clarity.err(%a)" print_expression expr
-  | SWIR.Ok expr -> fprintf ppf "result = %a" print_expression expr
+  | SWIR.Ok expr -> fprintf ppf "result = clarity.ok(%a)" print_expression expr
   | SWIR.Not expr -> fprintf ppf "(!%a)" print_expression expr
   | SWIR.And exprs -> print_operation ppf "&&" exprs
   | SWIR.Or exprs -> print_operation ppf "||" exprs
-  | SWIR.Eq exprs -> print_operation ppf "===" exprs  (* TODO: 3+ arity *)
+  | SWIR.Eq exprs -> print_function_call ppf "is-eq" exprs
   | SWIR.Lt (a, b) -> print_operation ppf "<" [a; b]
   | SWIR.Le (a, b) -> print_operation ppf "<=" [a; b]
   | SWIR.Gt (a, b) -> print_operation ppf ">" [a; b]
@@ -100,19 +100,14 @@ and print_expression ppf = function
   | SWIR.Pow (a, b) -> print_operation ppf "**" [a; b]
   | SWIR.Xor (a, b) -> print_operation ppf "^" [a; b]
   | SWIR.Len expr -> fprintf ppf "%a.length" print_expression expr
-  | SWIR.ToInt expr -> print_function_call ppf "clarity.toInt" [expr]
-  | SWIR.ToUint expr -> print_function_call ppf "clarity.toUint" [expr]
+  | SWIR.ToInt expr -> print_function_call ppf "to-int" [expr]
+  | SWIR.ToUint expr -> print_function_call ppf "to-uint" [expr]
   | SWIR.FunctionCall (name, args) -> print_function_call ppf name args
-  | SWIR.Try input ->
-    fprintf ppf "clarity.tryUnwrap(%a)" print_expression input
-  | SWIR.Unwrap (input, thrown) ->
-    fprintf ppf "clarity.unwrap(%a, %a)" print_expression input print_expression thrown
-  | SWIR.UnwrapPanic input ->
-    fprintf ppf "clarity.unwrapPanic(%a)" print_expression input
-  | SWIR.UnwrapErr (input, thrown) ->
-    fprintf ppf "clarity.unwrapErr(%a, %a)" print_expression input print_expression thrown
-  | SWIR.UnwrapErrPanic input ->
-    fprintf ppf "clarity.unwrapErrPanic(%a)" print_expression input
+  | SWIR.Try input -> print_function_call ppf "try!" [input]
+  | SWIR.Unwrap (input, thrown) -> print_function_call ppf "unwrap!" [input; thrown]
+  | SWIR.UnwrapPanic input -> print_function_call ppf "unwrap-panic" [input]
+  | SWIR.UnwrapErr (input, thrown) -> print_function_call ppf "unwrap-err!" [input; thrown]
+  | SWIR.UnwrapErrPanic input -> print_function_call ppf "unwrap-err-panic" [input]
   | SWIR.If (cond, then', else') ->
     fprintf ppf "(%a ? (%a) : (%a))"
       print_expression cond
@@ -126,8 +121,8 @@ and print_list ppf exprs =
 
 and print_function_call ppf name args =
   let is_primitive = Clarity.is_primitive name in
-  let name = if is_primitive then Printf.sprintf "clarity.%s" name else name in
   let name = mangle_name name in
+  let name = if is_primitive then Printf.sprintf "clarity.%s" name else name in
   let print_comma ppf () = Format.fprintf ppf ",@ " in
   fprintf ppf "%s(@[<h>%a@])" name
     (Format.pp_print_list ~pp_sep:print_comma print_expression) args
@@ -146,4 +141,11 @@ and print_literal ppf = function
     fprintf ppf "%s" (Big_int.string_of_big_int z)
   | SWIR.StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
 
-and mangle_name s = String.map (fun c -> if c = '-' then '_' else c) s
+and mangle_name = function
+  | "try!" -> "tryUnwrap"
+  | name ->
+    let filtered_chars = Str.regexp "[/?!]" in
+    let name = Str.global_replace filtered_chars "" name in
+    let words = String.split_on_char '-' name in
+    let words = List.map String.capitalize_ascii words in
+    String.uncapitalize_ascii (String.concat "" words)

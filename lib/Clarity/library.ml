@@ -5,6 +5,15 @@ let is_primitive = function
   | "concat" -> true
   | "filter" -> true
   | "fold" -> true
+  | "is-eq" -> true
+  | "is-err" -> true
+  | "is-none" -> true
+  | "is-ok" -> true
+  | "is-some" -> true
   | "map" -> true
+  | "ok" -> true
   | "print" -> true
+  | "some" -> true
+  | "to-int" -> true
+  | "to-uint" -> true
   | _ -> false

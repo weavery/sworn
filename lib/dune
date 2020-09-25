@@ -21,7 +21,7 @@
  (wrapped false)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
  (preprocessor_deps)
- (libraries Clarity SWIR num))
+ (libraries Clarity SWIR num str))
 
 (library
  (name SWIR)
