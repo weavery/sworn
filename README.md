@@ -248,14 +248,14 @@ an important evolution for the future of smart contracts.
 
 Feature | Type | JavaScript | WebAssembly | Notes
 ------- | ---- | ---------- | ----------- | -----
-[`*`](https://docs.blockstack.org/references/language-clarity#multiply) | function | ✅ | ✅ |
-[`+`](https://docs.blockstack.org/references/language-clarity#add) | function | ✅ | ✅ |
-[`-`](https://docs.blockstack.org/references/language-clarity#subtract) | function | ✅ | ✅ |
-[`/`](https://docs.blockstack.org/references/language-clarity#divide) | function | ✅ | ✅ |
-[`<`](https://docs.blockstack.org/references/language-clarity#less-than) | function | ✅ |  |
-[`<=`](https://docs.blockstack.org/references/language-clarity#less-than-or-equal) | function | ✅ |  |
-[`>`](https://docs.blockstack.org/references/language-clarity#greater-than) | function | ✅ |  |
-[`>=`](https://docs.blockstack.org/references/language-clarity#greater-than-or-equal) | function | ✅ |  |
+[`*`](https://docs.blockstack.org/references/language-clarity#-multiply) | function | ✅ | ✅ |
+[`+`](https://docs.blockstack.org/references/language-clarity#-add) | function | ✅ | ✅ |
+[`-`](https://docs.blockstack.org/references/language-clarity#--subtract) | function | ✅ | ✅ |
+[`/`](https://docs.blockstack.org/references/language-clarity#-divide) | function | ✅ | ✅ |
+[`<`](https://docs.blockstack.org/references/language-clarity#-less-than) | function | ✅ |  |
+[`<=`](https://docs.blockstack.org/references/language-clarity#-less-than-or-equal) | function | ✅ |  |
+[`>`](https://docs.blockstack.org/references/language-clarity#-greater-than) | function | ✅ |  |
+[`>=`](https://docs.blockstack.org/references/language-clarity#-greater-than-or-equal) | function | ✅ |  |
 [`and`](https://docs.blockstack.org/references/language-clarity#and) | syntax | ✅ |  |
 [`append`](https://docs.blockstack.org/references/language-clarity#append) | function | ✅ |  | Requires Clarity.js.
 [`as-contract`](https://docs.blockstack.org/references/language-clarity#as-contract) | syntax | ✅ |  | Requires Clarity.js.

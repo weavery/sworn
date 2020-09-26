@@ -2,7 +2,7 @@
 
 "*":
   function:
-    link: https://docs.blockstack.org/references/language-clarity#multiply
+    link: https://docs.blockstack.org/references/language-clarity#-multiply
     implementations:
       sworn:
         js: true
@@ -10,7 +10,7 @@
 
 "+":
   function:
-    link: https://docs.blockstack.org/references/language-clarity#add
+    link: https://docs.blockstack.org/references/language-clarity#-add
     implementations:
       sworn:
         js: true
@@ -18,7 +18,7 @@
 
 "-":
   function:
-    link: https://docs.blockstack.org/references/language-clarity#subtract
+    link: https://docs.blockstack.org/references/language-clarity#--subtract
     implementations:
       sworn:
         js: true
@@ -26,7 +26,7 @@
 
 "/":
   function:
-    link: https://docs.blockstack.org/references/language-clarity#divide
+    link: https://docs.blockstack.org/references/language-clarity#-divide
     implementations:
       sworn:
         js: true
@@ -34,7 +34,7 @@
 
 "<":
   function:
-    link: https://docs.blockstack.org/references/language-clarity#less-than
+    link: https://docs.blockstack.org/references/language-clarity#-less-than
     implementations:
       sworn:
         js: true
@@ -42,7 +42,7 @@
 
 "<=":
   function:
-    link: https://docs.blockstack.org/references/language-clarity#less-than-or-equal
+    link: https://docs.blockstack.org/references/language-clarity#-less-than-or-equal
     implementations:
       sworn:
         js: true
@@ -50,7 +50,7 @@
 
 ">":
   function:
-    link: https://docs.blockstack.org/references/language-clarity#greater-than
+    link: https://docs.blockstack.org/references/language-clarity#-greater-than
     implementations:
       sworn:
         js: true
@@ -58,7 +58,7 @@
 
 ">=":
   function:
-    link: https://docs.blockstack.org/references/language-clarity#greater-than-or-equal
+    link: https://docs.blockstack.org/references/language-clarity#-greater-than-or-equal
     implementations:
       sworn:
         js: true
