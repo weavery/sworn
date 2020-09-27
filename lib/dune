@@ -41,3 +41,14 @@
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
  (preprocessor_deps)
  (libraries SWIR num wasm))
+
+(library
+ (name Yul)
+ (modules Yul)
+ (wrapped false)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (preprocessor_deps
+  Yul/grammar.ml
+  Yul/print.ml
+  Yul/print.mli)
+ (libraries num))
