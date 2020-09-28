@@ -13,6 +13,8 @@
  (wrapped false)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
  (preprocessor_deps
+  compare.ml
+  compare.mli
   compile.ml
   compile.mli
   grammar.ml
@@ -25,5 +27,7 @@
   parser.ml
   parser.mli
   print.ml
-  print.mli)
+  print.mli
+  sexp.ml
+  sexp.mli)
  (libraries SWIR menhirLib num sexplib))

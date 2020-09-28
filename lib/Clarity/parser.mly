@@ -1,5 +1,9 @@
 (* This is free and unencumbered software released into the public domain. *)
 
+%{
+open Sexp
+%}
+
 %token NONE
 %token FALSE
 %token TRUE
@@ -12,8 +16,8 @@
 %token RPAREN
 %token EOF
 
-%start <expression list> parse
-%start <expression> expression
+%start <Sexp.t list> parse
+%start <Sexp.t> expression
 %start <literal> literal
 
 %%
@@ -23,17 +27,9 @@ parse:
   ;
 
 expression:
-  | list_ { $1 }
-  | atom { $1 }
-  ;
-
-list_:
-  | LPAREN list(expression) RPAREN  { ListExpression $2 }
-  ;
-
-atom:
-  | literal { Literal $1 }
-  | identifier { Literal (StringLiteral $1) }  /* TODO */
+  | LPAREN list(expression) RPAREN { List $2 }
+  | literal { Atom $1 }
+  | identifier { Atom (StringLiteral $1) }  /* TODO */
   ;
 
 literal:

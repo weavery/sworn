@@ -7,3 +7,5 @@ val print_definition : Format.formatter -> definition -> unit
 val print_parameter : Format.formatter -> parameter -> unit
 
 val print_expression : Format.formatter -> expression -> unit
+
+val print_literal : Format.formatter -> literal -> unit
