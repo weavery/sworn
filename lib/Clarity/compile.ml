@@ -21,6 +21,7 @@ and compile_parameter = function
   | (name, type') -> (name, Some (compile_type type'))
 
 and compile_expression = function
+  | Identifier id -> SWIR.Identifier id
   | Literal lit -> SWIR.Literal (compile_literal lit)
   | SomeExpression expr -> SWIR.SomeExpression (compile_expression expr)
   | ListExpression exprs -> SWIR.ListExpression (List.map compile_expression exprs)

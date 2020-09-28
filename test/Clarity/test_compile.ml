@@ -1,15 +1,17 @@
 (* This is free and unencumbered software released into the public domain. *)
 
 let check_type input output =
-  let input = Sexplib.Sexp.of_string input in
-  let clarity = Clarity.parse_type input in
+  let lexbuf = Lexing.from_string input in
+  let sexp = Clarity.expression Clarity.read_token lexbuf in
+  let clarity = Clarity.parse_type sexp in
   let swir = Clarity.compile_type clarity in
   let actual = SWIR.type_to_string swir in
   Alcotest.(check string) "" output actual
 
 let check_expression input output =
-  let input = Sexplib.Sexp.of_string input in
-  let clarity = Clarity.parse_expression input in
+  let lexbuf = Lexing.from_string input in
+  let sexp = Clarity.expression Clarity.read_token lexbuf in
+  let clarity = Clarity.parse_expression sexp in
   let swir = Clarity.compile_expression clarity in
   let ppf = Format.str_formatter in
   let _ = Format.fprintf ppf "@[<h>%a@]" SWIR.print_expression swir in
@@ -17,8 +19,7 @@ let check_expression input output =
   Alcotest.(check string) "" output actual
 
 let check_definition ~input ~output =
-  let input = Sexplib.Sexp.of_string input in
-  let clarity = Clarity.parse_definition input in
+  let clarity = Clarity.parse_program input |> List.hd in
   let swir = Clarity.compile_definition clarity in
   let ppf = Format.str_formatter in
   let _ = Format.fprintf ppf "@[<h>%a@]" SWIR.print_definition swir in
@@ -97,7 +98,7 @@ let hello_world () =
     ~output:"(define say-hi\n  (function () @public\n    (ok \"hello world\")))";
   check_definition
     ~input:{|(define-public (echo-number (val int)) (ok val))|}
-    ~output:"(define echo-number\n  (function ((val i128)) @public\n    (ok \"val\")))"  (* TODO *)
+    ~output:"(define echo-number\n  (function ((val i128)) @public\n    (ok val)))"
 
 let () =
   Alcotest.run "Clarity" [

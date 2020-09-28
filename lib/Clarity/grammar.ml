@@ -15,6 +15,7 @@ and function' = identifier * parameter list * expression list
 and parameter = string * type'
 
 and expression =
+  | Identifier of string
   | Literal of literal
   | SomeExpression of expression
   | ListExpression of expression list
