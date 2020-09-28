@@ -5,6 +5,6 @@ let rec equal_expression a b = match (a, b) with
   | (a, b) -> a = b
 
 and equal_literal a b = match (a, b) with
-  | IntLiteral a, IntLiteral b -> Big_int.eq_big_int a b
-  | UintLiteral a, UintLiteral b -> Big_int.eq_big_int a b
+  | IntLiteral a, IntLiteral b -> Integer.equal a b
+  | UintLiteral a, UintLiteral b -> Integer.equal a b
   | (a, b) -> a = b

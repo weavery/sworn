@@ -36,8 +36,8 @@ rule read_token = parse
   | '(' { LPAREN }
   | ')' { RPAREN }
   | '"' { read_string (Buffer.create 16) lexbuf }
-  | int { INT (Big_int.big_int_of_string (Lexing.lexeme lexbuf)) }
-  | uint { UINT (Big_int.big_int_of_string (drop_prefix 1 (Lexing.lexeme lexbuf))) }
+  | int { INT (Integer.of_string (Lexing.lexeme lexbuf)) }
+  | uint { UINT (Integer.of_string (drop_prefix 1 (Lexing.lexeme lexbuf))) }
   | buff  { BUFF (decode_buffer (drop_prefix 2 (Lexing.lexeme lexbuf))) }
   | "none" { NONE }
   | "false" { FALSE }

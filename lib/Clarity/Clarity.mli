@@ -1,5 +1,6 @@
 (* This is free and unencumbered software released into the public domain. *)
 
+#include "integer.mli"
 #include "grammar.ml"
 
 val int_literal : int -> literal

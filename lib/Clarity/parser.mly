@@ -7,8 +7,8 @@ open Sexp
 %token NONE
 %token FALSE
 %token TRUE
-%token <Big_int.big_int> INT
-%token <Big_int.big_int> UINT
+%token <Integer.t> INT
+%token <Integer.t> UINT
 %token <string> BUFF
 %token <string> STRING
 %token <string> ID

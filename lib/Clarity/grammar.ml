@@ -56,8 +56,8 @@ and expression =
 and literal =
   | NoneLiteral
   | BoolLiteral of bool
-  | IntLiteral of Big_int.big_int
-  | UintLiteral of Big_int.big_int
+  | IntLiteral of Integer.t
+  | UintLiteral of Integer.t
   | BuffLiteral of string
   | StringLiteral of string
 

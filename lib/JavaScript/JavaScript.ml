@@ -138,7 +138,7 @@ and print_literal ppf = function
   | SWIR.I64Literal n -> fprintf ppf "%Ld" n
   | SWIR.U64Literal n -> fprintf ppf "%Lu" n
   | SWIR.I128Literal z | SWIR.U128Literal z ->
-    fprintf ppf "%s" (Big_int.string_of_big_int z)
+    fprintf ppf "%s" (Clarity.Integer.to_string z)
   | SWIR.BufferLiteral s -> print_buffer ppf s
   | SWIR.StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
 

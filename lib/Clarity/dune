@@ -18,6 +18,8 @@
   compile.ml
   compile.mli
   grammar.ml
+  integer.ml
+  integer.mli
   lexer.ml
   lexer.mli
   library.ml

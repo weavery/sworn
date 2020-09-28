@@ -104,9 +104,9 @@ and parse_type = function
   | Sym "uint" -> Uint
   | List [Sym "optional"; t] -> Optional (parse_type t)
   | List [Sym "response"; ok; err] -> Response (parse_type ok, parse_type err)
-  | List [Sym "buff"; Lit (IntLiteral len)] -> Buff (Big_int.int_of_big_int len)
-  | List [Sym "string-ascii"; Lit (IntLiteral len)] -> String (Big_int.int_of_big_int len, ASCII)
-  | List [Sym "string-utf8"; Lit (IntLiteral len)] -> String (Big_int.int_of_big_int len, UTF8)
-  | List [Sym "list"; Lit (IntLiteral len); t] -> List (Big_int.int_of_big_int len, parse_type t)
+  | List [Sym "buff"; Lit (IntLiteral len)] -> Buff (Integer.to_int len)
+  | List [Sym "string-ascii"; Lit (IntLiteral len)] -> String (Integer.to_int len, ASCII)
+  | List [Sym "string-utf8"; Lit (IntLiteral len)] -> String (Integer.to_int len, UTF8)
+  | List [Sym "list"; Lit (IntLiteral len); t] -> List (Integer.to_int len, parse_type t)
   | List (Sym "tuple" :: _) -> Tuple []  (* TODO: tuple *)
   | _ -> failwith "invalid Clarity type"
