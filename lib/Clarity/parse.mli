@@ -2,8 +2,8 @@
 
 val parse_program : string -> program
 
-val parse_definition : Sexplib.Sexp.t -> definition
+val parse_definition : Sexp.t -> definition
 
-val parse_expression : Sexplib.Sexp.t -> expression
+val parse_expression : Sexp.t -> expression
 
-val parse_type : Sexplib.Sexp.t -> type'
+val parse_type : Sexp.t -> type'

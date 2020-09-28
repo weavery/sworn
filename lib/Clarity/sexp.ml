@@ -2,18 +2,21 @@
 
 module Sexp = struct
   type t =
-    | Atom of literal
+    | Sym of string
+    | Lit of literal
     | List of t list
 
   let rec equal a b = match (a, b) with
-    | Atom a, Atom b -> equal_literal a b
+    | Sym a, Sym b -> a = b
+    | Lit a, Lit b -> equal_literal a b
     | List [], List [] -> true
     | List (x :: xs), List (y :: ys) ->
       (equal x y) && (equal (List xs) (List ys))
     | _, _ -> false
 
   let rec print ppf = function
-    | Atom literal -> print_literal ppf literal
+    | Sym id -> Format.fprintf ppf "%s" id
+    | Lit literal -> print_literal ppf literal
     | List exprs ->
       Format.fprintf ppf "(%a)"
         (Format.pp_print_list ~pp_sep:Format.pp_print_space print) exprs

@@ -18,16 +18,21 @@ let literal () =
   check_literal "none" (NoneLiteral);
   check_literal "false" (BoolLiteral false);
   check_literal "true" (BoolLiteral true);
-  check_literal "42" (IntLiteral (Big_int.big_int_of_int 42));
-  check_literal "u42" (UintLiteral (Big_int.big_int_of_int 42));
+  check_literal "42" (int_literal 42);
+  check_literal "u42" (uint_literal 42);
   check_literal "0xabcd" (BuffLiteral "\xab\xcd");
-  check_literal "0xABCD" (BuffLiteral "\xab\xcd")
+  check_literal "0xABCD" (BuffLiteral "\xab\xcd");
+  check_literal {|"Hello"|} (StringLiteral "Hello");
+  check_literal {|"\t\r\n"|} (StringLiteral "\t\r\n")
 
 let expressions () =
+  let open Sexp in
   check_parse "" [];
-  check_parse "()"  [Sexp.List []];
-  check_parse "(42)"  [Sexp.List [Sexp.Atom (IntLiteral (Big_int.big_int_of_int 42))]];
-  check_parse "((43))"  [Sexp.List [Sexp.List [Sexp.Atom (IntLiteral (Big_int.big_int_of_int 42))]]]
+  check_parse "()"  [List []];
+  check_parse "(foobar)"  [List [Sym "foobar"]];
+  check_parse "(42)"  [List [Lit (int_literal 42)]];
+  check_parse "(1 2)" [List [Lit (int_literal 1); Lit (int_literal 2)]];
+  check_parse "((42))"  [List [List [Lit (int_literal 42)]]]
 
 let () =
   Alcotest.run "Clarity" [

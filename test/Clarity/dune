@@ -2,10 +2,10 @@
  (name test_compile)
  (modules test_compile)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
- (libraries Clarity SWIR alcotest sexplib))
+ (libraries Clarity SWIR alcotest))
 
 (test
  (name test_parse)
  (modules test_parse)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
- (libraries Clarity alcotest sexplib))
+ (libraries Clarity alcotest))

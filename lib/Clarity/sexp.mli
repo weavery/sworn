@@ -2,7 +2,8 @@
 
 module Sexp : sig
   type t =
-    | Atom of literal
+    | Sym of string
+    | Lit of literal
     | List of t list
   val equal : t -> t -> bool
   val print : Format.formatter -> t -> unit

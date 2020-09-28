@@ -7,7 +7,6 @@ let version = "0.2.0"  (* TODO: preprocess from VERSION *)
 exception Error of int * string * string
 
 let sworn verbose paths output target _optimize =
-  let sprintf = Printf.sprintf in
   let fprintf = Format.fprintf in
 
   let eprintf = if Unix.isatty (Unix.descr_of_out_channel stderr)
@@ -76,7 +75,7 @@ let sworn verbose paths output target _optimize =
   let process_file path =
     if verbose then eprintf "@{<yellow>Compiling %s...@}@." path;
     let input = read_file path in
-    let program = Clarity.parse_program (sprintf "(clarity %s)" input) in
+    let program = Clarity.parse_program input in
     process_program program target
   in
 

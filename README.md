@@ -186,14 +186,14 @@ Sworn from source code:
 - [ISO8601](https://opam.ocaml.org/packages/ISO8601/)
   for date handling
 
+- [Menhir](https://opam.ocaml.org/packages/menhir/)
+  for parsing
+
 - [Num](https://opam.ocaml.org/packages/num/)
   for 128-bit integers
 
 - [Ocolor](https://opam.ocaml.org/packages/ocolor/)
   for terminal colors
-
-- [Sexplib](https://opam.ocaml.org/packages/sexplib/)
-  for S-expression parsing
 
 - [Wasm](https://opam.ocaml.org/packages/wasm/)
   for WebAssembly code generation
@@ -201,7 +201,7 @@ Sworn from source code:
 These aforementioned dependencies are all best installed via OPAM:
 
 ```bash
-opam install alcotest cmdliner cppo iso8601 num ocolor sexplib wasm
+opam install -y alcotest cmdliner cppo iso8601 menhir num ocolor wasm
 ```
 
 ### Running the program

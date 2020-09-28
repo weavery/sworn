@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - The JavaScript target now requires [Clarity.js].
+- Rewrote the Clarity parser to support more of the syntax.
 
 [Clarity.js]: https://github.com/weavery/clarity.js
 

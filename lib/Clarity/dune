@@ -30,4 +30,4 @@
   print.mli
   sexp.ml
   sexp.mli)
- (libraries SWIR menhirLib num sexplib))
+ (libraries SWIR menhirLib num))

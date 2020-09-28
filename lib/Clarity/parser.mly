@@ -28,8 +28,8 @@ parse:
 
 expression:
   | LPAREN list(expression) RPAREN { List $2 }
-  | literal { Atom $1 }
-  | identifier { Atom (StringLiteral $1) }  /* TODO */
+  | ID { Sym $1 }
+  | literal { Lit $1 }
   ;
 
 literal:
@@ -40,8 +40,4 @@ literal:
   | UINT { UintLiteral $1 }
   | BUFF { BuffLiteral $1 }
   | STRING { StringLiteral $1 }
-  ;
-
-identifier:
-  | ID { $1 }
   ;
