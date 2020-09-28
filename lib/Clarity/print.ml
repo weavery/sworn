@@ -85,6 +85,7 @@ and print_literal ppf = function
   | BoolLiteral b -> fprintf ppf "%s" (if b then "true" else "false")
   | IntLiteral z -> fprintf ppf "%s" (Big_int.string_of_big_int z)
   | UintLiteral n -> fprintf ppf "%s" (Big_int.string_of_big_int n)
+  | BuffLiteral s -> fprintf ppf "0x%s" s  (* TODO *)
   | StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
 
 and type_to_string = function

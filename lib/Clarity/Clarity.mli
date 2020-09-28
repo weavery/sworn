@@ -3,8 +3,9 @@
 #include "grammar.ml"
 #include "library.mli"
 #include "compile.mli"
-#include "parse.mli"
-#include "print.mli"
 
 #include "parser.mli"
 #include "lexer.mli"
+
+#include "parse.mli"
+#include "print.mli"

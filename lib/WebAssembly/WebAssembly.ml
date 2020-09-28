@@ -84,6 +84,7 @@ and compile_literal = function
     | Some z -> (i64_const (z @@ at)) @@ at
     | None -> failwith "TODO: compile_literal not implemented for 128-bit integers"  (* TODO *)
     end
+  | SWIR.BufferLiteral _ -> failwith "TODO: compile_literal: buff"  (* TODO *)
   | SWIR.StringLiteral _ -> failwith "TODO: compile_literal: string"  (* TODO *)
 
 and compile_export _funcs index = function

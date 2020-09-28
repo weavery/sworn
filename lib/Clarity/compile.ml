@@ -65,6 +65,7 @@ and compile_literal = function
   | BoolLiteral b -> SWIR.BoolLiteral b
   | IntLiteral z -> SWIR.I128Literal z
   | UintLiteral n -> SWIR.U128Literal n
+  | BuffLiteral s -> SWIR.BufferLiteral s
   | StringLiteral s -> SWIR.StringLiteral s
 
 and compile_type = function

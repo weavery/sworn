@@ -139,7 +139,15 @@ and print_literal ppf = function
   | SWIR.U64Literal n -> fprintf ppf "%Lu" n
   | SWIR.I128Literal z | SWIR.U128Literal z ->
     fprintf ppf "%s" (Big_int.string_of_big_int z)
+  | SWIR.BufferLiteral s -> print_buffer ppf s
   | SWIR.StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
+
+and print_buffer ppf buffer =
+  let print_byte ppf b = fprintf ppf "0x%x" (Char.code b) in
+  let print_comma ppf () = Format.fprintf ppf ",@ " in
+  let bytes = List.of_seq (String.to_seq buffer) in
+  fprintf ppf "Uint8Array.of([@[<h>%a@]])"
+    (Format.pp_print_list ~pp_sep:print_comma print_byte) bytes
 
 and mangle_name = function
   | "try!" -> "tryUnwrap"

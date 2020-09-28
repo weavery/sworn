@@ -100,17 +100,14 @@ and parse_expression sexp =
   | List (Atom name :: args) -> FunctionCall (name, (List.map parse_expression args))
   | List _ -> failwith "invalid Clarity expression"
 
-and parse_literal = function
-  | "none" -> Literal NoneLiteral
-  | "false" -> Literal (BoolLiteral false)
-  | "true" -> Literal (BoolLiteral true)
-  | token ->
-    let literal =
-      match Big_int.big_int_of_string_opt token with
-      | Some n -> IntLiteral n
-      | None -> StringLiteral token
-    in
-    Literal literal
+and parse_literal input =
+  try begin
+    let lexbuf = Lexing.from_string input in
+    match expression read_token lexbuf with
+    | None -> failwith "unreachable"
+    | Some literal -> literal
+  end
+  with SyntaxError _ -> Literal (StringLiteral input)
 
 and parse_type = function
   | Atom "principal" -> Principal

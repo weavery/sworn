@@ -3,8 +3,9 @@
 #include "grammar.ml"
 #include "library.ml"
 #include "compile.ml"
-#include "parse.ml"
-#include "print.ml"
 
 #include "parser.ml"
 #include "lexer.ml"
+
+#include "parse.ml"
+#include "print.ml"

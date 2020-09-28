@@ -58,6 +58,7 @@ and literal =
   | BoolLiteral of bool
   | IntLiteral of Big_int.big_int
   | UintLiteral of Big_int.big_int
+  | BuffLiteral of string
   | StringLiteral of string
 
 and identifier = string

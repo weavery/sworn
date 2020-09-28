@@ -63,6 +63,7 @@ and literal =
   | U64Literal of int64
   | I128Literal of Big_int.big_int
   | U128Literal of Big_int.big_int
+  | BufferLiteral of string
   | StringLiteral of string
 
 and identifier = string

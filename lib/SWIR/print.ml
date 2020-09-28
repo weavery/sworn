@@ -88,6 +88,7 @@ and print_literal ppf = function
   | U64Literal n -> fprintf ppf "%Lu" n
   | I128Literal z -> fprintf ppf "%s" (Big_int.string_of_big_int z)
   | U128Literal n -> fprintf ppf "%s" (Big_int.string_of_big_int n)
+  | BufferLiteral s -> fprintf ppf "0x%s" s  (* TODO *)
   | StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
 
 and print_type ppf type' =
