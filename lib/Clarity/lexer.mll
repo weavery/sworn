@@ -32,7 +32,7 @@ let buff = "0x" ['0'-'9' 'a'-'f' 'A'-'F']+
 
 rule read_token = parse
   | whitespace { read_token lexbuf }
-  | newline { read_token lexbuf }
+  | newline { Lexing.new_line lexbuf; read_token lexbuf }
   | '(' { LPAREN }
   | ')' { RPAREN }
   | int { INT (Big_int.big_int_of_string (Lexing.lexeme lexbuf)) }

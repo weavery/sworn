@@ -61,7 +61,7 @@ and parse_function_body sexp =
 and parse_expression sexp =
   let open Sexplib.Sexp in
   match sexp with
-  | Atom token -> parse_literal token
+  | Atom token -> Literal (parse_literal token)
   | List [Atom "some"; expr] -> SomeExpression (parse_expression expr)
   | List (Atom "list" :: exprs) -> ListExpression (List.map parse_expression exprs)
   | List [Atom "is-none"; expr] -> IsNone (parse_expression expr)
@@ -103,11 +103,9 @@ and parse_expression sexp =
 and parse_literal input =
   try begin
     let lexbuf = Lexing.from_string input in
-    match expression read_token lexbuf with
-    | None -> failwith "unreachable"
-    | Some literal -> literal
+    literal read_token lexbuf
   end
-  with SyntaxError _ -> Literal (StringLiteral input)
+  with SyntaxError _ -> StringLiteral input
 
 and parse_type = function
   | Atom "principal" -> Principal
