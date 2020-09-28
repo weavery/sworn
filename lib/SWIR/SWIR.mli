@@ -1,7 +1,7 @@
 (* This is free and unencumbered software released into the public domain. *)
 
-#include "SWIR/grammar.ml"
-#include "SWIR/print.mli"
+#include "grammar.ml"
+#include "print.mli"
 
 val program_constants : program -> program
 

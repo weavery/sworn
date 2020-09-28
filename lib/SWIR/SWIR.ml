@@ -1,7 +1,7 @@
 (* This is free and unencumbered software released into the public domain. *)
 
-#include "SWIR/grammar.ml"
-#include "SWIR/print.ml"
+#include "grammar.ml"
+#include "print.ml"
 
 let program_constants program =
   let filter = function (Const _) as c -> Some c | _ -> None in

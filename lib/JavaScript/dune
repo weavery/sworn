@@ -1,0 +1,7 @@
+(library
+ (name JavaScript)
+ (modules JavaScript)
+ (wrapped false)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (preprocessor_deps)
+ (libraries Clarity SWIR num str))

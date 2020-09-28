@@ -1,0 +1,7 @@
+(library
+ (name WebAssembly)
+ (modules WebAssembly)
+ (wrapped false)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (preprocessor_deps)
+ (libraries SWIR num wasm))

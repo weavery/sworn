@@ -1,0 +1,10 @@
+(library
+ (name Yul)
+ (modules Yul)
+ (wrapped false)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (preprocessor_deps
+  grammar.ml
+  print.ml
+  print.mli)
+ (libraries num))
