@@ -14,6 +14,9 @@ open Sexp
 %token <string> ID
 %token LPAREN
 %token RPAREN
+%token LBRACE
+%token RBRACE
+%token COLON
 %token EOF
 
 %start <Sexp.t list> parse
@@ -40,4 +43,5 @@ literal:
   | UINT { UintLiteral $1 }
   | BUFF { BuffLiteral $1 }
   | STRING { StringLiteral $1 }
+  | LBRACE ID COLON literal RBRACE { TupleLiteral ($2, $4) }
   ;

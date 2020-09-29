@@ -68,6 +68,7 @@ and compile_literal = function
   | UintLiteral n -> SWIR.U128Literal n
   | BuffLiteral s -> SWIR.BufferLiteral s
   | StringLiteral s -> SWIR.StringLiteral s
+  | TupleLiteral (k, v) -> SWIR.RecordLiteral (k, compile_literal v)
 
 and compile_type = function
   | Principal -> SWIR.Principal

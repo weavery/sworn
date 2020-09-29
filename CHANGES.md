@@ -5,26 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.3.0] - 2020-09-28
+## [0.3.0] - 2020-09-29
 
 ### Changed
 
-- The JavaScript target now requires [Clarity.js].
 - Rewrote the Clarity parser to support more of the syntax.
+- The JavaScript target now requires [Clarity.js].
 
 [Clarity.js]: https://github.com/weavery/clarity.js
 
 ### Added
 
-- Support for `uint` and `buff` literals.
+- Support for the `buff`, `principal`, `response`, and `tuple` types.
+- Support for `buff` and `uint` literals.
+- Support for `{ k: v }` tuple literals.
 - Support for function calls.
 - Support for `if` expressions.
-- Support for the `buff`, `principal`, `response`, and `tuple` types.
 - Support for `is-ok`, `is-err`, and `err`.
 - Support for `try!` and all `unwrap*` forms.
-- Support for `to-int` and `to-uint`.
 - Support for `append` and `concat`.
 - Support for `filter`, `fold`, and `map`.
+- Support for `to-int` and `to-uint`.
 
 ## [0.2.0] - 2020-09-22
 

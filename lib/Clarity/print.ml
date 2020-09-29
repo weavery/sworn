@@ -88,6 +88,7 @@ and print_literal ppf = function
   | UintLiteral n -> fprintf ppf "%s" (Integer.to_string n)
   | BuffLiteral s -> fprintf ppf "0x%s" s  (* TODO *)
   | StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
+  | TupleLiteral (k, v) -> fprintf ppf "{ %s: %a }" k print_literal v
 
 and type_to_string = function
   | Principal -> "principal"

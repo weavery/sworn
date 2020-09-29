@@ -23,7 +23,9 @@ let literal () =
   check_literal "0xabcd" (BuffLiteral "\xab\xcd");
   check_literal "0xABCD" (BuffLiteral "\xab\xcd");
   check_literal {|"Hello"|} (StringLiteral "Hello");
-  check_literal {|"\t\r\n"|} (StringLiteral "\t\r\n")
+  check_literal {|"\t\r\n"|} (StringLiteral "\t\r\n");
+  check_literal "{ id: 1337 }" (TupleLiteral ("id", int_literal 1337));
+  check_literal "{ name: \"blockstack\" }" (TupleLiteral ("name", StringLiteral "blockstack"))
 
 let expressions () =
   let open Sexp in

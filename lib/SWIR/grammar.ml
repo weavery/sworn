@@ -66,6 +66,7 @@ and literal =
   | U128Literal of Big_int.big_int
   | BufferLiteral of string
   | StringLiteral of string
+  | RecordLiteral of string * literal
 
 and identifier = string
 

@@ -19,6 +19,7 @@ and expression =
   | Literal of literal
   | SomeExpression of expression
   | ListExpression of expression list
+  (* TODO: TupleExpression *)
   | IsNone of expression
   | IsSome of expression
   | IsErr of expression
@@ -61,6 +62,7 @@ and literal =
   | UintLiteral of Integer.t
   | BuffLiteral of string
   | StringLiteral of string
+  | TupleLiteral of string * literal
 
 and identifier = string
 

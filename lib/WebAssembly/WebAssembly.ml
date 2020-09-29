@@ -86,6 +86,7 @@ and compile_literal = function
     end
   | SWIR.BufferLiteral _ -> failwith "TODO: compile_literal: buff"  (* TODO *)
   | SWIR.StringLiteral _ -> failwith "TODO: compile_literal: string"  (* TODO *)
+  | SWIR.RecordLiteral _ -> failwith "TODO: compile_literal: tuple"  (* TODO *)
 
 and compile_export _funcs index = function
   | SWIR.Function (_, s, _, _) ->

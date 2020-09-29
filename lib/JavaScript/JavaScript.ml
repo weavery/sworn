@@ -142,6 +142,8 @@ and print_literal ppf = function
     fprintf ppf "%s" (Clarity.Integer.to_string z)
   | SWIR.BufferLiteral s -> print_buffer ppf s
   | SWIR.StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
+  | SWIR.RecordLiteral (k, v) ->
+    fprintf ppf "clarity.tuple([\"%s\", %a])" k print_literal v
 
 and print_buffer ppf buffer =
   let print_byte ppf b = fprintf ppf "0x%x" (Char.code b) in

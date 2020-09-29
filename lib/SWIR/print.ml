@@ -91,6 +91,7 @@ and print_literal ppf = function
   | U128Literal n -> fprintf ppf "%s" (Big_int.string_of_big_int n)
   | BufferLiteral s -> fprintf ppf "0x%s" s  (* TODO *)
   | StringLiteral s -> fprintf ppf "\"%s\"" s  (* TODO: escaping *)
+  | RecordLiteral (k, v) -> fprintf ppf "{ %s: %a }" k print_literal v
 
 and print_type ppf type' =
   fprintf ppf "%s" (type_to_string type')
