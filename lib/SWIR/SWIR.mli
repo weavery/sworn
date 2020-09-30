@@ -2,6 +2,7 @@
 
 #include "grammar.ml"
 #include "print.mli"
+#include "compile.mli"
 
 val program_constants : program -> program
 

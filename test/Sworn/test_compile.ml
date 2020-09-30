@@ -4,7 +4,7 @@ let check_type input output =
   let lexbuf = Lexing.from_string input in
   let sexp = Clarity.expression Clarity.read_token lexbuf in
   let clarity = Clarity.parse_type sexp in
-  let swir = Clarity.compile_type clarity in
+  let swir = SWIR.compile_type clarity in
   let actual = SWIR.type_to_string swir in
   Alcotest.(check string) "" output actual
 
@@ -12,7 +12,7 @@ let check_expression input output =
   let lexbuf = Lexing.from_string input in
   let sexp = Clarity.expression Clarity.read_token lexbuf in
   let clarity = Clarity.parse_expression sexp in
-  let swir = Clarity.compile_expression clarity in
+  let swir = SWIR.compile_expression clarity in
   let ppf = Format.str_formatter in
   let _ = Format.fprintf ppf "@[<h>%a@]" SWIR.print_expression swir in
   let actual = Format.flush_str_formatter () in
@@ -20,7 +20,7 @@ let check_expression input output =
 
 let check_definition ~input ~output =
   let clarity = Clarity.parse_program input |> List.hd in
-  let swir = Clarity.compile_definition clarity in
+  let swir = SWIR.compile_definition clarity in
   let ppf = Format.str_formatter in
   let _ = Format.fprintf ppf "@[<h>%a@]" SWIR.print_definition swir in
   let actual = Format.flush_str_formatter () in

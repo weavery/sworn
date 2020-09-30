@@ -2,6 +2,7 @@
 
 #include "grammar.ml"
 #include "print.ml"
+#include "compile.ml"
 
 let program_constants program =
   let filter = function (Const _) as c -> Some c | _ -> None in
