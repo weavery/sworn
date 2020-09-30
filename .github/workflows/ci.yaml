@@ -29,7 +29,9 @@ jobs:
       - name: Install prerequisites
         run: opam install -y dune
       - name: Install dependencies
-        run: opam install -y alcotest cmdliner cppo iso8601 menhir num ocolor wasm
+        run: |
+          opam install -y alcotest cmdliner cppo iso8601 menhir num ocolor wasm
+          opam pin add -y clarity-lang https://github.com/weavery/clarity.ml -k git
       - name: Build `sworn`
         run: opam exec -- dune build
       - name: Run unit tests

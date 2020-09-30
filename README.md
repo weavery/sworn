@@ -177,6 +177,9 @@ Sworn from source code:
 - [Alcotest](https://opam.ocaml.org/packages/alcotest/)
   for unit tests
 
+- [Clarity.ml](https://github.com/weavery/clarity.ml)
+  for parsing Clarity code
+
 - [Cmdliner](https://opam.ocaml.org/packages/cmdliner/)
   for the command-line interface
 
@@ -202,6 +205,7 @@ These aforementioned dependencies are all best installed via OPAM:
 
 ```bash
 opam install -y alcotest cmdliner cppo iso8601 menhir num ocolor wasm
+opam pin add -y clarity-lang https://github.com/weavery/clarity.ml -k git
 ```
 
 ### Running the program
@@ -228,7 +232,7 @@ sudo install _build/default/bin/sworn/sworn.exe /usr/local/bin/sworn
 
 We thank [Arweave] and [Blockstack] for sponsoring the development of Sworn.
 
-We thank Blockstack and [Algorand] for having developed the Clarity language,
+We thank [Blockstack] and [Algorand] for having developed the Clarity language,
 an important evolution for the future of smart contracts.
 
 [Algorand]:       https://algorand.com

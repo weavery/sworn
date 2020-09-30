@@ -9,4 +9,4 @@
   grammar.ml
   print.ml
   print.mli)
- (libraries clarity num))
+ (libraries clarity-lang num))
