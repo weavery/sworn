@@ -1,0 +1,6 @@
+(test
+ (name counter)
+ (modules counter)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (preprocessor_deps counter.clar)
+ (libraries clarity-lang JavaScript SWIR))
