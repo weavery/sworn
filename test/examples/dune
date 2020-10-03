@@ -1,4 +1,11 @@
 (test
+ (name block_height)
+ (modules block_height)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (preprocessor_deps block_height.clar)
+ (libraries clarity-lang JavaScript SWIR))
+
+(test
  (name counter)
  (modules counter)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
