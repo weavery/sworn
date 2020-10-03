@@ -21,7 +21,8 @@ and compile_parameter = function
   | (name, type') -> (name, Some (compile_type type'))
 
 and compile_expression = function
-  | Clarity.Identifier id -> Identifier id
+  | Clarity.Keyword id -> FunctionCall (id, [])
+  | Identifier id -> Identifier id
   | Literal lit -> Literal (compile_literal lit)
   | SomeExpression expr -> SomeExpression (compile_expression expr)
   | ListExpression exprs -> ListExpression (List.map compile_expression exprs)
