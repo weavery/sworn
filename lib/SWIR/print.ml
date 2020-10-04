@@ -39,6 +39,7 @@ and print_expressions ppf = function
       (Format.pp_print_list ~pp_sep:Format.pp_print_cut print_expression) exprs
 
 and print_expression ppf = function
+  | Assert (cond, thrown) -> print_operation ppf "asserts!" [cond; thrown]
   | Identifier id -> fprintf ppf "%s" id
   | Literal lit -> print_literal ppf lit
   | SomeExpression expr -> fprintf ppf "(some %a)" print_expression expr

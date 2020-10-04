@@ -71,6 +71,8 @@ and print_expressions ppf = function
   | exprs -> Format.pp_print_list ~pp_sep:Format.pp_print_cut print_expression ppf exprs
 
 and print_expression ppf = function
+  | SWIR.Assert (cond, thrown) ->
+    fprintf ppf "if (!%a) return %a" print_expression cond print_expression thrown
   | SWIR.Identifier id -> fprintf ppf "%s" id
   | SWIR.Literal lit -> print_literal ppf lit
   | SWIR.SomeExpression expr -> print_function_call ppf "some" [expr]

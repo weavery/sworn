@@ -93,7 +93,7 @@ as-max-len?:
     link: https://docs.blockstack.org/references/language-clarity#as-max-len
     implementations:
       sworn:
-        js:
+        js: runtime
         wasm:
 
 asserts!:
@@ -101,7 +101,7 @@ asserts!:
     link: https://docs.blockstack.org/references/language-clarity#asserts
     implementations:
       sworn:
-        js:
+        js: runtime
         wasm:
 
 at-block:

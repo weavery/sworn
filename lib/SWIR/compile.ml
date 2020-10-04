@@ -73,6 +73,10 @@ and compile_function_call name args = match name with
   | "stx-get-balance"
   | "stx-transfer?"
   | "use-trait" -> failwith (sprintf "%s is not supported on SmartWeave" name)
+  | "asserts!" -> begin match args with
+      | [cond; thrown] -> Assert (compile_expression cond, compile_expression thrown)
+      | _ -> failwith "invalid asserts! operation"
+    end
   | _ -> FunctionCall (name, List.map compile_expression args)
 
 and compile_keyword = function

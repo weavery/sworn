@@ -35,16 +35,29 @@ let integer_arithmetic () =
   check_expression "(pow 2 3)" "(2 ** 3)";
   check_expression "(xor 1 2)" "(1 ^ 2)"
 
-let optional_values () =
+let operators () =
+  check_expression "(append (list 1 2 3 4) 5)" "clarity.append([1, 2, 3, 4], 5)";
+  check_expression "(as-max-len? (list 2 2 2) u3)" "clarity.asMaxLen([2, 2, 2], 3)";
+  check_expression "(as-max-len? (list 1 2 3) u2)" "clarity.asMaxLen([1, 2, 3], 2)";
+  check_expression "(as-max-len? (list 1 2 3) u2)" "clarity.asMaxLen([1, 2, 3], 2)";
+  check_expression "(asserts! (is-eq 1 1) (err 1))" "if (!clarity.isEq(1, 1)) return result = clarity.err(1)";  (* FIXME *)
+  check_expression "(concat \"hello \" \"world\")" "clarity.concat(\"hello \", \"world\")";
+  check_expression "block-height" "clarity.blockHeight()";
+  check_expression "contract-caller" "clarity.contractCaller()";
+  check_expression "(default-to 0 (some 1))" "(clarity.some(1) ?? 0)";
+  check_expression "(is-eq 1 1)" "clarity.isEq(1, 1)";
+  (* FIXME: check_expression "(is-err (ok 1))" "clarity.isErr(clarity.ok(1))"; *)
+  (* FIXME: check_expression "(is-err (err 1))" "clarity.isErr(clarity.err(1))"; *)
+  check_expression "(is-none 1)" "clarity.isNone(1)";
+  (* FIXME: check_expression "(is-ok (ok 1))" "clarity.isOk(clarity.ok(1))"; *)
+  (* FIXME: check_expression "(is-ok (err 1))" "clarity.isOk(clarity.err(1))"; *)
+  check_expression "(is-some 1)" "clarity.isSome(1)";
+  check_expression "(len \"blockstack\")" "\"blockstack\".length";
+  check_expression "(len (list 1 2 3 4 5))" "[1, 2, 3, 4, 5].length";
+  check_expression "(list 1 2 3)" "[1, 2, 3]";
   check_expression "none" "null";
   check_expression "(some 1)" "clarity.some(1)";
-  check_expression "(is-none 1)" "clarity.isNone(1)";
-  check_expression "(is-some 1)" "clarity.isSome(1)";
-  check_expression "(default-to 0 (some 1))" "(clarity.some(1) ?? 0)"
-
-let sequence_operations () =
-  check_expression "(list 1 2 3)" "[1, 2, 3]";
-  check_expression "(len \"foobar\")" "\"foobar\".length"
+  check_expression "tx-sender" "clarity.txSender()"
 
 let () =
   Alcotest.run "JavaScript" [
@@ -52,7 +65,6 @@ let () =
       "boolean logic", `Quick, boolean_logic;
       "relational operators", `Quick, relational_operators;
       "integer arithmetic", `Quick, integer_arithmetic;
-      "optional values", `Quick, optional_values;
-      "sequence operations", `Quick, sequence_operations;
+      "operators", `Quick, operators;
     ];
   ]

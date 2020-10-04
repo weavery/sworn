@@ -18,6 +18,7 @@ and modifier =
 and parameter = string * type' option
 
 and expression =
+  | Assert of expression * expression
   | Identifier of string
   | Literal of literal
   | SomeExpression of expression

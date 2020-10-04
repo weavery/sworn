@@ -263,8 +263,8 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`and`](https://docs.blockstack.org/references/language-clarity#and) | syntax | ✅ | 🚧 |
 [`append`](https://docs.blockstack.org/references/language-clarity#append) | function | ✅ | 🚧 |
 [`as-contract`](https://docs.blockstack.org/references/language-clarity#as-contract) | syntax | ✅ | 🚧 |
-[`as-max-len?`](https://docs.blockstack.org/references/language-clarity#as-max-len) | syntax | 🚧 | 🚧 |
-[`asserts!`](https://docs.blockstack.org/references/language-clarity#asserts) | syntax | 🚧 | 🚧 |
+[`as-max-len?`](https://docs.blockstack.org/references/language-clarity#as-max-len) | syntax | ✅ | 🚧 |
+[`asserts!`](https://docs.blockstack.org/references/language-clarity#asserts) | syntax | ✅ | 🚧 |
 [`at-block`](https://docs.blockstack.org/references/language-clarity#at-block) | syntax | ❌ | ❌ | Not supported by SmartWeave.
 [`begin`](https://docs.blockstack.org/references/language-clarity#begin) | syntax | ✅ | ✅ |
 [`block-height`](https://docs.blockstack.org/references/language-clarity#block-height) | keyword | ✅ | 🚧 |
