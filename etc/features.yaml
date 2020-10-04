@@ -94,7 +94,7 @@ at-block:
     implementations:
       sworn:
         js: false
-        wasm:
+        wasm: false
 
 begin:
   syntax:
@@ -142,7 +142,7 @@ contract-call?:
     implementations:
       sworn:
         js: false
-        wasm:
+        wasm: false
 
 contract-caller:
   keyword:
@@ -158,7 +158,7 @@ contract-of:
     implementations:
       sworn:
         js: false
-        wasm:
+        wasm: false
 
 default-to:
   function:
@@ -279,7 +279,7 @@ get-block-info?:
     implementations:
       sworn:
         js: false
-        wasm:
+        wasm: false
 
 hash160:
   function:

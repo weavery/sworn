@@ -26,9 +26,8 @@ end
 def status_icon(status)
   case status
     when true, 'runtime' then "✅"
-    when 'wip' then "🚧"
     when false then "❌"
-    else ''
+    else "🚧"
   end
 end
 
@@ -61,23 +60,32 @@ file "README.md" => %w(etc/features.txt etc/features.yaml) do |t|
     file.puts ["Feature", "Type", "JavaScript", "WebAssembly", "Notes"].join(' | ')
     file.puts ["-------", "----", "----------", "-----------", "-----"].join(' | ')
     status_of_features.each do |feature_name, feature_types|
-      next if feature_types.nil?
-      feature_types.each do |feature_type, feature_info|
-        feature_link = feature_info[:link] || '#'
-        sworn = feature_info[:implementations][:sworn]
-        sworn_js = sworn[:js]
-        sworn_wasm = sworn[:wasm]
-        next if sworn_js.nil? && sworn_wasm.nil?
+      if feature_types.nil?
         file.puts [
-          "[`#{feature_name}`](#{feature_link})",
-          feature_type,
-          status_icon(sworn_js),
-          status_icon(sworn_wasm),
-          case sworn_js
-            when false then "Not supported by SmartWeave."
-            else ""
-          end
+          "`#{feature_name}`",
+          "",
+          status_icon(nil),
+          status_icon(nil),
+          "",
         ].join(' | ').strip
+      else
+        feature_types.each do |feature_type, feature_info|
+          feature_link = feature_info[:link] || '#'
+          sworn = feature_info[:implementations][:sworn]
+          sworn_js = sworn[:js]
+          sworn_wasm = sworn[:wasm]
+          next if sworn_js.nil? && sworn_wasm.nil?
+          file.puts [
+            "[`#{feature_name}`](#{feature_link})",
+            feature_type,
+            status_icon(sworn_js),
+            status_icon(sworn_wasm),
+            case sworn_js
+              when false then "Not supported by SmartWeave."
+              else ""
+            end
+          ].join(' | ').strip
+        end
       end
     end
     file.puts
