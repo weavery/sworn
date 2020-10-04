@@ -101,7 +101,7 @@ let hello_world () =
     ~output:"(define echo-number\n  (function ((val i128)) @public\n    (ok val)))"
 
 let () =
-  Alcotest.run "Clarity" [
+  Alcotest.run "SWIR" [
     "compile", [
       "types", `Quick, types;
       "boolean logic", `Quick, boolean_logic;

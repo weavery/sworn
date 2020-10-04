@@ -1,0 +1,5 @@
+(test
+ (name test_print)
+ (modules test_print)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (libraries clarity-lang JavaScript SWIR alcotest))
