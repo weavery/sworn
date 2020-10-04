@@ -11,3 +11,10 @@
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
  (preprocessor_deps counter.clar)
  (libraries clarity-lang JavaScript SWIR))
+
+(test
+ (name tx_sender)
+ (modules tx_sender)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (preprocessor_deps tx_sender.clar)
+ (libraries clarity-lang JavaScript SWIR))
