@@ -334,3 +334,5 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`var-get`](https://docs.blockstack.org/references/language-clarity#var-get) | function | ✅ | ✅ |
 [`var-set`](https://docs.blockstack.org/references/language-clarity#var-set) | function | ✅ | ✅ |
 [`xor`](https://docs.blockstack.org/references/language-clarity#xor) | function | ✅ |  |
+
+**Legend**: ❌ = not supported. 🚧 = work in progress. ✅ = supported.

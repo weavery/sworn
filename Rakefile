@@ -81,5 +81,7 @@ file "README.md" => %w(etc/features.txt etc/features.yaml) do |t|
         ].join(' | ').strip
       end
     end
+    file.puts
+    file.puts "**Legend**: ❌ = not supported. 🚧 = work in progress. ✅ = supported."
   end
 end
