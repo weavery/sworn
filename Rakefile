@@ -27,7 +27,7 @@ def status_icon(status)
   case status
     when true, 'runtime' then "✅"
     when 'wip' then "🚧"
-    when false then "❎"
+    when false then "❌"
     else ''
   end
 end
@@ -74,8 +74,7 @@ file "README.md" => %w(etc/features.txt etc/features.yaml) do |t|
           status_icon(sworn_js),
           status_icon(sworn_wasm),
           case sworn_js
-            when 'runtime' then "Requires Clarity.js."
-            when false then "Not supported."
+            when false then "Not supported by SmartWeave."
             else ""
           end
         ].join(' | ').strip

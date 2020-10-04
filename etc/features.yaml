@@ -93,7 +93,7 @@ at-block:
     link: https://docs.blockstack.org/references/language-clarity#at-block
     implementations:
       sworn:
-        js: runtime
+        js: false
         wasm:
 
 begin:
@@ -141,7 +141,7 @@ contract-call?:
     link: https://docs.blockstack.org/references/language-clarity#contract-call
     implementations:
       sworn:
-        js: runtime
+        js: false
         wasm:
 
 contract-caller:
@@ -157,7 +157,7 @@ contract-of:
     link: https://docs.blockstack.org/references/language-clarity#contract-of
     implementations:
       sworn:
-        js: runtime
+        js: false
         wasm:
 
 default-to:
@@ -278,7 +278,7 @@ get-block-info?:
     link: https://docs.blockstack.org/references/language-clarity#get-block-info
     implementations:
       sworn:
-        js: runtime
+        js: false
         wasm:
 
 hash160:
