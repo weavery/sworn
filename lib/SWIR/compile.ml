@@ -21,7 +21,7 @@ and compile_parameter = function
   | (name, type') -> (name, Some (compile_type type'))
 
 and compile_expression = function
-  | Clarity.Keyword id -> FunctionCall (id, [])
+  | Clarity.Keyword id -> compile_keyword id
   | Identifier id -> Identifier id
   | Literal lit -> Literal (compile_literal lit)
   | SomeExpression expr -> SomeExpression (compile_expression expr)
@@ -53,7 +53,7 @@ and compile_expression = function
   | Len expr -> Len (compile_expression expr)
   | ToInt expr -> ToInt (compile_expression expr)
   | ToUint expr -> ToUint (compile_expression expr)
-  | FunctionCall (name, args) -> FunctionCall (name, List.map compile_expression args)
+  | FunctionCall (name, args) -> compile_function_call name args
   | Try input -> Try (compile_expression input)
   | Unwrap (input, thrown) -> Unwrap (compile_expression input, compile_expression thrown)
   | UnwrapPanic input -> UnwrapPanic (compile_expression input)
@@ -61,6 +61,22 @@ and compile_expression = function
   | UnwrapErrPanic input -> UnwrapErrPanic (compile_expression input)
   | If (cond, then', else') ->
     If (compile_expression cond, compile_expression then', compile_expression else')
+
+and compile_function_call name args = match name with
+  | "at-block"
+  | "contract-call?"
+  | "contract-of"
+  | "define-trait"
+  | "get-block-info?"
+  | "impl-trait"
+  | "stx-burn?"
+  | "stx-get-balance"
+  | "stx-transfer?"
+  | "use-trait" -> failwith (sprintf "%s is not supported on SmartWeave" name)
+  | _ -> FunctionCall (name, List.map compile_expression args)
+
+and compile_keyword = function
+  | id -> FunctionCall (id, [])
 
 and compile_literal = function
   | Clarity.NoneLiteral -> NoneLiteral
