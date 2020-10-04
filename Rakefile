@@ -74,7 +74,6 @@ file "README.md" => %w(etc/features.txt etc/features.yaml) do |t|
           sworn = feature_info[:implementations][:sworn]
           sworn_js = sworn[:js]
           sworn_wasm = sworn[:wasm]
-          next if sworn_js.nil? && sworn_wasm.nil?
           file.puts [
             "[`#{feature_name}`](#{feature_link})",
             feature_type,

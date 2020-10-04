@@ -263,8 +263,8 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`and`](https://docs.blockstack.org/references/language-clarity#and) | syntax | ✅ | 🚧 |
 [`append`](https://docs.blockstack.org/references/language-clarity#append) | function | ✅ | 🚧 |
 [`as-contract`](https://docs.blockstack.org/references/language-clarity#as-contract) | syntax | ✅ | 🚧 |
-`as-max-len?` |  | 🚧 | 🚧 |
-`asserts!` |  | 🚧 | 🚧 |
+[`as-max-len?`](https://docs.blockstack.org/references/language-clarity#as-max-len) | syntax | 🚧 | 🚧 |
+[`asserts!`](https://docs.blockstack.org/references/language-clarity#asserts) | syntax | 🚧 | 🚧 |
 [`at-block`](https://docs.blockstack.org/references/language-clarity#at-block) | syntax | ❌ | ❌ | Not supported by SmartWeave.
 [`begin`](https://docs.blockstack.org/references/language-clarity#begin) | syntax | ✅ | ✅ |
 [`block-height`](https://docs.blockstack.org/references/language-clarity#block-height) | keyword | ✅ | 🚧 |
@@ -277,13 +277,13 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`default-to`](https://docs.blockstack.org/references/language-clarity#default-to) | function | ✅ | 🚧 |
 [`define-constant`](https://docs.blockstack.org/references/language-clarity#define-constant) | syntax | ✅ | ✅ |
 [`define-data-var`](https://docs.blockstack.org/references/language-clarity#define-data-var) | syntax | ✅ | ✅ |
-`define-fungible-token` |  | 🚧 | 🚧 |
+[`define-fungible-token`](https://docs.blockstack.org/references/language-clarity#define-fungible-token) | syntax | 🚧 | 🚧 |
 [`define-map`](https://docs.blockstack.org/references/language-clarity#define-map) | syntax | ✅ | 🚧 |
-`define-non-fungible-token` |  | 🚧 | 🚧 |
+[`define-non-fungible-token`](https://docs.blockstack.org/references/language-clarity#define-non-fungible-token) | syntax | 🚧 | 🚧 |
 [`define-private`](https://docs.blockstack.org/references/language-clarity#define-private) | syntax | ✅ | ✅ |
 [`define-public`](https://docs.blockstack.org/references/language-clarity#define-public) | syntax | ✅ | ✅ |
 [`define-read-only`](https://docs.blockstack.org/references/language-clarity#define-read-only) | syntax | ✅ | ✅ |
-`define-trait` |  | 🚧 | 🚧 |
+[`define-trait`](https://docs.blockstack.org/references/language-clarity#define-trait) | syntax | ❌ | ❌ | Not supported by SmartWeave.
 [`err`](https://docs.blockstack.org/references/language-clarity#err) | function | ✅ | 🚧 |
 [`false`](https://docs.blockstack.org/references/language-clarity#false) | constant | ✅ | ✅ |
 [`filter`](https://docs.blockstack.org/references/language-clarity#filter) | function | ✅ | 🚧 |
@@ -291,11 +291,11 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`ft-get-balance`](https://docs.blockstack.org/references/language-clarity#ft-get-balance) | function | ✅ | 🚧 |
 [`ft-mint?`](https://docs.blockstack.org/references/language-clarity#ft-mint) | function | ✅ | 🚧 |
 [`ft-transfer?`](https://docs.blockstack.org/references/language-clarity#ft-transfer) | function | ✅ | 🚧 |
-`get` |  | 🚧 | 🚧 |
+[`get`](https://docs.blockstack.org/references/language-clarity#get) | syntax | 🚧 | 🚧 |
 [`get-block-info?`](https://docs.blockstack.org/references/language-clarity#get-block-info) | function | ❌ | ❌ | Not supported by SmartWeave.
 [`hash160`](https://docs.blockstack.org/references/language-clarity#hash160) | function | ✅ | 🚧 |
 [`if`](https://docs.blockstack.org/references/language-clarity#if) | syntax | ✅ | 🚧 |
-`impl-trait` |  | 🚧 | 🚧 |
+[`impl-trait`](https://docs.blockstack.org/references/language-clarity#impl-trait) | syntax | ❌ | ❌ | Not supported by SmartWeave.
 [`int`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
 [`is-eq`](https://docs.blockstack.org/references/language-clarity#is-eq) | function | ✅ | 🚧 |
 [`is-err`](https://docs.blockstack.org/references/language-clarity#is-err) | function | ✅ | 🚧 |
@@ -304,15 +304,15 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`is-some`](https://docs.blockstack.org/references/language-clarity#is-some) | function | ✅ | 🚧 |
 [`keccak256`](https://docs.blockstack.org/references/language-clarity#keccak256) | function | ✅ | 🚧 |
 [`len`](https://docs.blockstack.org/references/language-clarity#len) | function | ✅ | 🚧 |
-`let` |  | 🚧 | 🚧 |
+[`let`](https://docs.blockstack.org/references/language-clarity#let) | syntax | 🚧 | 🚧 |
 [`list`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | 🚧 |
 [`list`](https://docs.blockstack.org/references/language-clarity#list) | function | ✅ | 🚧 |
 [`map`](https://docs.blockstack.org/references/language-clarity#map) | function | ✅ | 🚧 |
-`map-delete` |  | 🚧 | 🚧 |
-`map-get?` |  | 🚧 | 🚧 |
-`map-insert` |  | 🚧 | 🚧 |
-`map-set` |  | 🚧 | 🚧 |
-`match` |  | 🚧 | 🚧 |
+[`map-delete`](https://docs.blockstack.org/references/language-clarity#map-delete) | function | ✅ | 🚧 |
+[`map-get?`](https://docs.blockstack.org/references/language-clarity#map-get) | function | ✅ | 🚧 |
+[`map-insert`](https://docs.blockstack.org/references/language-clarity#map-insert) | function | ✅ | 🚧 |
+[`map-set`](https://docs.blockstack.org/references/language-clarity#map-set) | function | ✅ | 🚧 |
+[`match`](https://docs.blockstack.org/references/language-clarity#match) | syntax | 🚧 | 🚧 |
 [`mod`](https://docs.blockstack.org/references/language-clarity#mod) | function | ✅ | ✅ |
 [`nft-get-owner?`](https://docs.blockstack.org/references/language-clarity#nft-get-owner) | function | ✅ | 🚧 |
 [`nft-mint?`](https://docs.blockstack.org/references/language-clarity#nft-mint) | function | ✅ | 🚧 |
@@ -344,7 +344,7 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`unwrap-err!`](https://docs.blockstack.org/references/language-clarity#unwrap-err) | function | ✅ | 🚧 |
 [`unwrap-err-panic`](https://docs.blockstack.org/references/language-clarity#unwrap-err-panic) | function | ✅ | 🚧 |
 [`unwrap-panic`](https://docs.blockstack.org/references/language-clarity#unwrap-panic) | function | ✅ | 🚧 |
-`use-trait` |  | 🚧 | 🚧 |
+[`use-trait`](https://docs.blockstack.org/references/language-clarity#use-trait) | syntax | ❌ | ❌ | Not supported by SmartWeave.
 [`var-get`](https://docs.blockstack.org/references/language-clarity#var-get) | function | ✅ | ✅ |
 [`var-set`](https://docs.blockstack.org/references/language-clarity#var-set) | function | ✅ | ✅ |
 [`xor`](https://docs.blockstack.org/references/language-clarity#xor) | function | ✅ | 🚧 |

@@ -88,6 +88,22 @@ as-contract:
         js: runtime
         wasm:
 
+as-max-len?:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#as-max-len
+    implementations:
+      sworn:
+        js:
+        wasm:
+
+asserts!:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#asserts
+    implementations:
+      sworn:
+        js:
+        wasm:
+
 at-block:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#at-block
@@ -184,12 +200,28 @@ define-data-var:
         js: true
         wasm: true
 
+define-fungible-token:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#define-fungible-token
+    implementations:
+      sworn:
+        js:
+        wasm:
+
 define-map:
   syntax:
     link: https://docs.blockstack.org/references/language-clarity#define-map
     implementations:
       sworn:
         js: true
+        wasm:
+
+define-non-fungible-token:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#define-non-fungible-token
+    implementations:
+      sworn:
+        js:
         wasm:
 
 define-private:
@@ -215,6 +247,14 @@ define-read-only:
       sworn:
         js: true
         wasm: true
+
+define-trait:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#define-trait
+    implementations:
+      sworn:
+        js: false
+        wasm: false
 
 err:
   function:
@@ -273,6 +313,14 @@ ft-transfer?:
         js: runtime
         wasm:
 
+get:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#get
+    implementations:
+      sworn:
+        js:
+        wasm:
+
 get-block-info?:
   function:
     link: https://docs.blockstack.org/references/language-clarity#get-block-info
@@ -296,6 +344,14 @@ if:
       sworn:
         js: true
         wasm:
+
+impl-trait:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#impl-trait
+    implementations:
+      sworn:
+        js: false
+        wasm: false
 
 int:
   type:
@@ -361,6 +417,14 @@ len:
         js: true
         wasm:
 
+let:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#let
+    implementations:
+      sworn:
+        js:
+        wasm:
+
 list:
   type:
     link: https://docs.blockstack.org/references/language-clarity#clarity-type-system
@@ -381,6 +445,46 @@ map:
     implementations:
       sworn:
         js: runtime
+        wasm:
+
+map-delete:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#map-delete
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+map-get?:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#map-get
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+map-insert:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#map-insert
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+map-set:
+  function:
+    link: https://docs.blockstack.org/references/language-clarity#map-set
+    implementations:
+      sworn:
+        js: runtime
+        wasm:
+
+match:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#match
+    implementations:
+      sworn:
+        js:
         wasm:
 
 mod:
@@ -648,6 +752,14 @@ unwrap-panic:
       sworn:
         js: runtime
         wasm:
+
+use-trait:
+  syntax:
+    link: https://docs.blockstack.org/references/language-clarity#use-trait
+    implementations:
+      sworn:
+        js: false
+        wasm: false
 
 var-get:
   function:
