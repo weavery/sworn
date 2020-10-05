@@ -76,6 +76,8 @@ let operators () =
 
   check_expression "(list 1 2 3)" "[1, 2, 3]";
 
+  check_expression "(match x y y z z)" "clarity.match(x, y => y, z => z)";
+
   check_expression "none" "null";
 
   check_expression "(some 1)" "clarity.some(1)";

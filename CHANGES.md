@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Support for `let` expressions.
+- Support for `match` expressions.
 - Support for the keywords `block-height`, `contract-caller`, and `tx-sender`.
 - Support for `as-max-len?`.
 - Support for `asserts!`.

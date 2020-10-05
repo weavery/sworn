@@ -117,6 +117,11 @@ and print_expression ppf = function
       print_expression then'
       print_expression else'
   | SWIR.Let (bindings, body) -> print_let_expression ppf bindings body
+  | SWIR.Match (input, (ok_name, ok_expr), (err_name, err_expr)) ->
+    fprintf ppf "clarity.match(%a, %s => %a, %s => %a)"
+      print_expression input
+      ok_name print_expression ok_expr
+      err_name print_expression err_expr
 
 and print_record_expression ppf =
   fprintf ppf "clarity.tuple(@[<h>%a@])"

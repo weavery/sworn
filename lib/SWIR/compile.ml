@@ -64,6 +64,10 @@ and compile_expression = function
     If (compile_expression cond, compile_expression then', compile_expression else')
   | Let (bindings, body) ->
     Let (List.map compile_binding bindings, List.map compile_expression body)
+  | Match (input, (ok_name, ok_expr), (err_name, err_expr)) ->
+    Match (compile_expression input,
+      (ok_name, compile_expression ok_expr),
+      (err_name, compile_expression err_expr))
 
 and compile_binding (k, v) =
   (k, compile_expression v)

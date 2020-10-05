@@ -59,6 +59,7 @@ and expression =
   | UnwrapErrPanic of expression
   | If of expression * expression * expression
   | Let of binding list * expression list
+  | Match of expression * binding * binding
 
 and binding = identifier * expression
 

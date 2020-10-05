@@ -80,6 +80,8 @@ and print_expression ppf = function
   | UnwrapErrPanic input -> print_operation ppf "unwrap-err-panic" [input]
   | If (cond, then', else') -> print_operation ppf "if" [cond; then'; else']
   | Let (bindings, body) -> print_let_expression ppf bindings body
+  | Match (input, (ok_name, ok_expr), (err_name, err_expr)) ->
+    print_operation ppf "match" [input; Identifier ok_name; ok_expr; Identifier err_name; err_expr]
 
 and print_record_expression ppf =
   fprintf ppf "{@[<h> %a @]}"

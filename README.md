@@ -308,7 +308,7 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`map-get?`](https://docs.blockstack.org/references/language-clarity#map-get) | function | ✅ | 🚧 |
 [`map-insert`](https://docs.blockstack.org/references/language-clarity#map-insert) | function | ✅ | 🚧 |
 [`map-set`](https://docs.blockstack.org/references/language-clarity#map-set) | function | ✅ | 🚧 |
-[`match`](https://docs.blockstack.org/references/language-clarity#match) | syntax | 🚧 | 🚧 |
+[`match`](https://docs.blockstack.org/references/language-clarity#match) | syntax | ✅ | 🚧 |
 [`mod`](https://docs.blockstack.org/references/language-clarity#mod) | function | ✅ | ✅ |
 [`nft-get-owner?`](https://docs.blockstack.org/references/language-clarity#nft-get-owner) | function | ✅ | 🚧 |
 [`nft-mint?`](https://docs.blockstack.org/references/language-clarity#nft-mint) | function | ✅ | 🚧 |

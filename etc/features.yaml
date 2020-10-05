@@ -484,7 +484,7 @@ match:
     link: https://docs.blockstack.org/references/language-clarity#match
     implementations:
       sworn:
-        js:
+        js: runtime
         wasm:
 
 mod:
