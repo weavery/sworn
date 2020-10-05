@@ -422,7 +422,7 @@ let:
     link: https://docs.blockstack.org/references/language-clarity#let
     implementations:
       sworn:
-        js:
+        js: true
         wasm:
 
 list:

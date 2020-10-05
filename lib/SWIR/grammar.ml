@@ -23,7 +23,7 @@ and expression =
   | Literal of literal
   | SomeExpression of expression
   | ListExpression of expression list
-  | RecordExpression of record_binding list
+  | RecordExpression of binding list
   | IsNone of expression
   | IsSome of expression
   | IsErr of expression
@@ -58,8 +58,9 @@ and expression =
   | UnwrapErr of expression * expression
   | UnwrapErrPanic of expression
   | If of expression * expression * expression
+  | Let of binding list * expression list
 
-and record_binding = identifier * expression
+and binding = identifier * expression
 
 and literal =
   | NoneLiteral

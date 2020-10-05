@@ -304,7 +304,7 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`is-some`](https://docs.blockstack.org/references/language-clarity#is-some) | function | ✅ | 🚧 |
 [`keccak256`](https://docs.blockstack.org/references/language-clarity#keccak256) | function | ✅ | 🚧 |
 [`len`](https://docs.blockstack.org/references/language-clarity#len) | function | ✅ | 🚧 |
-[`let`](https://docs.blockstack.org/references/language-clarity#let) | syntax | 🚧 | 🚧 |
+[`let`](https://docs.blockstack.org/references/language-clarity#let) | syntax | ✅ | 🚧 |
 [`list`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | 🚧 |
 [`list`](https://docs.blockstack.org/references/language-clarity#list) | function | ✅ | 🚧 |
 [`map`](https://docs.blockstack.org/references/language-clarity#map) | function | ✅ | 🚧 |

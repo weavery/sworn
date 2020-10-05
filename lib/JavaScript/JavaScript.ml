@@ -116,12 +116,28 @@ and print_expression ppf = function
       print_expression cond
       print_expression then'
       print_expression else'
+  | SWIR.Let (bindings, body) -> print_let_expression ppf bindings body
 
 and print_record_expression ppf =
   fprintf ppf "clarity.tuple(@[<h>%a@])"
     (Format.pp_print_list ~pp_sep:print_comma print_record_binding)
 
 and print_record_binding ppf (k, v) = fprintf ppf "[\"%s\", %a]" k print_expression v
+
+and print_let_expression ppf bindings body =
+  fprintf ppf "(() => { @[<h>%a@]; %a })()"
+    (Format.pp_print_list ~pp_sep:print_semicolon print_let_binding) bindings
+    print_let_body body
+
+and print_let_binding ppf (k, v) = fprintf ppf "const %s = %a" k print_expression v
+
+and print_let_body ppf = function
+  | [] -> fprintf ppf "return clarity.none"
+  | [expr] -> fprintf ppf "return %a" print_expression expr
+  | head :: tail -> begin
+      fprintf ppf "%a;@ " print_expression head;
+      print_let_body ppf tail
+    end
 
 and print_list ppf exprs =
   fprintf ppf "[@[<h>%a@]]"
@@ -158,6 +174,8 @@ and print_buffer ppf buffer =
     (Format.pp_print_list ~pp_sep:print_comma print_byte) bytes
 
 and print_comma ppf () = Format.fprintf ppf ",@ "
+
+and print_semicolon ppf () = Format.fprintf ppf ";@ "
 
 and mangle_name = function
   | "try!" -> "tryUnwrap"
