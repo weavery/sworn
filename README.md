@@ -291,7 +291,7 @@ Feature | Type | JavaScript | WebAssembly | Notes
 [`ft-get-balance`](https://docs.blockstack.org/references/language-clarity#ft-get-balance) | function | ✅ | 🚧 |
 [`ft-mint?`](https://docs.blockstack.org/references/language-clarity#ft-mint) | function | ✅ | 🚧 |
 [`ft-transfer?`](https://docs.blockstack.org/references/language-clarity#ft-transfer) | function | ✅ | 🚧 |
-[`get`](https://docs.blockstack.org/references/language-clarity#get) | syntax | 🚧 | 🚧 |
+[`get`](https://docs.blockstack.org/references/language-clarity#get) | syntax | ✅ | 🚧 |
 [`get-block-info?`](https://docs.blockstack.org/references/language-clarity#get-block-info) | function | ❌ | ❌ | Not supported by SmartWeave.
 [`hash160`](https://docs.blockstack.org/references/language-clarity#hash160) | function | ✅ | 🚧 |
 [`if`](https://docs.blockstack.org/references/language-clarity#if) | syntax | ✅ | 🚧 |

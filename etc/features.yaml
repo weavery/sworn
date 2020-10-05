@@ -318,7 +318,7 @@ get:
     link: https://docs.blockstack.org/references/language-clarity#get
     implementations:
       sworn:
-        js:
+        js: runtime
         wasm:
 
 get-block-info?:

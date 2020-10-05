@@ -79,7 +79,11 @@ and compile_function_call name args = match name with
   | "use-trait" -> failwith (sprintf "%s is not supported on SmartWeave" name)
   | "asserts!" -> begin match args with
       | [cond; thrown] -> Assert (compile_expression cond, compile_expression thrown)
-      | _ -> failwith "invalid asserts! operation"
+      | _ -> failwith "invalid asserts! expression"
+    end
+  | "get" -> begin match args with
+      | [Identifier key; tuple] -> FunctionCall ("get", [Literal (StringLiteral key); compile_expression tuple])
+      | _ -> failwith "invalid get expression"
     end
   | _ -> FunctionCall (name, List.map compile_expression args)
 
