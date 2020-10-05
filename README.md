@@ -7,10 +7,6 @@
 
 [![Screencast](https://asciinema.org/a/360104.svg)](https://asciinema.org/a/360104)
 
-*Note: Here be dragons. This is a pre-alpha, [work-in-progress](#status)
-project. Assume nothing works, and you may be pleasantly surprised on
-occasion.*
-
 ## Installation
 
 We are working on building release binaries for Windows, macOS, and Linux.
