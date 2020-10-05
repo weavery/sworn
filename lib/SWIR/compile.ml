@@ -26,6 +26,7 @@ and compile_expression = function
   | Literal lit -> Literal (compile_literal lit)
   | SomeExpression expr -> SomeExpression (compile_expression expr)
   | ListExpression exprs -> ListExpression (List.map compile_expression exprs)
+  | TupleExpression bindings -> RecordExpression (List.map compile_tuple_binding bindings)
   | IsNone expr -> IsNone (compile_expression expr)
   | IsSome expr -> IsSome (compile_expression expr)
   | IsErr expr -> IsErr (compile_expression expr)
@@ -61,6 +62,9 @@ and compile_expression = function
   | UnwrapErrPanic input -> UnwrapErrPanic (compile_expression input)
   | If (cond, then', else') ->
     If (compile_expression cond, compile_expression then', compile_expression else')
+
+and compile_tuple_binding (k, v) =
+  (k, compile_expression v)
 
 and compile_function_call name args = match name with
   | "at-block"

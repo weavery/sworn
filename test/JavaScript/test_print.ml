@@ -45,6 +45,8 @@ let operators () =
   check_expression "block-height" "clarity.blockHeight()";
   check_expression "contract-caller" "clarity.contractCaller()";
   check_expression "(default-to 0 (some 1))" "(clarity.some(1) ?? 0)";
+  (* TODO: check_expression "(get id (tuple (name \"blockstack\") (id 1337)))"
+    "clarity.get(\"id\", clarity.tuple([\"name\", \"blockstack\"], [\"id\", 1337]))"; *)
   check_expression "(is-eq 1 1)" "clarity.isEq(1, 1)";
   (* FIXME: check_expression "(is-err (ok 1))" "clarity.isErr(clarity.ok(1))"; *)
   (* FIXME: check_expression "(is-err (err 1))" "clarity.isErr(clarity.err(1))"; *)
@@ -57,6 +59,8 @@ let operators () =
   check_expression "(list 1 2 3)" "[1, 2, 3]";
   check_expression "none" "null";
   check_expression "(some 1)" "clarity.some(1)";
+  check_expression "(tuple (name \"blockstack\") (id 1337))"
+    "clarity.tuple([\"name\", \"blockstack\"], [\"id\", 1337])";
   check_expression "tx-sender" "clarity.txSender()"
 
 let () =

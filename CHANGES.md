@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for Clarity keywords such as `block-height`.
 - Support for `as-max-len?`.
 - Support for `asserts!`.
+- Better support for tuple expressions in various forms.
 
 ## [0.3.0] - 2020-09-29
 

@@ -60,7 +60,6 @@ and print_function ppf = function
   | _ -> failwith "unreachable"
 
 and print_parameters ppf params =
-  let print_comma ppf () = Format.fprintf ppf ",@ " in
   Format.pp_print_list ~pp_sep:print_comma print_parameter ppf params
 
 and print_parameter ppf = function
@@ -77,6 +76,7 @@ and print_expression ppf = function
   | SWIR.Literal lit -> print_literal ppf lit
   | SWIR.SomeExpression expr -> print_function_call ppf "some" [expr]
   | SWIR.ListExpression exprs -> print_list ppf exprs
+  | SWIR.RecordExpression bindings -> print_record_expression ppf bindings
   | SWIR.IsNone expr -> print_function_call ppf "is-none" [expr]
   | SWIR.IsSome expr -> print_function_call ppf "is-some" [expr]
   | SWIR.IsErr expr -> print_function_call ppf "is-err" [expr]
@@ -117,8 +117,13 @@ and print_expression ppf = function
       print_expression then'
       print_expression else'
 
+and print_record_expression ppf =
+  fprintf ppf "clarity.tuple(@[<h>%a@])"
+    (Format.pp_print_list ~pp_sep:print_comma print_record_binding)
+
+and print_record_binding ppf (k, v) = fprintf ppf "[\"%s\", %a]" k print_expression v
+
 and print_list ppf exprs =
-  let print_comma ppf () = Format.fprintf ppf ",@ " in
   fprintf ppf "[@[<h>%a@]]"
     (Format.pp_print_list ~pp_sep:print_comma print_expression) exprs
 
@@ -126,7 +131,6 @@ and print_function_call ppf name args =
   let is_primitive = Clarity.is_primitive name in
   let name = mangle_name name in
   let name = if is_primitive then Printf.sprintf "clarity.%s" name else name in
-  let print_comma ppf () = Format.fprintf ppf ",@ " in
   fprintf ppf "%s(@[<h>%a@])" name
     (Format.pp_print_list ~pp_sep:print_comma print_expression) args
 
@@ -149,10 +153,11 @@ and print_literal ppf = function
 
 and print_buffer ppf buffer =
   let print_byte ppf b = fprintf ppf "0x%x" (Char.code b) in
-  let print_comma ppf () = Format.fprintf ppf ",@ " in
   let bytes = List.of_seq (String.to_seq buffer) in
   fprintf ppf "Uint8Array.of([@[<h>%a@]])"
     (Format.pp_print_list ~pp_sep:print_comma print_byte) bytes
+
+and print_comma ppf () = Format.fprintf ppf ",@ "
 
 and mangle_name = function
   | "try!" -> "tryUnwrap"

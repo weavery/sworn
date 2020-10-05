@@ -44,6 +44,7 @@ and print_expression ppf = function
   | Literal lit -> print_literal ppf lit
   | SomeExpression expr -> fprintf ppf "(some %a)" print_expression expr
   | ListExpression exprs -> print_operation ppf "list" exprs
+  | RecordExpression bindings -> print_record_expression ppf bindings
   | IsNone expr -> fprintf ppf "(is-none %a)" print_expression expr
   | IsSome expr -> fprintf ppf "(is-some %a)" print_expression expr
   | IsErr expr -> fprintf ppf "(is-err %a)" print_expression expr
@@ -78,6 +79,12 @@ and print_expression ppf = function
   | UnwrapErr (input, thrown) -> print_operation ppf "unwrap-err!" [input; thrown]
   | UnwrapErrPanic input -> print_operation ppf "unwrap-err-panic" [input]
   | If (cond, then', else') -> print_operation ppf "if" [cond; then'; else']
+
+and print_record_expression ppf =
+  fprintf ppf "{@[<h> %a @]}"
+    (Format.pp_print_list ~pp_sep:Format.pp_print_space print_record_binding)
+
+and print_record_binding ppf (k, v) = fprintf ppf "%s: %a" k print_expression v
 
 and print_operation ppf op exprs =
   fprintf ppf "(%s @[<h>%a@])" op

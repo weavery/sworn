@@ -15,14 +15,15 @@ and modifier =
   | Public
   | PublicPure
 
-and parameter = string * type' option
+and parameter = identifier * type' option
 
 and expression =
   | Assert of expression * expression
-  | Identifier of string
+  | Identifier of identifier
   | Literal of literal
   | SomeExpression of expression
   | ListExpression of expression list
+  | RecordExpression of record_binding list
   | IsNone of expression
   | IsSome of expression
   | IsErr of expression
@@ -58,6 +59,8 @@ and expression =
   | UnwrapErrPanic of expression
   | If of expression * expression * expression
 
+and record_binding = identifier * expression
+
 and literal =
   | NoneLiteral
   | BoolLiteral of bool
@@ -67,7 +70,7 @@ and literal =
   | U128Literal of Big_int.big_int
   | BufferLiteral of string
   | StringLiteral of string
-  | RecordLiteral of string * literal
+  | RecordLiteral of identifier * literal
 
 and identifier = string
 
