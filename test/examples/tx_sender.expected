@@ -3,35 +3,29 @@
 clarity.requireVersion("0.0")
 
 function read(state) {
-  let result = null
-  result = clarity.ok(state.sender)
-  return result
+  return clarity.ok(state.sender);
 }
 
 function update(state) {
-  let result = null
-  state.sender = clarity.some(clarity.txSender())
-  result = clarity.ok(state.sender)
-  return state
+  state.sender = clarity.some(clarity.txSender());
+  return {state, result: clarity.ok(state.sender)};
 }
 
 function clear(state) {
-  let result = null
-  state.sender = null
-  result = clarity.ok(state.sender)
-  return state
+  state.sender = null;
+  return {state, result: clarity.ok(state.sender)};
 }
 
 export function handle(state, action) {
-  const input = action.input
+  const input = action.input;
   if (input.function === 'read') {
-    return {result: read(state)}
+    return {result: read(state)};
   }
   if (input.function === 'update') {
-    return {state: update(state)}
+    return update(state);
   }
   if (input.function === 'clear') {
-    return {state: clear(state)}
+    return clear(state);
   }
-  return {state}
+  return {state};
 }

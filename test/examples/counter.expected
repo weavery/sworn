@@ -3,35 +3,29 @@
 clarity.requireVersion("0.0")
 
 function getCounter(state) {
-  let result = null
-  result = clarity.ok(state.counter)
-  return result
+  return clarity.ok(state.counter);
 }
 
 function increment(state) {
-  let result = null
-  state.counter = (state.counter + 1)
-  result = clarity.ok(state.counter)
-  return state
+  state.counter = clarity.add(state.counter, 1);
+  return {state, result: clarity.ok(state.counter)};
 }
 
 function decrement(state) {
-  let result = null
-  state.counter = (state.counter - 1)
-  result = clarity.ok(state.counter)
-  return state
+  state.counter = clarity.sub(state.counter, 1);
+  return {state, result: clarity.ok(state.counter)};
 }
 
 export function handle(state, action) {
-  const input = action.input
+  const input = action.input;
   if (input.function === 'getCounter') {
-    return {result: getCounter(state)}
+    return {result: getCounter(state)};
   }
   if (input.function === 'increment') {
-    return {state: increment(state)}
+    return increment(state);
   }
   if (input.function === 'decrement') {
-    return {state: decrement(state)}
+    return decrement(state);
   }
-  return {state}
+  return {state};
 }

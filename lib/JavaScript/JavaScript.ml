@@ -18,11 +18,11 @@ let rec print_program ppf program =
     end
   end;
   fprintf ppf "@[<v 2>export function handle(state, action) {@,";
-  fprintf ppf "const input = action.input@,";
+  fprintf ppf "const input = action.input;@,";
   fprintf ppf "%a@]@,}@." print_handle_function program
 
 and print_constant ppf = function
-  | SWIR.Const (name, _, value) -> fprintf ppf "const %s = %a@," name print_expression value
+  | SWIR.Const (name, _, value) -> fprintf ppf "const %s = %a;@," name print_expression value
   | _ -> failwith "unreachable"
 
 and print_handle_function ppf program =
@@ -34,40 +34,45 @@ and print_handle_function ppf program =
   in
   let functions = List.filter_map filter functions in
   Format.pp_print_list ~pp_sep:Format.pp_print_cut print_handle_clause ppf functions;
-  fprintf ppf "@,return {state}"
+  fprintf ppf "@,return {state};"
 
 and print_handle_clause ppf = function
   | Function (PublicPure, id, _, _) ->
     let js_name = mangle_name id in
-    fprintf ppf "@[<v 2>if (input.function === '%s') {@,return {result: %s(state)}@]@,}" js_name js_name
+    fprintf ppf "@[<v 2>if (input.function === '%s') {@,return {result: %s(state)};@]@,}" js_name js_name
   | Function (Public, id, _, _) ->
     let js_name = mangle_name id in
-    fprintf ppf "@[<v 2>if (input.function === '%s') {@,return {state: %s(state)}@]@,}" js_name js_name
+    fprintf ppf "@[<v 2>if (input.function === '%s') {@,return %s(state);@]@,}" js_name js_name
   | _ -> failwith "unreachable"
 
 and print_function ppf = function
   | SWIR.Function (modifier, name, params, body) ->
     let params = ("state", None) :: params in
-    fprintf ppf "@[<v 2>function %s(@[<h>%a@]) {@,let result = null@,%a"
+    fprintf ppf "@[<v 2>function %s(@[<h>%a@]) {@,%a@]@,}@,"
       (mangle_name name)
       print_parameters params
-      print_expressions body;
-    begin match modifier with
-      | Public -> fprintf ppf "@,return state"
-      | _ -> fprintf ppf "@,return result"
-    end;
-    fprintf ppf "@]@,}@,"
+      (print_function_body modifier) body
   | _ -> failwith "unreachable"
+
+and print_function_body modifier ppf = function
+  | [] -> begin match modifier with
+      | Public -> fprintf ppf "return {state, result: clarity.none};"
+      | _ -> fprintf ppf "return clarity.none;"
+    end
+  | [expr] -> begin match modifier with
+      | Public -> fprintf ppf "return {state, result: %a};" print_expression expr
+      | _ -> fprintf ppf "return %a;" print_expression expr
+    end
+  | head :: tail -> begin
+      fprintf ppf "%a;@," print_expression head;
+      print_function_body modifier ppf tail
+    end
 
 and print_parameters ppf params =
   Format.pp_print_list ~pp_sep:print_comma print_parameter ppf params
 
 and print_parameter ppf = function
   | (name, _) -> fprintf ppf "%s" (mangle_name name)
-
-and print_expressions ppf = function
-  | [expr] -> fprintf ppf "%a" print_expression expr
-  | exprs -> Format.pp_print_list ~pp_sep:Format.pp_print_cut print_expression ppf exprs
 
 and print_expression ppf = function
   | SWIR.Assert (cond, thrown) ->
