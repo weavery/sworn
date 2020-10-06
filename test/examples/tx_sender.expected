@@ -12,7 +12,7 @@ function update(state) {
 }
 
 function clear(state) {
-  state.sender = null;
+  state.sender = clarity.none;
   return {state, result: clarity.ok(state.sender)};
 }
 

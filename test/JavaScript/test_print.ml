@@ -11,7 +11,7 @@ let check_expression input output =
   Alcotest.(check string) "" output actual
 
 let literals () =
-  check_expression "none" "null";
+  check_expression "none" "clarity.none";
   check_expression "false" "false";
   check_expression "true" "true";
   check_expression "123" "123";
@@ -145,7 +145,7 @@ let operators () =
   check_expression "(nft-transfer? stackaroo \"Roo\" sender recipient)"
     "clarity.nftTransfer(stackaroo, \"Roo\", sender, recipient)";
 
-  check_expression "none" "null";
+  check_expression "none" "clarity.none";
 
   check_expression "(not true)" "(!true)";
 

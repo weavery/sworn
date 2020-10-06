@@ -167,7 +167,7 @@ and print_operation ppf op exprs =
     (Format.pp_print_list ~pp_sep:print_operator print_expression) exprs
 
 and print_literal ppf = function
-  | SWIR.NoneLiteral -> fprintf ppf "null"
+  | SWIR.NoneLiteral -> fprintf ppf "clarity.none"
   | SWIR.BoolLiteral b -> fprintf ppf "%s" (if b then "true" else "false")
   | SWIR.I64Literal n -> fprintf ppf "%Ld" n
   | SWIR.U64Literal n -> fprintf ppf "%Lu" n
