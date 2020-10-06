@@ -18,21 +18,21 @@ let literals () =
   check_expression "-123" "-123"
 
 let operators () =
-  check_expression "(* 1 2 3)" "(1 * 2 * 3)";
+  check_expression "(* 1 2 3)" "clarity.mul(1, 2, 3)";
 
-  check_expression "(+ 1 2 3)" "(1 + 2 + 3)";
+  check_expression "(+ 1 2 3)" "clarity.add(1, 2, 3)";
 
-  check_expression "(- 1 2 3)" "(1 - 2 - 3)";
+  check_expression "(- 1 2 3)" "clarity.sub(1, 2, 3)";
 
-  check_expression "(/ 1 2 3)" "(1 / 2 / 3)";
+  check_expression "(/ 1 2 3)" "clarity.div(1, 2, 3)";
 
-  check_expression "(< 1 2)" "(1 < 2)";
+  check_expression "(< 1 2)" "clarity.lt(1, 2)";
 
-  check_expression "(<= 1 2)" "(1 <= 2)";
+  check_expression "(<= 1 2)" "clarity.le(1, 2)";
 
-  check_expression "(> 1 2)" "(1 > 2)";
+  check_expression "(> 1 2)" "clarity.gt(1, 2)";
 
-  check_expression "(>= 1 2)" "(1 >= 2)";
+  check_expression "(>= 1 2)" "clarity.ge(1, 2)";
 
   check_expression "(and true false)" "(true && false)";
 
@@ -134,7 +134,7 @@ let operators () =
 
   check_expression "(match x y y z z)" "clarity.match(x, y => y, z => z)";
 
-  check_expression "(mod 2 3)" "(2 % 3)";
+  check_expression "(mod 2 3)" "clarity.mod(2, 3)";
 
   check_expression "(nft-get-owner? stackaroo \"Roo\")"
     "clarity.nftGetOwner(stackaroo, \"Roo\")";
@@ -153,7 +153,7 @@ let operators () =
 
   check_expression "(or true false)" "(true || false)";
 
-  check_expression "(pow 2 3)" "(2 ** 3)";
+  check_expression "(pow 2 3)" "clarity.pow(2, 3)";;
 
   check_expression "(print 42)" "clarity.print(42)";
 
@@ -199,7 +199,7 @@ let operators () =
 
   check_expression "(var-set cursor 0)" "state.cursor = 0";
 
-  check_expression "(xor 1 2)" "(1 ^ 2)"
+  check_expression "(xor 1 2)" "clarity.xor(1, 2)"
 
 let () =
   Alcotest.run "JavaScript" [

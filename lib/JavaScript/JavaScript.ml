@@ -85,23 +85,23 @@ and print_expression ppf = function
     fprintf ppf "(%a ?? %a)" print_expression opt print_expression def
   | SWIR.VarGet var -> fprintf ppf "state.%s" var
   | SWIR.VarSet (var, val') -> fprintf ppf "state.%s = %a" var print_expression val'
-  | SWIR.Err expr -> fprintf ppf "clarity.err(%a)" print_expression expr
-  | SWIR.Ok expr -> fprintf ppf "clarity.ok(%a)" print_expression expr
+  | SWIR.Err expr -> print_function_call ppf "err" [expr]
+  | SWIR.Ok expr -> print_function_call ppf "ok" [expr]
   | SWIR.Not expr -> fprintf ppf "(!%a)" print_expression expr
   | SWIR.And exprs -> print_operation ppf "&&" exprs
   | SWIR.Or exprs -> print_operation ppf "||" exprs
   | SWIR.Eq exprs -> print_function_call ppf "is-eq" exprs
-  | SWIR.Lt (a, b) -> print_operation ppf "<" [a; b]
-  | SWIR.Le (a, b) -> print_operation ppf "<=" [a; b]
-  | SWIR.Gt (a, b) -> print_operation ppf ">" [a; b]
-  | SWIR.Ge (a, b) -> print_operation ppf ">=" [a; b]
-  | SWIR.Add exprs -> print_operation ppf "+" exprs
-  | SWIR.Sub exprs -> print_operation ppf "-" exprs
-  | SWIR.Mul exprs -> print_operation ppf "*" exprs
-  | SWIR.Div exprs -> print_operation ppf "/" exprs
-  | SWIR.Mod (a, b) -> print_operation ppf "%" [a; b]
-  | SWIR.Pow (a, b) -> print_operation ppf "**" [a; b]
-  | SWIR.Xor (a, b) -> print_operation ppf "^" [a; b]
+  | SWIR.Lt (a, b) -> print_function_call ppf "<" [a; b]
+  | SWIR.Le (a, b) -> print_function_call ppf "<=" [a; b]
+  | SWIR.Gt (a, b) -> print_function_call ppf ">" [a; b]
+  | SWIR.Ge (a, b) -> print_function_call ppf ">=" [a; b]
+  | SWIR.Add exprs -> print_function_call ppf "+" exprs
+  | SWIR.Sub exprs -> print_function_call ppf "-" exprs
+  | SWIR.Mul exprs -> print_function_call ppf "*" exprs
+  | SWIR.Div exprs -> print_function_call ppf "/" exprs
+  | SWIR.Mod (a, b) -> print_function_call ppf "mod" [a; b]
+  | SWIR.Pow (a, b) -> print_function_call ppf "pow" [a; b]
+  | SWIR.Xor (a, b) -> print_function_call ppf "xor" [a; b]
   | SWIR.Len expr -> fprintf ppf "%a.length" print_expression expr
   | SWIR.ToInt expr -> print_function_call ppf "to-int" [expr]
   | SWIR.ToUint expr -> print_function_call ppf "to-uint" [expr]
