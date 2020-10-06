@@ -2,26 +2,26 @@
  (name block_height)
  (modules block_height)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
- (preprocessor_deps block_height.clar)
+ (preprocessor_deps tests.ml block_height.clar)
  (libraries clarity-lang JavaScript SWIR))
 
 (test
  (name counter)
  (modules counter)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
- (preprocessor_deps counter.clar)
+ (preprocessor_deps tests.ml counter.clar)
  (libraries clarity-lang JavaScript SWIR))
 
 (test
  (name hello_world)
  (modules hello_world)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
- (preprocessor_deps hello_world.clar)
+ (preprocessor_deps tests.ml hello_world.clar)
  (libraries clarity-lang JavaScript SWIR))
 
 (test
  (name tx_sender)
  (modules tx_sender)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
- (preprocessor_deps tx_sender.clar)
+ (preprocessor_deps tests.ml tx_sender.clar)
  (libraries clarity-lang JavaScript SWIR))
