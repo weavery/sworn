@@ -13,6 +13,13 @@
  (libraries clarity-lang JavaScript SWIR))
 
 (test
+ (name hello_world)
+ (modules hello_world)
+ (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
+ (preprocessor_deps hello_world.clar)
+ (libraries clarity-lang JavaScript SWIR))
+
+(test
  (name tx_sender)
  (modules tx_sender)
  (preprocess (action (run %{bin:cppo} -V OCAML:%{ocaml_version} %{input-file})))
