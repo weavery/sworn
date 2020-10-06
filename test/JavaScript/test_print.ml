@@ -72,11 +72,14 @@ let operators () =
   check_expression "(fold * (list 2 2 2) 1)"
     "clarity.fold(clarity.mul, [2, 2, 2], 1)";
 
-  (* TODO: ft-get-balance *)
+  check_expression "(ft-get-balance stackaroo principal)"
+    "clarity.ftGetBalance(stackaroo, principal)";
 
-  (* TODO: ft-mint? *)
+  check_expression "(ft-mint? stackaroo u100 recipient)"
+    "clarity.ftMint(stackaroo, 100, recipient)";
 
-  (* TODO: ft-transfer? *)
+  check_expression "(ft-transfer? stackaroo u50 sender recipient)"
+    "clarity.ftTransfer(stackaroo, 50, sender, recipient)";
 
   check_expression "(get id (tuple (name \"blockstack\") (id 1337)))"
     "clarity.get(\"id\", clarity.tuple([\"name\", \"blockstack\"], [\"id\", 1337]))";
@@ -133,11 +136,14 @@ let operators () =
 
   check_expression "(mod 2 3)" "(2 % 3)";
 
-  (* TODO: nft-get-owner? *)
+  check_expression "(nft-get-owner? stackaroo \"Roo\")"
+    "clarity.nftGetOwner(stackaroo, \"Roo\")";
 
-  (* TODO: nft-mint? *)
+  check_expression "(nft-mint? stackaroo \"Roo\" recipient)"
+    "clarity.nftMint(stackaroo, \"Roo\", recipient)";
 
-  (* TODO: nft-transfer? *)
+  check_expression "(nft-transfer? stackaroo \"Roo\" sender recipient)"
+    "clarity.nftTransfer(stackaroo, \"Roo\", sender, recipient)";
 
   check_expression "none" "null";
 
@@ -175,7 +181,8 @@ let operators () =
 
   check_expression "tx-sender" "clarity.txSender()";
 
-  (* TODO: unwrap! *)
+  check_expression "(unwrap! (map-get? names-map { name: \"blockstack\" }))"
+    "clarity.unwrap(clarity.mapGet(namesMap, clarity.tuple([\"name\", \"blockstack\"])))";  (* FIXME: namesMap *)
 
   check_expression "(unwrap-err! (err 1) false)"
     "clarity.unwrapErr(clarity.err(1), false)";
