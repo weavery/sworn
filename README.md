@@ -27,6 +27,8 @@ To view Sworn's built-in man page that documents all command-line options, run:
 sworn --help
 ```
 
+![Manpage](https://github.com/weavery/sworn/blob/master/etc/manpage.jpg)
+
 ### Compiling for SmartWeave
 
 To compile the Clarity [`counter.clar`] example contract, run:
@@ -80,7 +82,7 @@ On the server side, Node.js 10.4+ supports `BigInt`.
 Sworn is written in [OCaml], an excellent programming language for crafting
 compiler toolchains.
 
-Sworn is a multi-pass compiler consisting of the following stages:
+Sworn is a standard multi-pass compiler consisting of the following stages:
 
 ![Flowchart](https://github.com/weavery/sworn/blob/master/etc/flowchart.png)
 
