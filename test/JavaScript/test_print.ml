@@ -67,10 +67,10 @@ let operators () =
   check_expression "false" "false";
 
   check_expression "(filter not (list true false true false))"
-    "clarity.filter(clarity.not(), [true, false, true, false])";  (* FIXME: not *)
+    "clarity.filter(clarity.not, [true, false, true, false])";
 
   check_expression "(fold * (list 2 2 2) 1)"
-    "clarity.fold(clarity.*(), [2, 2, 2], 1)";  (* FIXME: mul *)
+    "clarity.fold(clarity.mul, [2, 2, 2], 1)";
 
   (* TODO: ft-get-balance *)
 
@@ -115,7 +115,7 @@ let operators () =
   check_expression "(list 1 2 3)" "[1, 2, 3]";
 
   check_expression "(map not (list true false true false))"
-    "clarity.map(clarity.not(), [true, false, true, false])";  (* FIXME: not *)
+    "clarity.map(clarity.not, [true, false, true, false])";
 
   check_expression "(map-delete names-map { name: \"blockstack\" })"
     "clarity.mapDelete(namesMap, clarity.tuple([\"name\", \"blockstack\"]))";  (* FIXME: namesMap *)

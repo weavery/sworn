@@ -51,6 +51,7 @@ and expression =
   | Len of expression
   | ToInt of expression
   | ToUint of expression
+  | FunctionRef of identifier
   | FunctionCall of identifier * expression list
   | Try of expression
   | Unwrap of expression * expression

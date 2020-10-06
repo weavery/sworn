@@ -105,6 +105,7 @@ and print_expression ppf = function
   | SWIR.Len expr -> fprintf ppf "%a.length" print_expression expr
   | SWIR.ToInt expr -> print_function_call ppf "to-int" [expr]
   | SWIR.ToUint expr -> print_function_call ppf "to-uint" [expr]
+  | SWIR.FunctionRef name -> fprintf ppf "clarity.%s" (mangle_name name)
   | SWIR.FunctionCall (name, args) -> print_function_call ppf name args
   | SWIR.Try input -> print_function_call ppf "try!" [input]
   | SWIR.Unwrap (input, thrown) -> print_function_call ppf "unwrap!" [input; thrown]
@@ -183,6 +184,14 @@ and print_comma ppf () = Format.fprintf ppf ",@ "
 and print_semicolon ppf () = Format.fprintf ppf ";@ "
 
 and mangle_name = function
+  | "*" -> "mul"
+  | "+" -> "add"
+  | "-" -> "sub"
+  | "/" -> "div"
+  | "<" -> "lt"
+  | "<=" -> "le"
+  | ">" -> "gt"
+  | ">=" -> "ge"
   | "sha512/256" -> "sha512_256"
   | "try!" -> "tryUnwrap"
   | name ->

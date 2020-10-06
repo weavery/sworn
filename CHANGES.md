@@ -11,10 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Support for `let` expressions.
 - Support for `match` expressions.
-- Support for the keywords `block-height`, `contract-caller`, and `tx-sender`.
 - Support for `as-max-len?`.
 - Support for `asserts!`.
+- Support for `block-height`.
+- Support for `contract-caller`.
 - Support for `get`.
+- Support for `tx-sender`.
+- Support for function references.
 - Better support for tuple expressions in various forms.
 
 ## [0.3.0] - 2020-09-29

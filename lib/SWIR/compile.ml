@@ -93,8 +93,11 @@ and compile_function_call name args = match name with
     end
   | _ -> FunctionCall (name, List.map compile_expression args)
 
-and compile_keyword = function
-  | id -> FunctionCall (id, [])
+and compile_keyword id = match id with
+  | "block-height"
+  | "contract-caller"
+  | "tx-sender" -> FunctionCall (id, [])
+  | id -> FunctionRef id
 
 and compile_literal = function
   | Clarity.NoneLiteral -> NoneLiteral

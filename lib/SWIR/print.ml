@@ -72,6 +72,7 @@ and print_expression ppf = function
   | Len expr -> fprintf ppf "(len %a)" print_expression expr
   | ToInt expr -> print_operation ppf "to-int" [expr]
   | ToUint expr -> print_operation ppf "to-uint" [expr]
+  | FunctionRef name -> fprintf ppf "#'%s" name
   | FunctionCall (name, args) -> print_operation ppf name args
   | Try input -> print_operation ppf "try!" [input]
   | Unwrap (input, thrown) -> print_operation ppf "unwrap!" [input; thrown]
