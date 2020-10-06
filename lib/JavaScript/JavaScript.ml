@@ -72,7 +72,7 @@ and print_expressions ppf = function
 and print_expression ppf = function
   | SWIR.Assert (cond, thrown) ->
     fprintf ppf "if (!%a) return %a" print_expression cond print_expression thrown
-  | SWIR.Identifier id -> fprintf ppf "%s" id
+  | SWIR.Identifier id -> fprintf ppf "%s" (mangle_name id)
   | SWIR.Literal lit -> print_literal ppf lit
   | SWIR.SomeExpression expr -> print_function_call ppf "some" [expr]
   | SWIR.ListExpression exprs -> print_list ppf exprs
@@ -85,8 +85,8 @@ and print_expression ppf = function
     fprintf ppf "(%a ?? %a)" print_expression opt print_expression def
   | SWIR.VarGet var -> fprintf ppf "state.%s" var
   | SWIR.VarSet (var, val') -> fprintf ppf "state.%s = %a" var print_expression val'
-  | SWIR.Err expr -> fprintf ppf "result = clarity.err(%a)" print_expression expr
-  | SWIR.Ok expr -> fprintf ppf "result = clarity.ok(%a)" print_expression expr
+  | SWIR.Err expr -> fprintf ppf "clarity.err(%a)" print_expression expr
+  | SWIR.Ok expr -> fprintf ppf "clarity.ok(%a)" print_expression expr
   | SWIR.Not expr -> fprintf ppf "(!%a)" print_expression expr
   | SWIR.And exprs -> print_operation ppf "&&" exprs
   | SWIR.Or exprs -> print_operation ppf "||" exprs
@@ -183,6 +183,7 @@ and print_comma ppf () = Format.fprintf ppf ",@ "
 and print_semicolon ppf () = Format.fprintf ppf ";@ "
 
 and mangle_name = function
+  | "sha512/256" -> "sha512_256"
   | "try!" -> "tryUnwrap"
   | name ->
     let filtered_chars = Str.regexp "[/?!]" in
