@@ -3,6 +3,8 @@
 open Wasm.Ast
 open Wasm.Operators
 
+#include "library.ml"
+
 let (@@) = Wasm.Source.(@@)
 let at = Wasm.Source.no_region
 let name = Wasm.Utf8.decode
@@ -10,10 +12,12 @@ let name = Wasm.Utf8.decode
 let rec compile_program (program : SWIR.program) : Wasm.Ast.module_ =
   let globals = SWIR.program_globals program in
   let funcs = SWIR.program_functions program in
-  let wasm_types = List.map compile_func_type funcs in
+  let (wasm_types, wasm_imports) = declare_imports program in
+  let wasm_import_count = List.length wasm_imports in
+  let wasm_types = wasm_types @ List.map compile_func_type funcs in
   let wasm_globals = List.map compile_global globals in
-  let wasm_funcs = List.mapi compile_func funcs in
-  let wasm_exports = List.mapi (compile_export wasm_funcs) funcs in
+  let wasm_funcs = List.mapi (compile_func wasm_import_count) funcs in
+  let wasm_exports = List.mapi (compile_export wasm_funcs wasm_import_count) funcs in
   let wasm : module_' = {
     types = wasm_types;
     globals = wasm_globals;
@@ -23,11 +27,23 @@ let rec compile_program (program : SWIR.program) : Wasm.Ast.module_ =
     start = None;
     elems = [];
     data = [];
-    imports = [];
+    imports = wasm_imports;
     exports = wasm_exports;
   }
   in
   wasm @@ at
+
+and declare_imports _program =
+  let standard_imports = ["add"; "ok"; "sub"] in  (* TODO *)
+  let module_name = name "clarity" in
+  let declare_import index symbol =
+    let item_name = name symbol in
+    let idesc = FuncImport (Int32.of_int index @@ at) @@ at in
+    {module_name; item_name; idesc} @@ at
+  in
+  let types = List.map (fun sym -> import_type sym @@ at) standard_imports in
+  let imports = List.mapi declare_import standard_imports in
+  types, imports
 
 and compile_global = function
   | SWIR.Const (_, type', init) ->
@@ -41,9 +57,9 @@ and compile_global = function
     {gtype = GlobalType (compile_type type', Mutable); value } @@ at
   | _ -> failwith "unreachable"
 
-and compile_func index = function
+and compile_func base index = function
   | SWIR.Function (_, _, _, body) ->
-    let ftype = Int32.of_int index in
+    let ftype = Int32.of_int (base + index) in
     let locals = [] in
     let body = compile_func_body body in
     {ftype = ftype @@ at; locals; body } @@ at
@@ -88,9 +104,11 @@ and compile_literal = function
   | SWIR.StringLiteral _ -> failwith "TODO: compile_literal: string"  (* TODO *)
   | SWIR.RecordLiteral _ -> failwith "TODO: compile_literal: tuple"  (* TODO *)
 
-and compile_export _funcs index = function
+and compile_export _funcs base index = function
   | SWIR.Function (_, s, _, _) ->
-    {name = name (mangle_name s); edesc = FuncExport (Int32.of_int index @@ at) @@ at} @@ at  (* TODO *)
+    let name = name (mangle_name s) in
+    let edesc = FuncExport (Int32.of_int (base + index) @@ at) @@ at in  (* TODO *)
+    {name; edesc} @@ at
   | _ -> failwith "unreachable"
 
 and compile_type = function
