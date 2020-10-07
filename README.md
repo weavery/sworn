@@ -74,6 +74,70 @@ Note that SmartWeave itself has no WebAssembly interface as yet, so for now
 you're certainly better off sticking with the JavaScript output. Additionally,
 JavaScript contracts are human readable and thus auditable.
 
+## Examples
+
+### Counter Example
+
+#### [`counter.clar`]
+
+```scheme
+(define-data-var counter int 0)
+
+(define-read-only (get-counter)
+  (ok (var-get counter)))
+
+(define-public (increment)
+  (begin
+    (var-set counter (+ (var-get counter) 1))
+    (ok (var-get counter))))
+
+(define-public (decrement)
+  (begin
+    (var-set counter (- (var-get counter) 1))
+    (ok (var-get counter))))
+```
+
+#### [`counter.js`]
+
+```bash
+sworn -t js counter.clar
+```
+
+```javascript
+clarity.requireVersion("0.1")
+
+function getCounter(state) {
+  return clarity.ok(state.counter);
+}
+
+function increment(state) {
+  state.counter = clarity.add(state.counter, 1);
+  return {state, result: clarity.ok(state.counter)};
+}
+
+function decrement(state) {
+  state.counter = clarity.sub(state.counter, 1);
+  return {state, result: clarity.ok(state.counter)};
+}
+
+export function handle(state, action) {
+  const input = action.input;
+  if (input.function === 'getCounter') {
+    return {result: getCounter(state)};
+  }
+  if (input.function === 'increment') {
+    return increment(state);
+  }
+  if (input.function === 'decrement') {
+    return decrement(state);
+  }
+  return {state};
+}
+```
+
+[`counter.clar`]: https://github.com/weavery/sworn/blob/master/test/examples/counter.clar
+[`counter.js`]: https://github.com/weavery/sworn/blob/master/test/examples/counter.expected
+
 ## Notes
 
 ### Notes on the JavaScript target
