@@ -3,14 +3,23 @@
 [![Project license](https://img.shields.io/badge/license-Public%20Domain-blue.svg)](https://unlicense.org)
 [![Discord](https://img.shields.io/discord/755852964513579099?label=discord)](https://discord.gg/vNF5a3M)
 
-**Sworn** compiles [Clarity] smart contracts into [SmartWeave] contracts.
+**Sworn** compiles [Clarity] smart contracts into [SmartWeave] contracts that
+run on the [Arweave] blockchain.
+
+More specifically, the Sworn compiler, called `sworn`, parses `.clar` files and
+compiles them into an equivalent SmartWeave program in the form of JavaScript
+code.
+
+Sworn also includes experimental WebAssembly contract generation, but we
+recommend JavsScript output since the generated JS contracts are perfectly
+human readable and thus feasible to audit.
 
 [![Screencast](https://asciinema.org/a/360104.svg)](https://asciinema.org/a/360104)
 
 ## Installation
 
 We are working on building release binaries for Windows, macOS, and Linux.
-They will be available here soon.
+They will be available here imminently.
 
 In the meantime, if you wish to try out Sworn, you will need to build it from
 source code yourself, which entails setting up an OCaml development
@@ -61,7 +70,8 @@ sworn -o counter.wasm counter.clar
 ```
 
 Note that SmartWeave itself has no WebAssembly interface as yet, so for now
-you're better off sticking with the JavaScript output.
+you're certainly better off sticking with the JavaScript output. Additionally,
+JavaScript contracts are human readable and thus auditable.
 
 ## Notes
 
@@ -86,19 +96,29 @@ Sworn is a standard multi-pass compiler consisting of the following stages:
 
 ![Flowchart](https://github.com/weavery/sworn/blob/master/etc/flowchart.png)
 
+The Clarity parser and abstract syntax tree ([AST]) originally developed for
+Sworn have been spun off into a standalone project and OCaml library called
+[Clarity.ml]. This enables anyone familiar with OCaml to quickly and easily
+develop more best-of-class tooling for Clarity contracts.
+
 ### Lexical analysis
 
-_(To be written.)_
+See Clarity.ml's [`lexer.mll`] for the lexical analyzer source code.
+
+[`lexer.mll`]: https://github.com/weavery/clarity.ml/blob/master/src/lexer.mll
 
 ### Syntactic analysis
 
-_(To be written.)_
+See Clarity.ml's [`parser.mly`] and [`parse.ml`] for the parser source code.
+
+[`parse.ml`]:   https://github.com/weavery/clarity.ml/blob/master/src/parse.ml
+[`parser.mly`]: https://github.com/weavery/clarity.ml/blob/master/src/parser.mly
 
 ### Semantic analysis
 
-(See [`Clarity/grammar.ml`] for the structure of the Clarity [AST].)
+See Clarity.ml's [`grammar.ml`] for the structure of the Clarity [AST].
 
-[`Clarity/grammar.ml`]: https://github.com/weavery/sworn/blob/master/lib/Clarity/grammar.ml
+[`grammar.ml`]: https://github.com/weavery/clarity.ml/blob/master/src/grammar.ml
 
 ### Intermediate representation
 
@@ -175,8 +195,7 @@ Sworn from source code:
 - [Alcotest](https://opam.ocaml.org/packages/alcotest/)
   for unit tests
 
-- [Clarity.ml](https://github.com/weavery/clarity.ml)
-  for parsing Clarity code
+- [Clarity.ml] for parsing Clarity code
 
 - [Cmdliner](https://opam.ocaml.org/packages/cmdliner/)
   for the command-line interface
@@ -239,6 +258,7 @@ an important evolution for the future of smart contracts.
 [Blockstack]:     https://blockstack.org
 [Clarity]:        https://clarity-lang.org
 [Clarity.js]:     https://github.com/weavery/clarity.js
+[Clarity.ml]:     https://github.com/weavery/clarity.ml
 [IR]:             https://en.wikipedia.org/wiki/Intermediate_representation
 [OCaml]:          https://ocaml.org
 [SmartWeave]:     https://github.com/ArweaveTeam/SmartWeave
