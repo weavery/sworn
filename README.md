@@ -11,7 +11,7 @@ compiles them into an equivalent SmartWeave program in the form of JavaScript
 code.
 
 Sworn also includes experimental WebAssembly contract generation, but we
-recommend JavsScript output since the generated JS contracts are perfectly
+recommend JavaScript output since the generated JS contracts are perfectly
 human readable and thus feasible to audit.
 
 [![Screencast](https://asciinema.org/a/360104.svg)](https://asciinema.org/a/360104)
@@ -49,7 +49,8 @@ sworn -t js counter.clar
 The previous writes out the JavaScript program to standard output, which is
 helpful during development and debugging.
 
-However, you can alternatively specify an output file name in the usual way:
+However, you can alternatively specify an output file name in the usual way,
+with the target type inferred from the output file extension:
 
 ```bash
 sworn -o counter.js counter.clar
@@ -86,6 +87,33 @@ On the server side, Node.js 10.4+ supports `BigInt`.
 
 [`BigInt`]:     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
 [support this]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility
+
+### Mapping of Clarity types
+
+Clarity | TypeScript | JavaScript | Notes
+------- | ---------- | ---------- | -----
+[`bool`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `boolean` | `boolean` |
+[`(buff N)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `Uint8Array` | `Uint8Array` |
+[`err`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `Err<T>` | `Err` |
+[`int`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `number` or `bigint` | `number` or `BigInt` |
+[`(list N T)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `Array<T>` | `Array` |
+[`(optional T)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `T` or `null` | `T` or `null` |
+[`principal`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `String` | `String` |
+[`(response T E)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `T` or `Err<E>` | `T` or `Err` |
+[`(string-ascii N)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `String` | `String` |
+[`(string-utf8 N)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `String` | `String` |
+[`(tuple ...)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `Map<String, any>` | `Map` |
+[`uint`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `number` or `bigint` | `number` or `BigInt` |
+
+## Frequently Asked Questions
+
+### Q: Why do arithmetic operations call Clarity.js functions?
+
+In order to support Clarity's language semantics of 128-bit integers and safe
+arithmetic that traps on numeric overflow and underflow, arithmetic operations
+need runtime support. Thus, in the general case, an operation such as `(* a b)`
+must be compiled to `clarity.mul(a, b)` instead of the trivial but ultimately
+incorrect `a * b`.
 
 ## Design
 
@@ -149,6 +177,19 @@ SWIR conversion stage is nonetheless needed for several reasons:
 
 SWIR is converted into either JavaScript or WebAssembly's [AST], which can be
 serialized in binary or text formats.
+
+The JavaScript generation is implemented using OCaml's powerful standard
+[pretty-printing facility], which means that the resulting code is perfectly
+human readable as well as nicely formatted. (File bug reports if you should
+find this to not be the case.)
+
+The WebAssembly generation is implemented using the [WebAssembly reference
+implementation], also written in OCaml. This means that Sworn's WebAssembly
+output is always up-to-date with regards to any changes and features in the
+latest WebAssembly standard, as well as (by definition) 100% compliant.
+
+[pretty-printing facility]: https://ocaml.org/learn/tutorials/format.html
+[WebAssembly reference implementation]: https://github.com/WebAssembly/spec/tree/master/interpreter
 
 ## Development
 
