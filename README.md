@@ -18,14 +18,38 @@ human readable and thus feasible to audit.
 
 ## Installation
 
-We are working on building release binaries for Windows, macOS, and Linux.
-They will be available here imminently.
+### Binary Downloads
 
-In the meantime, if you wish to try out Sworn, you will need to build it from
-source code yourself, which entails setting up an OCaml development
-environment.
+The latest release binaries for macOS and Linux are available here:
 
-For the impatient and adventurous, reserve at least an hour of time and
+- [sworn-1.0.0-macos.tar.gz](https://github.com/weavery/sworn/releases/download/1.0.0/sworn-1.0.0-macos.tar.gz)
+
+- [sworn-1.0.0-linux.tar.gz](https://github.com/weavery/sworn/releases/download/1.0.0/sworn-1.0.0-linux.tar.gz)
+
+To install, after downloading untar the archive and copy the binary to
+`/usr/local/bin`, as follows:
+
+#### macOS
+
+```bash
+tar xf sworn-1.0.0-macos.tar.gz
+
+sudo install sworn-1.0.0-macos /usr/local/bin/sworn
+```
+
+#### Linux
+
+```bash
+tar xf sworn-1.0.0-linux.tar.gz
+
+sudo install sworn-1.0.0-linux /usr/local/bin/sworn
+```
+
+### Source Code
+
+If you wish to try out the latest and greatest Sworn, you will need to build
+it from source code yourself, which entails setting up an OCaml development
+environment. Reserve at least half an hour of time and
 [see further down](#development) in this document for the particulars.
 
 ## Usage
