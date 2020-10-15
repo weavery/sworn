@@ -32,6 +32,8 @@ To install, after downloading untar the archive and copy the binary to
 #### macOS
 
 ```bash
+wget https://github.com/weavery/sworn/releases/download/1.0.0/sworn-1.0.0-macos.tar.gz
+
 tar xf sworn-1.0.0-macos.tar.gz
 
 sudo install sworn-1.0.0-macos /usr/local/bin/sworn
@@ -40,6 +42,8 @@ sudo install sworn-1.0.0-macos /usr/local/bin/sworn
 #### Linux
 
 ```bash
+wget https://github.com/weavery/sworn/releases/download/1.0.0/sworn-1.0.0-linux.tar.gz
+
 tar xf sworn-1.0.0-linux.tar.gz
 
 sudo install sworn-1.0.0-linux /usr/local/bin/sworn
