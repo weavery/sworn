@@ -2,7 +2,7 @@
 
 open Cmdliner
 
-let version = "0.4.0"  (* TODO: preprocess from VERSION *)
+let version = "1.0.0"  (* TODO: preprocess from VERSION *)
 let js_version = "0.1"
 
 exception Error of int * string * string

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Released and required [Clarity.ml] 0.2.0.
 - Generated JavaScript code now mentions the used Sworn version.
 - Some improvements to the WebAssembly target.
 
@@ -85,3 +86,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.2.0]: https://github.com/weavery/sworn/compare/0.1.0...0.2.0
 
 [Clarity.js]: https://github.com/weavery/clarity.js
+[Clarity.ml]: https://github.com/weavery/clarity.ml
