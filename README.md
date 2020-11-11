@@ -184,18 +184,18 @@ On the server side, Node.js 10.4+ supports `BigInt`.
 
 Clarity | TypeScript | JavaScript | Notes
 ------- | ---------- | ---------- | -----
-[`bool`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `boolean` | `boolean` |
-[`(buff N)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `Uint8Array` | `Uint8Array` |
-[`err`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `Err<T>` | `Err` |
-[`int`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `number` or `bigint` | `number` or `BigInt` |
-[`(list N T)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `Array<T>` | `Array` |
-[`(optional T)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `T` or `null` | `T` or `null` |
-[`principal`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `String` | `String` |
-[`(response T E)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `T` or `Err<E>` | `T` or `Err` |
-[`(string-ascii N)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `String` | `String` |
-[`(string-utf8 N)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `String` | `String` |
-[`(tuple ...)`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `Map<String, any>` | `Map` |
-[`uint`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | `number` or `bigint` | `number` or `BigInt` |
+[`bool`](https://docs.blockstack.org/references/language-types#clarity-type-system) | `boolean` | `boolean` |
+[`(buff N)`](https://docs.blockstack.org/references/language-types#clarity-type-system) | `Uint8Array` | `Uint8Array` |
+[`err`](https://docs.blockstack.org/references/language-types#clarity-type-system) | `Err<T>` | `Err` |
+[`int`](https://docs.blockstack.org/references/language-types#clarity-type-system) | `number` or `bigint` | `number` or `BigInt` |
+[`(list N T)`](https://docs.blockstack.org/references/language-types#clarity-type-system) | `Array<T>` | `Array` |
+[`(optional T)`](https://docs.blockstack.org/references/language-types#clarity-type-system) | `T` or `null` | `T` or `null` |
+[`principal`](https://docs.blockstack.org/references/language-types#clarity-type-system) | `String` | `String` |
+[`(response T E)`](https://docs.blockstack.org/references/language-types#clarity-type-system) | `T` or `Err<E>` | `T` or `Err` |
+[`(string-ascii N)`](https://docs.blockstack.org/references/language-types#clarity-type-system) | `String` | `String` |
+[`(string-utf8 N)`](https://docs.blockstack.org/references/language-types#clarity-type-system) | `String` | `String` |
+[`(tuple ...)`](https://docs.blockstack.org/references/language-types#clarity-type-system) | `Map<String, any>` | `Map` |
+[`uint`](https://docs.blockstack.org/references/language-types#clarity-type-system) | `number` or `bigint` | `number` or `BigInt` |
 
 ## Frequently Asked Questions
 
@@ -400,101 +400,101 @@ an important evolution for the future of smart contracts.
 
 Feature | Type | JavaScript | WebAssembly | Notes
 ------- | ---- | ---------- | ----------- | -----
-[`*`](https://docs.blockstack.org/references/language-clarity#-multiply) | function | ✅ | ✅ |
-[`+`](https://docs.blockstack.org/references/language-clarity#-add) | function | ✅ | ✅ |
-[`-`](https://docs.blockstack.org/references/language-clarity#--subtract) | function | ✅ | ✅ |
-[`/`](https://docs.blockstack.org/references/language-clarity#-divide) | function | ✅ | ✅ |
-[`<`](https://docs.blockstack.org/references/language-clarity#-less-than) | function | ✅ | 🚧 |
-[`<=`](https://docs.blockstack.org/references/language-clarity#-less-than-or-equal) | function | ✅ | 🚧 |
-[`>`](https://docs.blockstack.org/references/language-clarity#-greater-than) | function | ✅ | 🚧 |
-[`>=`](https://docs.blockstack.org/references/language-clarity#-greater-than-or-equal) | function | ✅ | 🚧 |
-[`and`](https://docs.blockstack.org/references/language-clarity#and) | syntax | ✅ | 🚧 |
-[`append`](https://docs.blockstack.org/references/language-clarity#append) | function | ✅ | 🚧 |
-[`as-contract`](https://docs.blockstack.org/references/language-clarity#as-contract) | syntax | ✅ | 🚧 |
-[`as-max-len?`](https://docs.blockstack.org/references/language-clarity#as-max-len) | syntax | ✅ | 🚧 |
-[`asserts!`](https://docs.blockstack.org/references/language-clarity#asserts) | syntax | ✅ | 🚧 |
-[`at-block`](https://docs.blockstack.org/references/language-clarity#at-block) | syntax | ❌ | ❌ | Not supported by SmartWeave.
-[`begin`](https://docs.blockstack.org/references/language-clarity#begin) | syntax | ✅ | ✅ |
-[`block-height`](https://docs.blockstack.org/references/language-clarity#block-height) | keyword | ✅ | 🚧 |
-[`bool`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
-[`buff`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | 🚧 |
-[`concat`](https://docs.blockstack.org/references/language-clarity#concat) | function | ✅ | 🚧 |
-[`contract-call?`](https://docs.blockstack.org/references/language-clarity#contract-call) | function | ❌ | ❌ | Not supported by SmartWeave.
-[`contract-caller`](https://docs.blockstack.org/references/language-clarity#contract-caller) | keyword | ✅ | 🚧 |
-[`contract-of`](https://docs.blockstack.org/references/language-clarity#contract-of) | function | ❌ | ❌ | Not supported by SmartWeave.
-[`default-to`](https://docs.blockstack.org/references/language-clarity#default-to) | function | ✅ | 🚧 |
-[`define-constant`](https://docs.blockstack.org/references/language-clarity#define-constant) | syntax | ✅ | ✅ |
-[`define-data-var`](https://docs.blockstack.org/references/language-clarity#define-data-var) | syntax | ✅ | ✅ |
-[`define-fungible-token`](https://docs.blockstack.org/references/language-clarity#define-fungible-token) | syntax | 🚧 | 🚧 |
-[`define-map`](https://docs.blockstack.org/references/language-clarity#define-map) | syntax | ✅ | 🚧 |
-[`define-non-fungible-token`](https://docs.blockstack.org/references/language-clarity#define-non-fungible-token) | syntax | 🚧 | 🚧 |
-[`define-private`](https://docs.blockstack.org/references/language-clarity#define-private) | syntax | ✅ | ✅ |
-[`define-public`](https://docs.blockstack.org/references/language-clarity#define-public) | syntax | ✅ | ✅ |
-[`define-read-only`](https://docs.blockstack.org/references/language-clarity#define-read-only) | syntax | ✅ | ✅ |
-[`define-trait`](https://docs.blockstack.org/references/language-clarity#define-trait) | syntax | ❌ | ❌ | Not supported by SmartWeave.
-[`err`](https://docs.blockstack.org/references/language-clarity#err) | function | ✅ | 🚧 |
-[`false`](https://docs.blockstack.org/references/language-clarity#false) | constant | ✅ | ✅ |
-[`filter`](https://docs.blockstack.org/references/language-clarity#filter) | function | ✅ | 🚧 |
-[`fold`](https://docs.blockstack.org/references/language-clarity#fold) | function | ✅ | 🚧 |
-[`ft-get-balance`](https://docs.blockstack.org/references/language-clarity#ft-get-balance) | function | ✅ | 🚧 |
-[`ft-mint?`](https://docs.blockstack.org/references/language-clarity#ft-mint) | function | ✅ | 🚧 |
-[`ft-transfer?`](https://docs.blockstack.org/references/language-clarity#ft-transfer) | function | ✅ | 🚧 |
-[`get`](https://docs.blockstack.org/references/language-clarity#get) | syntax | ✅ | 🚧 |
-[`get-block-info?`](https://docs.blockstack.org/references/language-clarity#get-block-info) | function | ❌ | ❌ | Not supported by SmartWeave.
-[`hash160`](https://docs.blockstack.org/references/language-clarity#hash160) | function | ✅ | 🚧 |
-[`if`](https://docs.blockstack.org/references/language-clarity#if) | syntax | ✅ | 🚧 |
-[`impl-trait`](https://docs.blockstack.org/references/language-clarity#impl-trait) | syntax | ❌ | ❌ | Not supported by SmartWeave.
-[`int`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
-[`is-eq`](https://docs.blockstack.org/references/language-clarity#is-eq) | function | ✅ | 🚧 |
-[`is-err`](https://docs.blockstack.org/references/language-clarity#is-err) | function | ✅ | 🚧 |
-[`is-none`](https://docs.blockstack.org/references/language-clarity#is-none) | function | ✅ | 🚧 |
-[`is-ok`](https://docs.blockstack.org/references/language-clarity#is-ok) | function | ✅ | 🚧 |
-[`is-some`](https://docs.blockstack.org/references/language-clarity#is-some) | function | ✅ | 🚧 |
-[`keccak256`](https://docs.blockstack.org/references/language-clarity#keccak256) | function | ✅ | 🚧 |
-[`len`](https://docs.blockstack.org/references/language-clarity#len) | function | ✅ | 🚧 |
-[`let`](https://docs.blockstack.org/references/language-clarity#let) | syntax | ✅ | 🚧 |
-[`list`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | 🚧 |
-[`list`](https://docs.blockstack.org/references/language-clarity#list) | function | ✅ | 🚧 |
-[`map`](https://docs.blockstack.org/references/language-clarity#map) | function | ✅ | 🚧 |
-[`map-delete`](https://docs.blockstack.org/references/language-clarity#map-delete) | function | ✅ | 🚧 |
-[`map-get?`](https://docs.blockstack.org/references/language-clarity#map-get) | function | ✅ | 🚧 |
-[`map-insert`](https://docs.blockstack.org/references/language-clarity#map-insert) | function | ✅ | 🚧 |
-[`map-set`](https://docs.blockstack.org/references/language-clarity#map-set) | function | ✅ | 🚧 |
-[`match`](https://docs.blockstack.org/references/language-clarity#match) | syntax | ✅ | 🚧 |
-[`mod`](https://docs.blockstack.org/references/language-clarity#mod) | function | ✅ | ✅ |
-[`nft-get-owner?`](https://docs.blockstack.org/references/language-clarity#nft-get-owner) | function | ✅ | 🚧 |
-[`nft-mint?`](https://docs.blockstack.org/references/language-clarity#nft-mint) | function | ✅ | 🚧 |
-[`nft-transfer?`](https://docs.blockstack.org/references/language-clarity#nft-transfer) | function | ✅ | 🚧 |
-[`none`](https://docs.blockstack.org/references/language-clarity#none) | constant | ✅ | 🚧 |
-[`not`](https://docs.blockstack.org/references/language-clarity#not) | function | ✅ | 🚧 |
-[`ok`](https://docs.blockstack.org/references/language-clarity#ok) | function | ✅ | ✅ |
-[`optional`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
-[`or`](https://docs.blockstack.org/references/language-clarity#or) | syntax | ✅ | 🚧 |
-[`pow`](https://docs.blockstack.org/references/language-clarity#pow) | function | ✅ | ✅ |
-[`principal`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | 🚧 |
-[`print`](https://docs.blockstack.org/references/language-clarity#print) | function | ✅ | 🚧 |
-[`response`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | 🚧 |
-[`sha256`](https://docs.blockstack.org/references/language-clarity#sha256) | function | ✅ | 🚧 |
-[`sha512`](https://docs.blockstack.org/references/language-clarity#sha512) | function | ✅ | 🚧 |
-[`sha512/256`](https://docs.blockstack.org/references/language-clarity#sha512256) | function | ✅ | 🚧 |
-[`some`](https://docs.blockstack.org/references/language-clarity#some) | function | ✅ | 🚧 |
-[`stx-burn?`](https://docs.blockstack.org/references/language-clarity#stx-burn) | function | ❌ | ❌ | Not supported by SmartWeave.
-[`stx-get-balance`](https://docs.blockstack.org/references/language-clarity#stx-get-balance) | function | ❌ | ❌ | Not supported by SmartWeave.
-[`stx-transfer?`](https://docs.blockstack.org/references/language-clarity#stx-transfer) | function | ❌ | ❌ | Not supported by SmartWeave.
-[`to-int`](https://docs.blockstack.org/references/language-clarity#to-int) | function | ✅ | 🚧 |
-[`to-uint`](https://docs.blockstack.org/references/language-clarity#to-uint) | function | ✅ | 🚧 |
-[`true`](https://docs.blockstack.org/references/language-clarity#true) | constant | ✅ | ✅ |
-[`try!`](https://docs.blockstack.org/references/language-clarity#try) | function | ✅ | 🚧 |
-[`tuple`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | 🚧 |
-[`tx-sender`](https://docs.blockstack.org/references/language-clarity#tx-sender) | keyword | ✅ | 🚧 |
-[`uint`](https://docs.blockstack.org/references/language-clarity#clarity-type-system) | type | ✅ | ✅ |
-[`unwrap!`](https://docs.blockstack.org/references/language-clarity#unwrap) | function | ✅ | 🚧 |
-[`unwrap-err!`](https://docs.blockstack.org/references/language-clarity#unwrap-err) | function | ✅ | 🚧 |
-[`unwrap-err-panic`](https://docs.blockstack.org/references/language-clarity#unwrap-err-panic) | function | ✅ | 🚧 |
-[`unwrap-panic`](https://docs.blockstack.org/references/language-clarity#unwrap-panic) | function | ✅ | 🚧 |
-[`use-trait`](https://docs.blockstack.org/references/language-clarity#use-trait) | syntax | ❌ | ❌ | Not supported by SmartWeave.
-[`var-get`](https://docs.blockstack.org/references/language-clarity#var-get) | function | ✅ | ✅ |
-[`var-set`](https://docs.blockstack.org/references/language-clarity#var-set) | function | ✅ | ✅ |
-[`xor`](https://docs.blockstack.org/references/language-clarity#xor) | function | ✅ | 🚧 |
+[`*`](https://docs.blockstack.org/references/language-functions#-multiply) | function | ✅ | ✅ |
+[`+`](https://docs.blockstack.org/references/language-functions#-add) | function | ✅ | ✅ |
+[`-`](https://docs.blockstack.org/references/language-functions#--subtract) | function | ✅ | ✅ |
+[`/`](https://docs.blockstack.org/references/language-functions#-divide) | function | ✅ | ✅ |
+[`<`](https://docs.blockstack.org/references/language-functions#-less-than) | function | ✅ | 🚧 |
+[`<=`](https://docs.blockstack.org/references/language-functions#-less-than-or-equal) | function | ✅ | 🚧 |
+[`>`](https://docs.blockstack.org/references/language-functions#-greater-than) | function | ✅ | 🚧 |
+[`>=`](https://docs.blockstack.org/references/language-functions#-greater-than-or-equal) | function | ✅ | 🚧 |
+[`and`](https://docs.blockstack.org/references/language-functions#and) | syntax | ✅ | 🚧 |
+[`append`](https://docs.blockstack.org/references/language-functions#append) | function | ✅ | 🚧 |
+[`as-contract`](https://docs.blockstack.org/references/language-functions#as-contract) | syntax | ✅ | 🚧 |
+[`as-max-len?`](https://docs.blockstack.org/references/language-functions#as-max-len) | syntax | ✅ | 🚧 |
+[`asserts!`](https://docs.blockstack.org/references/language-functions#asserts) | syntax | ✅ | 🚧 |
+[`at-block`](https://docs.blockstack.org/references/language-functions#at-block) | syntax | ❌ | ❌ | Not supported by SmartWeave.
+[`begin`](https://docs.blockstack.org/references/language-functions#begin) | syntax | ✅ | ✅ |
+[`block-height`](https://docs.blockstack.org/references/language-keywords#block-height) | keyword | ✅ | 🚧 |
+[`bool`](https://docs.blockstack.org/references/language-functions#clarity-type-system) | type | ✅ | ✅ |
+[`buff`](https://docs.blockstack.org/references/language-functions#clarity-type-system) | type | ✅ | 🚧 |
+[`concat`](https://docs.blockstack.org/references/language-functions#concat) | function | ✅ | 🚧 |
+[`contract-call?`](https://docs.blockstack.org/references/language-functions#contract-call) | function | ❌ | ❌ | Not supported by SmartWeave.
+[`contract-caller`](https://docs.blockstack.org/references/language-keywords#contract-caller) | keyword | ✅ | 🚧 |
+[`contract-of`](https://docs.blockstack.org/references/language-functions#contract-of) | function | ❌ | ❌ | Not supported by SmartWeave.
+[`default-to`](https://docs.blockstack.org/references/language-functions#default-to) | function | ✅ | 🚧 |
+[`define-constant`](https://docs.blockstack.org/references/language-functions#define-constant) | syntax | ✅ | ✅ |
+[`define-data-var`](https://docs.blockstack.org/references/language-functions#define-data-var) | syntax | ✅ | ✅ |
+[`define-fungible-token`](https://docs.blockstack.org/references/language-functions#define-fungible-token) | syntax | 🚧 | 🚧 |
+[`define-map`](https://docs.blockstack.org/references/language-functions#define-map) | syntax | ✅ | 🚧 |
+[`define-non-fungible-token`](https://docs.blockstack.org/references/language-functions#define-non-fungible-token) | syntax | 🚧 | 🚧 |
+[`define-private`](https://docs.blockstack.org/references/language-functions#define-private) | syntax | ✅ | ✅ |
+[`define-public`](https://docs.blockstack.org/references/language-functions#define-public) | syntax | ✅ | ✅ |
+[`define-read-only`](https://docs.blockstack.org/references/language-functions#define-read-only) | syntax | ✅ | ✅ |
+[`define-trait`](https://docs.blockstack.org/references/language-functions#define-trait) | syntax | ❌ | ❌ | Not supported by SmartWeave.
+[`err`](https://docs.blockstack.org/references/language-functions#err) | function | ✅ | 🚧 |
+[`false`](https://docs.blockstack.org/references/language-keywords#false) | constant | ✅ | ✅ |
+[`filter`](https://docs.blockstack.org/references/language-functions#filter) | function | ✅ | 🚧 |
+[`fold`](https://docs.blockstack.org/references/language-functions#fold) | function | ✅ | 🚧 |
+[`ft-get-balance`](https://docs.blockstack.org/references/language-functions#ft-get-balance) | function | ✅ | 🚧 |
+[`ft-mint?`](https://docs.blockstack.org/references/language-functions#ft-mint) | function | ✅ | 🚧 |
+[`ft-transfer?`](https://docs.blockstack.org/references/language-functions#ft-transfer) | function | ✅ | 🚧 |
+[`get`](https://docs.blockstack.org/references/language-functions#get) | syntax | ✅ | 🚧 |
+[`get-block-info?`](https://docs.blockstack.org/references/language-functions#get-block-info) | function | ❌ | ❌ | Not supported by SmartWeave.
+[`hash160`](https://docs.blockstack.org/references/language-functions#hash160) | function | ✅ | 🚧 |
+[`if`](https://docs.blockstack.org/references/language-functions#if) | syntax | ✅ | 🚧 |
+[`impl-trait`](https://docs.blockstack.org/references/language-functions#impl-trait) | syntax | ❌ | ❌ | Not supported by SmartWeave.
+[`int`](https://docs.blockstack.org/references/language-functions#clarity-type-system) | type | ✅ | ✅ |
+[`is-eq`](https://docs.blockstack.org/references/language-functions#is-eq) | function | ✅ | 🚧 |
+[`is-err`](https://docs.blockstack.org/references/language-functions#is-err) | function | ✅ | 🚧 |
+[`is-none`](https://docs.blockstack.org/references/language-functions#is-none) | function | ✅ | 🚧 |
+[`is-ok`](https://docs.blockstack.org/references/language-functions#is-ok) | function | ✅ | 🚧 |
+[`is-some`](https://docs.blockstack.org/references/language-functions#is-some) | function | ✅ | 🚧 |
+[`keccak256`](https://docs.blockstack.org/references/language-functions#keccak256) | function | ✅ | 🚧 |
+[`len`](https://docs.blockstack.org/references/language-functions#len) | function | ✅ | 🚧 |
+[`let`](https://docs.blockstack.org/references/language-functions#let) | syntax | ✅ | 🚧 |
+[`list`](https://docs.blockstack.org/references/language-functions#clarity-type-system) | type | ✅ | 🚧 |
+[`list`](https://docs.blockstack.org/references/language-functions#list) | function | ✅ | 🚧 |
+[`map`](https://docs.blockstack.org/references/language-functions#map) | function | ✅ | 🚧 |
+[`map-delete`](https://docs.blockstack.org/references/language-functions#map-delete) | function | ✅ | 🚧 |
+[`map-get?`](https://docs.blockstack.org/references/language-functions#map-get) | function | ✅ | 🚧 |
+[`map-insert`](https://docs.blockstack.org/references/language-functions#map-insert) | function | ✅ | 🚧 |
+[`map-set`](https://docs.blockstack.org/references/language-functions#map-set) | function | ✅ | 🚧 |
+[`match`](https://docs.blockstack.org/references/language-functions#match) | syntax | ✅ | 🚧 |
+[`mod`](https://docs.blockstack.org/references/language-functions#mod) | function | ✅ | ✅ |
+[`nft-get-owner?`](https://docs.blockstack.org/references/language-functions#nft-get-owner) | function | ✅ | 🚧 |
+[`nft-mint?`](https://docs.blockstack.org/references/language-functions#nft-mint) | function | ✅ | 🚧 |
+[`nft-transfer?`](https://docs.blockstack.org/references/language-functions#nft-transfer) | function | ✅ | 🚧 |
+[`none`](https://docs.blockstack.org/references/language-keywords#none) | constant | ✅ | 🚧 |
+[`not`](https://docs.blockstack.org/references/language-functions#not) | function | ✅ | 🚧 |
+[`ok`](https://docs.blockstack.org/references/language-functions#ok) | function | ✅ | ✅ |
+[`optional`](https://docs.blockstack.org/references/language-functions#clarity-type-system) | type | ✅ | ✅ |
+[`or`](https://docs.blockstack.org/references/language-functions#or) | syntax | ✅ | 🚧 |
+[`pow`](https://docs.blockstack.org/references/language-functions#pow) | function | ✅ | ✅ |
+[`principal`](https://docs.blockstack.org/references/language-functions#clarity-type-system) | type | ✅ | 🚧 |
+[`print`](https://docs.blockstack.org/references/language-functions#print) | function | ✅ | 🚧 |
+[`response`](https://docs.blockstack.org/references/language-functions#clarity-type-system) | type | ✅ | 🚧 |
+[`sha256`](https://docs.blockstack.org/references/language-functions#sha256) | function | ✅ | 🚧 |
+[`sha512`](https://docs.blockstack.org/references/language-functions#sha512) | function | ✅ | 🚧 |
+[`sha512/256`](https://docs.blockstack.org/references/language-functions#sha512256) | function | ✅ | 🚧 |
+[`some`](https://docs.blockstack.org/references/language-functions#some) | function | ✅ | 🚧 |
+[`stx-burn?`](https://docs.blockstack.org/references/language-functions#stx-burn) | function | ❌ | ❌ | Not supported by SmartWeave.
+[`stx-get-balance`](https://docs.blockstack.org/references/language-functions#stx-get-balance) | function | ❌ | ❌ | Not supported by SmartWeave.
+[`stx-transfer?`](https://docs.blockstack.org/references/language-functions#stx-transfer) | function | ❌ | ❌ | Not supported by SmartWeave.
+[`to-int`](https://docs.blockstack.org/references/language-functions#to-int) | function | ✅ | 🚧 |
+[`to-uint`](https://docs.blockstack.org/references/language-functions#to-uint) | function | ✅ | 🚧 |
+[`true`](https://docs.blockstack.org/references/language-keywords#true) | constant | ✅ | ✅ |
+[`try!`](https://docs.blockstack.org/references/language-functions#try) | function | ✅ | 🚧 |
+[`tuple`](https://docs.blockstack.org/references/language-functions#clarity-type-system) | type | ✅ | 🚧 |
+[`tx-sender`](https://docs.blockstack.org/references/language-keywords#tx-sender) | keyword | ✅ | 🚧 |
+[`uint`](https://docs.blockstack.org/references/language-functions#clarity-type-system) | type | ✅ | ✅ |
+[`unwrap!`](https://docs.blockstack.org/references/language-functions#unwrap) | function | ✅ | 🚧 |
+[`unwrap-err!`](https://docs.blockstack.org/references/language-functions#unwrap-err) | function | ✅ | 🚧 |
+[`unwrap-err-panic`](https://docs.blockstack.org/references/language-functions#unwrap-err-panic) | function | ✅ | 🚧 |
+[`unwrap-panic`](https://docs.blockstack.org/references/language-functions#unwrap-panic) | function | ✅ | 🚧 |
+[`use-trait`](https://docs.blockstack.org/references/language-functions#use-trait) | syntax | ❌ | ❌ | Not supported by SmartWeave.
+[`var-get`](https://docs.blockstack.org/references/language-functions#var-get) | function | ✅ | ✅ |
+[`var-set`](https://docs.blockstack.org/references/language-functions#var-set) | function | ✅ | ✅ |
+[`xor`](https://docs.blockstack.org/references/language-functions#xor) | function | ✅ | 🚧 |
 
 **Legend**: ❌ = not supported. 🚧 = work in progress. ✅ = supported.
